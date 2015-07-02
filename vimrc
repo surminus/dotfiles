@@ -17,3 +17,6 @@ set expandtab
 " set colorcolumn=80
 set modeline
 set modelines=5
+
+execute pathogen#infect()
+
