@@ -20,3 +20,5 @@ set modelines=5
 
 execute pathogen#infect()
 
+" Open NERDTree with CTRL+n 
+map <C-n> :NERDTreeToggle<CR>
