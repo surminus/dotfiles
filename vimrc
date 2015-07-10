@@ -3,7 +3,7 @@ set nocp
 syntax on
 filetype plugin indent on
 
-" 
+"
 "
 set background=dark
 " colorscheme darkelf
@@ -20,5 +20,9 @@ set modelines=5
 
 execute pathogen#infect()
 
-" Open NERDTree with CTRL+n 
+" Open NERDTree with CTRL+n
 map <C-n> :NERDTreeToggle<CR>
+
+autocmd filetype crontab setlocal nobackup nowritebackup
+
+match ErrorMsg '\s\+$'
