@@ -27,3 +27,6 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 map <C-p> :set paste<CR>
 map <C-n> :set nonumber!<CR>
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
