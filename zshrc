@@ -17,6 +17,9 @@ alias vup="vagrant up"
 alias vd="vagrant destroy"
 alias vp="vagrant provision"
 alias vssh="vagrant ssh"
+alias vs="vagrant status |grep running"
 
 # Git Aliases
 alias gco="git checkout"
+alias gp="git pull"
+alias gcm="git checkout master && git pull"
