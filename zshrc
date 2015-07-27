@@ -17,7 +17,7 @@ alias vup="vagrant up"
 alias vd="vagrant destroy"
 alias vp="vagrant provision"
 alias vssh="vagrant ssh"
-alias vs="vagrant status |grep running"
+alias vs="echo 'Checking what machines are running' && vagrant status |grep running"
 
 # Git Aliases
 alias gco="git checkout"
