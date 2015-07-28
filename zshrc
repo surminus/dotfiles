@@ -12,6 +12,8 @@ export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-bui
 
 source $ZSH/oh-my-zsh.sh
 
+alias govuk="cd ~/govuk"
+
 # Vagrant Aliases
 alias vup="vagrant up"
 alias vd="vagrant destroy"
