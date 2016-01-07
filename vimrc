@@ -18,11 +18,6 @@ set expandtab
 set modeline
 set modelines=5
 
-execute pathogen#infect()
-
-" Open NERDTree with CTRL+n
-map <C-t> :NERDTreeToggle<CR>
-
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 map <C-p> :set paste<CR>
