@@ -6,7 +6,7 @@ export EDITOR=vim
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git bundler osx rake ruby vagrant)
+plugins=(osx git bundler rake ruby vagrant pass j)
 
 export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/munki"
 
