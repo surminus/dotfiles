@@ -1,0 +1,37 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
+export EDITOR=vim
+
+ZSH_THEME="robbyrussell"
+
+plugins=(git bundler osx rake ruby vagrant)
+
+export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:"
+
+source $ZSH/oh-my-zsh.sh
+
+eval "$(hub alias -s)"
+
+alias govuk="cd ~/govuk"
+
+# Vagrant Aliases
+alias vup="vagrant up"
+alias vd="vagrant destroy"
+alias vp="vagrant provision"
+alias vssh="vagrant ssh"
+alias vs="echo 'Checking what machines are running' && vagrant status |grep running"
+
+# Git Aliases
+alias gco="git checkout"
+alias gp="git pull"
+alias gcm="git checkout master && git pull"
+
+# Bundle
+alias bi="bundle install --path ~/.bundle"
+alias be="bundle exec"
+
+# VPN
+alias work-vpn="sudo openconnect -b -q --no-cert-check -u paulmartin --usergroup ah vpn.digital.cabinet-office.gov.uk >/dev/null"
+
