@@ -29,7 +29,7 @@ alias gp="git pull"
 alias gcm="git checkout master && git pull"
 
 # Bundle
-alias bi="bundle install --path ~/.bundle"
+alias bi="CC=/usr/bin/gcc-4.9 bundle install --path ~/.bundle"
 alias be="bundle exec"
 
 # VPN
