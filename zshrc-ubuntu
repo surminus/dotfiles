@@ -40,3 +40,6 @@ alias be="bundle exec"
 # VPN
 alias work-vpn="sudo openconnect -b -q --no-cert-check -u paulmartin --usergroup ah vpn.digital.cabinet-office.gov.uk >/dev/null"
 
+# Like OSX
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
