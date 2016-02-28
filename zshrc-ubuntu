@@ -12,8 +12,6 @@ export VAGRANT_GOVUK_NFS=no
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(hub alias -s)"
-
 alias govuk="cd ~/govuk"
 
 # Vagrant Aliases
@@ -43,3 +41,5 @@ alias work-vpn="sudo openconnect -b -q --no-cert-check -u paulmartin --usergroup
 # Like OSX
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+alias my-puppet="sudo puppet apply /etc/puppet/manifests/init.pp"
