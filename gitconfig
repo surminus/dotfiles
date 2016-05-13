@@ -1,0 +1,10 @@
+[user]
+	email = surminus@gmail.com
+	name = Laura Martin
+[push]
+	default = simple
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
