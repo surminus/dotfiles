@@ -1,13 +1,17 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/paulmartin/.oh-my-zsh
+export ZSH=/Users/lauramartin/.oh-my-zsh
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 export EDITOR=vim
 export VAGRANT_GOVUK_NFS=no
 
-ZSH_THEME="robbyrussell"
+if [ -e ~/.oh-my-zsh/themes/robbyrussell-custom.zsh-theme ]; then
+  ZSH_THEME="robbyrussell-custom"
+else
+  ZSH_THEME="robbyrussell"
+fi
 
-plugins=(osx git bundler rake ruby vagrant pass j)
+plugins=(osx git bundler rake ruby vagrant pass j emoji)
 
 export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/munki"
 
@@ -28,3 +32,6 @@ alias vs="echo 'Checking what machines are running' && vagrant status |grep runn
 alias gco="git checkout"
 alias gp="git pull"
 alias gcm="git checkout master && git pull"
+
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
