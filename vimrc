@@ -37,6 +37,8 @@ set colorcolumn=80
 set modeline
 set modelines=5
 
+set backspace=indent,eol,start
+
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 map <C-p> :set paste<CR>
