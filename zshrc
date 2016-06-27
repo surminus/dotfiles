@@ -19,7 +19,11 @@ export HOMEBREW_GITHUB_API_TOKEN="79dbc9390ef8064bf82f31a60240202f8c660b71"
 
 source $ZSH/oh-my-zsh.sh
 
+
+# Custom aliases
 alias govuk="cd ~/govuk"
+alias vi=vim
+alias bim=vim
 
 # Vagrant Aliases
 alias vup="vagrant up"
