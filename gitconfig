@@ -8,6 +8,11 @@
 	ci = commit
 	br = branch
 	co = checkout
+	pick-axe = log -p -S
+	squash = rebase -i --autosquash
+	fixup = commit --fixup
+	list-commit = log --pretty=oneline --abbrev-commit
+	nuke = reset --hard origin/master
 
 [hub]
 protocol = https
