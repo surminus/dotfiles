@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/$USER/.oh-my-zsh
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EDITOR=vim
 export VAGRANT_GOVUK_NFS=no
@@ -13,9 +14,8 @@ fi
 
 plugins=(osx git bundler rake ruby vagrant pass j emoji)
 
-export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
-export GOROOT=$HOME/.go
-export PATH=$PATH:$GOROOT/bin
+export GOPATH=/opt/boxen/homebrew/Cellar/go/1.6
+export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:$GOPATH/bin"
 
 export HOMEBREW_GITHUB_API_TOKEN="79dbc9390ef8064bf82f31a60240202f8c660b71"
 
