@@ -12,7 +12,7 @@ else
   ZSH_THEME="robbyrussell"
 fi
 
-plugins=(osx git bundler rake ruby vagrant pass j emoji)
+plugins=(osx git bundler rake ruby vagrant pass j emoji cf)
 
 export GOPATH=/opt/boxen/homebrew/Cellar/go/1.6
 export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:$GOPATH/bin"
@@ -26,6 +26,10 @@ alias govuk="cd ~/govuk"
 alias vi=vim
 alias bim=vim
 
+# Pass Aliases
+alias pass-fetch="pass git pull"
+alias pass-push="pass git push"
+
 # Vagrant Aliases
 alias vup="vagrant up"
 alias vd="vagrant destroy"
@@ -38,5 +42,5 @@ alias gco="git checkout"
 alias gp="git pull"
 alias gcm="git checkout master && git pull"
 
-source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/opt/boxen/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source '/opt/boxen/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
