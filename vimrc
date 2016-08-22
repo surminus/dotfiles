@@ -45,5 +45,11 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 map <C-p> :set paste<CR>
 map <C-n> :set nonumber!<CR>
 
+set foldmethod=manual
+inoremap <C-f> <C-O>za
+nnoremap <C-f> za
+onoremap <C-f> <C-C>za
+vnoremap <C-f> zf
+
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
