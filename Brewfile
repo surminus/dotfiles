@@ -1,0 +1,15 @@
+# https://github.com/Homebrew/homebrew-bundle
+
+brew "ack"
+brew "gcc"
+brew "git"
+brew "go"
+brew "hub"
+brew "imagemagick"
+brew "pass"
+brew "rbenv"
+brew "rbenv-aliases"
+brew "rbenv-bundler"
+brew "vim"
+brew "wget"
+brew "zsh"
