@@ -14,7 +14,7 @@ fi
 plugins=(osx git github bundler rake ruby vagrant pass j emoji cf)
 
 export GOPATH="$HOME/.go"
-export PATH="/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
+export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 
 eval "$(rbenv init -)"
 
