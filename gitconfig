@@ -18,10 +18,5 @@
 protocol = https
 host = github.gds
 
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
-
-[core]
-excludesfile = /opt/boxen/config/git/gitignore
 [github]
 	user = surminus
