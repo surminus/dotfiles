@@ -39,7 +39,7 @@ alias pass-push="pass git push"
 
 # Vagrant Aliases
 alias vup="vagrant up"
-alias vd="vagrant destroy"
+alias vd="vagrant destroy --force"
 alias vp="vagrant provision"
 alias vssh="vagrant ssh"
 alias vs="echo 'Checking what machines are running' && vagrant status |grep running"
