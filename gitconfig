@@ -13,6 +13,8 @@
 	fixup = commit --fixup
 	list-commit = log --pretty=oneline --abbrev-commit
 	nuke = reset --hard origin/master
+        pr   = pull-request
+        pushf = push -f origin head
 
 [hub]
 protocol = https
