@@ -15,6 +15,7 @@
 	nuke = reset --hard origin/master
         pr   = pull-request
         pushf = push -f origin head
+        findbranch = branch | grep
 
 [hub]
 protocol = https
