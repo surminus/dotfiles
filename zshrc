@@ -48,3 +48,7 @@ alias vs="echo 'Checking what machines are running' && vagrant status |grep runn
 alias gco="git checkout"
 alias gp="git pull"
 alias gcm="git checkout master && git pull"
+
+if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+    source "/usr/local/share/chtf/chtf.sh"
+fi
