@@ -5,6 +5,8 @@ export ZSH=/Users/$USER/.oh-my-zsh
 export EDITOR=vim
 export VAGRANT_GOVUK_NFS=no
 
+source /usr/local/opt/chtf/share/chtf/chtf.sh
+
 if [ -e ~/.oh-my-zsh/themes/robbyrussell-custom.zsh-theme ]; then
   ZSH_THEME="robbyrussell-custom"
 else
