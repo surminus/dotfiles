@@ -36,6 +36,7 @@ alias be="bundle exec"
 # Pass Aliases
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
+alias pass-sync="pass-fetch && pass-push"
 
 # Vagrant Aliases
 alias vup="vagrant up"
@@ -48,6 +49,7 @@ alias vs="echo 'Checking what machines are running' && vagrant status |grep runn
 alias gco="git checkout"
 alias gp="git pull"
 alias gcm="git checkout master && git pull"
+alias gpr="git push origin head && git pr"
 
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
