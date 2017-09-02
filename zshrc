@@ -52,3 +52,5 @@ alias gcm="git checkout master && git pull"
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
 fi
+
+export CHTF_CURRENT_TERRAFORM_VERSION=0.9.10
