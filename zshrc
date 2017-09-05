@@ -42,6 +42,7 @@ alias be="bundle exec"
 # Pass Aliases
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
+alias pass-sync="pass-fetch && pass-push"
 
 # Vagrant Aliases
 alias vup="vagrant up"
@@ -60,4 +61,4 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
 fi
 
-chtf 0.9.10
+export CHTF_CURRENT_TERRAFORM_VERSION=0.9.10
