@@ -3,6 +3,8 @@ export ZSH=/Users/$USER/.oh-my-zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EDITOR=vim
+alias vim='/usr/local/bin/vim'
+
 export VAGRANT_GOVUK_NFS=no
 
 source /usr/local/opt/chtf/share/chtf/chtf.sh
@@ -19,6 +21,7 @@ export GOPATH="$HOME/.go"
 export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 
 eval "$(rbenv init -)"
+eval "$(hub alias -s)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,6 +33,7 @@ alias bim=vim
 # Pass Aliases
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
+alias pass-sync="pass-fetch && pass-push"
 
 # Bundle aliases
 alias bi="bundle install --path ~/.bundle"
