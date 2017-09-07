@@ -57,4 +57,4 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
 fi
 
-export CHTF_CURRENT_TERRAFORM_VERSION=0.9.10
+chtf 0.9.10
