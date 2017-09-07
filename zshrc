@@ -15,7 +15,7 @@ else
   ZSH_THEME="robbyrussell"
 fi
 
-plugins=(osx git github bundler rake ruby vagrant pass j emoji cf)
+plugins=(osx git github bundler rake ruby vagrant pass j emoji cf zsh-autosuggestions)
 
 export GOPATH="$HOME/.go"
 export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
