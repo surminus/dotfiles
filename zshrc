@@ -7,15 +7,15 @@ alias vim='/usr/local/bin/vim'
 
 export VAGRANT_GOVUK_NFS=no
 
-source /usr/local/opt/chtf/share/chtf/chtf.sh
-
 if [ -e ~/.oh-my-zsh/themes/robbyrussell-custom.zsh-theme ]; then
   ZSH_THEME="robbyrussell-custom"
 else
   ZSH_THEME="robbyrussell"
 fi
 
-plugins=(osx git github bundler rake ruby vagrant pass j emoji cf zsh-autosuggestions)
+plugins=(osx git github bundler rake ruby vagrant pass j emoji cf zsh-autosuggestions zsh-completions)
+
+autoload -U compinit && compinit
 
 export GOPATH="$HOME/.go"
 export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
