@@ -62,3 +62,5 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
 fi
 
 chtf 0.9.10
+
+export TERRAGOV_CONFIG_FILE=~/.terragov
