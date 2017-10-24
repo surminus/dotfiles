@@ -14,7 +14,7 @@
 	list-commit = log --pretty=oneline --abbrev-commit
 	nuke = reset --hard origin/master
         pr   = pull-request
-        pushf = push -f origin head
+        pushf = push -f origin HEAD
         findbranch = branch | grep
 
 [hub]
