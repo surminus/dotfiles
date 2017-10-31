@@ -62,5 +62,4 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
 fi
 
 chtf 0.10.7
-
 export TERRAGOV_CONFIG_FILE=~/.terragov.yml

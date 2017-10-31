@@ -5,7 +5,7 @@ export EDITOR=vim
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git bundler ubuntu rake ruby vagrant)
+plugins=(git bundler ubuntu rake ruby vagrant emoji zsh-autosuggestions)
 
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:"
 export VAGRANT_GOVUK_NFS=no
@@ -14,7 +14,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias govuk="cd ~/govuk"
 
-if [ -e /usr/bin/hub ]; then
+if [ -e /usr/local/bin/hub ]; then
   eval "$(hub alias -s)"
   if [ -e ~/.zsh/completions/_hub ]; then
     fpath=(~/.zsh/completions $fpath)
@@ -33,9 +33,10 @@ alias vs="echo 'Checking what machines are running' && vagrant status |grep runn
 alias gco="git checkout"
 alias gp="git pull"
 alias gcm="git checkout master && git pull"
+alias gpr="git push origin HEAD && git pr"
 
 # Bundle
-if [[ "$(grep CODENAME /etc/lsb-release |cut -d "=" -f2)" == "wily" ]]; then
+if [[ "$(grep CODENAME /etc/lsb-release |cut -d "=" -f2)" == "xenial" ]]; then
   alias bi="CC=/usr/bin/gcc-4.9 bundle install --path ~/.bundle"
 else
   alias bi="bundle install --path ~/.bundle"
@@ -43,11 +44,12 @@ fi
 
 alias be="bundle exec"
 
-# VPN
-alias work-vpn="sudo openconnect -b -q --no-cert-check -u paulmartin --usergroup ah vpn.digital.cabinet-office.gov.uk >/dev/null"
+# pass
+alias pass-fetch="pass git pull"
+alias pass-push="pass git push"
+alias pass-sync="pass-fetch && pass-push"
 
 # Like OSX
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-alias my-puppet="sudo puppet apply /etc/puppet/manifests/init.pp"
