@@ -61,4 +61,6 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
 fi
 
-chtf 0.9.10
+chtf 0.10.7
+
+export TERRAGOV_CONFIG_FILE=~/.terragov.yml
