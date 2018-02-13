@@ -14,7 +14,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias govuk="cd ~/govuk"
 
-if [ -e /usr/bin/hub ]; then
+if [ -e /usr/local/bin/hub ]; then
   eval "$(hub alias -s)"
   if [ -e ~/.zsh/completions/_hub ]; then
     fpath=(~/.zsh/completions $fpath)
@@ -33,7 +33,7 @@ alias vs="echo 'Checking what machines are running' && vagrant status |grep runn
 alias gco="git checkout"
 alias gp="git pull"
 alias gcm="git checkout master && git pull"
-alias gpr="git push origin head && git pr"
+alias gpr="git push origin HEAD && git pr"
 
 # Bundle
 if [[ "$(grep CODENAME /etc/lsb-release |cut -d "=" -f2)" == "xenial" ]]; then

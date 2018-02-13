@@ -13,7 +13,7 @@
 	fixup = commit --fixup
 	nuke = reset --hard origin/master
         pr   = pull-request
-        pushf = push -f origin HEAD
+        pushf = push --force-with-lease origin HEAD
         ammend = commit -a --amend -C HEAD
         repush = "!f() { \
                     if [[ $(git rev-parse --abbrev-ref HEAD) != 'master' ]]; then git ammend && git pushf; fi; \

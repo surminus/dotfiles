@@ -75,4 +75,4 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
 fi
 
-export TERRAGOV_CONFIG_FILE=~/.terragov
+export TERRAGOV_CONFIG_FILE=~/.terragov.yml
