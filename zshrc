@@ -40,14 +40,8 @@ eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh
 
 # Custom aliases
-alias govuk="cd ~/govuk"
 alias vi=vim
 alias bim=vim
-
-# Pass Aliases
-alias pass-fetch="pass git pull"
-alias pass-push="pass git push"
-alias pass-sync="pass-fetch && pass-push"
 
 # Bundle aliases
 alias bi="bundle install --path ~/.bundle"
@@ -63,16 +57,10 @@ alias vup="vagrant up"
 alias vd="vagrant destroy --force"
 alias vp="vagrant provision"
 alias vssh="vagrant ssh"
-alias vs="echo 'Checking what machines are running' && vagrant status |grep running"
 
 # Git Aliases
 alias gco="git checkout"
-alias gp="git pull"
 alias gcm="git checkout master && git pull"
 alias gpr="git push origin head && git pr"
-
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-    source "/usr/local/share/chtf/chtf.sh"
-fi
 
 export TERRAGOV_CONFIG_FILE=~/.terragov.yml
