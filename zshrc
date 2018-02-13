@@ -13,15 +13,29 @@ else
   ZSH_THEME="robbyrussell"
 fi
 
-plugins=(osx git github bundler rake ruby vagrant pass j emoji cf zsh-autosuggestions zsh-completions)
+plugins=(
+  bundler
+  cf
+  emoji
+  git
+  github
+  golang
+  j
+  osx
+  pass
+  rake
+  ruby
+  vagrant
+  zsh-autosuggestions
+  zsh-completions
+)
 
 autoload -U compinit && compinit
 
-export GOPATH="$HOME/.go"
-export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
+export GOPATH="$HOME/go"
+export PATH="${HOME}/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 
 eval "$(rbenv init -)"
-eval "$(hub alias -s)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,7 +74,5 @@ alias gpr="git push origin head && git pr"
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
 fi
-
-chtf 0.9.10
 
 export TERRAGOV_CONFIG_FILE=~/.terragov
