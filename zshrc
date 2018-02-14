@@ -5,8 +5,6 @@ export ZSH=/Users/$USER/.oh-my-zsh
 export EDITOR=vim
 export VAGRANT_GOVUK_NFS=no
 
-source /usr/local/opt/chtf/share/chtf/chtf.sh
-
 if [ -e ~/.oh-my-zsh/themes/robbyrussell-custom.zsh-theme ]; then
   ZSH_THEME="robbyrussell-custom"
 else
@@ -22,35 +20,32 @@ eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 
-# Custom aliases
-alias govuk="cd ~/govuk"
+# Vim
 alias vi=vim
 alias bim=vim
 
-# Pass Aliases
+# Pass
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
 
-# Bundle aliases
+# Bundle
 alias bi="bundle install --path ~/.bundle"
 alias be="bundle exec"
 
-# Pass Aliases
+# Pass
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
 
-# Vagrant Aliases
+# Vagrant
 alias vup="vagrant up"
 alias vd="vagrant destroy --force"
 alias vp="vagrant provision"
 alias vssh="vagrant ssh"
-alias vs="echo 'Checking what machines are running' && vagrant status |grep running"
 
-# Git Aliases
+# Git
 alias gco="git checkout"
 alias gp="git pull"
 alias gcm="git checkout master && git pull"
 
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-    source "/usr/local/share/chtf/chtf.sh"
-fi
+# Dotfiles
+alias dotfiles="~/.dotfiles/bin/setup update"

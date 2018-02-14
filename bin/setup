@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# dotfiles setup
+case $1 in
+  'install')
+    if [[ ! -d ~/.dotfiles ]]; then
+      git clone https://github.com/surminus/dotfiles ~/.dotfiles
+    else
+      cd ~/.dotfiles && git pull
+    fi
+
+    for i in gitconfig vimrc zshrc ackrc; do
+      echo "Linking $i"
+      ln -s ~/.dotfiles/$i ~/.$i
+    done
+    ;;
+
+  'update')
+    cd ~/.dotfiles && git pull
+  ;;
+
+  *) echo "Run $0 [install|update]"
+esac
