@@ -5,16 +5,24 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'rodjek/vim-puppet'
+Plugin 'fatih/vim-go'
+Plugin 'godlygeek/tabular'
 Plugin 'hashivim/vim-terraform'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rodjek/vim-puppet'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on
+
+autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 syntax on
 set background=dark

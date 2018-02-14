@@ -11,11 +11,13 @@
 	pick-axe = log -p -S
 	squash = rebase -i --autosquash
 	fixup = commit --fixup
-	list-commit = log --pretty=oneline --abbrev-commit
 	nuke = reset --hard origin/master
         pr   = pull-request
-        pushf = push -f origin head
-        findbranch = branch | grep
+        pushf = push --force-with-lease origin HEAD
+        ammend = commit -a --amend -C HEAD
+        repush = "!f() { \
+                    if [[ $(git rev-parse --abbrev-ref HEAD) != 'master' ]]; then git ammend && git pushf; fi; \
+                  }; f"
 
 [hub]
 protocol = https

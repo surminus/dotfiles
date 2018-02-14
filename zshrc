@@ -3,23 +3,44 @@ export ZSH=/Users/$USER/.oh-my-zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EDITOR=vim
+alias vim='/usr/local/bin/vim'
+
 export VAGRANT_GOVUK_NFS=no
 
+>>>>>>> 46746109165af2b02b89e168770ee815fc18f727
 if [ -e ~/.oh-my-zsh/themes/robbyrussell-custom.zsh-theme ]; then
   ZSH_THEME="robbyrussell-custom"
 else
   ZSH_THEME="robbyrussell"
 fi
 
-plugins=(osx git github bundler rake ruby vagrant pass j emoji cf)
+plugins=(
+  bundler
+  cf
+  emoji
+  git
+  github
+  golang
+  j
+  osx
+  pass
+  rake
+  ruby
+  vagrant
+  zsh-autosuggestions
+  zsh-completions
+)
 
-export GOPATH="$HOME/.go"
-export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
+autoload -U compinit && compinit
+
+export GOPATH="$HOME/go"
+export PATH="${HOME}/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 
 eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 
+<<<<<<< HEAD
 # Vim
 alias vi=vim
 alias bim=vim
@@ -35,6 +56,7 @@ alias be="bundle exec"
 # Pass
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
+alias pass-sync="pass-fetch && pass-push"
 
 # Vagrant
 alias vup="vagrant up"
@@ -44,8 +66,10 @@ alias vssh="vagrant ssh"
 
 # Git
 alias gco="git checkout"
-alias gp="git pull"
 alias gcm="git checkout master && git pull"
+alias gpr="git push origin head && git pr"
 
 # Dotfiles
 alias dotfiles="~/.dotfiles/bin/setup update"
+
+export TERRAGOV_CONFIG_FILE=~/.terragov.yml
