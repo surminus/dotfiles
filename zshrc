@@ -7,7 +7,6 @@ alias vim='/usr/local/bin/vim'
 
 export VAGRANT_GOVUK_NFS=no
 
->>>>>>> 46746109165af2b02b89e168770ee815fc18f727
 if [ -e ~/.oh-my-zsh/themes/robbyrussell-custom.zsh-theme ]; then
   ZSH_THEME="robbyrussell-custom"
 else
@@ -40,7 +39,6 @@ eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 
-<<<<<<< HEAD
 # Vim
 alias vi=vim
 alias bim=vim
