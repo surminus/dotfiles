@@ -11,6 +11,7 @@ case $1 in
 
     for i in gitconfig vimrc zshrc ackrc; do
       echo "Linking $i"
+      test -f ~/.$i && mv ~/.$i ~/.$i.bak-$(date +%F)
       ln -s ~/.dotfiles/$i ~/.$i
     done
     ;;
