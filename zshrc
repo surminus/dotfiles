@@ -17,7 +17,11 @@ plugins=(osx git github bundler rake ruby vagrant pass j emoji cf zsh-autosugges
 
 autoload -U compinit && compinit
 
+# Go
 export GOPATH="$HOME/.go"
+# tfenv
+export PATH="$HOME/.tfenv/bin:$PATH"
+# Path
 export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 
 eval "$(rbenv init -)"
