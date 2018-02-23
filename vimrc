@@ -8,10 +8,12 @@ call vundle#begin()
 Plugin 'Shougo/neocomplete'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'rodjek/vim-puppet'
-Plugin 'hashivim/vim-terraform'
+Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
+Plugin 'hashivim/vim-terraform'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rodjek/vim-puppet'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

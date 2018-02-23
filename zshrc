@@ -13,7 +13,22 @@ else
   ZSH_THEME="robbyrussell"
 fi
 
-plugins=(osx git github bundler rake ruby vagrant pass j emoji cf zsh-autosuggestions zsh-completions)
+plugins=(
+  bundler
+  cf
+  emoji
+  git
+  github
+  golang
+  j
+  osx
+  pass
+  rake
+  ruby
+  vagrant
+  zsh-autosuggestions
+  zsh-completions
+)
 
 autoload -U compinit && compinit
 
@@ -25,45 +40,38 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 
 eval "$(rbenv init -)"
-eval "$(hub alias -s)"
 
 source $ZSH/oh-my-zsh.sh
 
-# Custom aliases
-alias govuk="cd ~/govuk"
+# Vim
 alias vi=vim
 alias bim=vim
 
-# Pass Aliases
+# Pass
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
-alias pass-sync="pass-fetch && pass-push"
 
-# Bundle aliases
+# Bundle
 alias bi="bundle install --path ~/.bundle"
 alias be="bundle exec"
 
-# Pass Aliases
+# Pass
 alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
 alias pass-sync="pass-fetch && pass-push"
 
-# Vagrant Aliases
+# Vagrant
 alias vup="vagrant up"
 alias vd="vagrant destroy --force"
 alias vp="vagrant provision"
 alias vssh="vagrant ssh"
-alias vs="echo 'Checking what machines are running' && vagrant status |grep running"
 
-# Git Aliases
+# Git
 alias gco="git checkout"
-alias gp="git pull"
 alias gcm="git checkout master && git pull"
 alias gpr="git push origin head && git pr"
 
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-    source "/usr/local/share/chtf/chtf.sh"
-fi
+# Dotfiles
+alias dotfiles="~/.dotfiles/bin/setup update"
 
-chtf 0.10.7
 export TERRAGOV_CONFIG_FILE=~/.terragov.yml
