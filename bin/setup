@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 # dotfiles setup
+set -e
+
 case $1 in
   'install')
     if [[ ! -d ~/.dotfiles ]]; then
@@ -16,9 +18,17 @@ case $1 in
     done
     ;;
 
-  'update')
-    cd ~/.dotfiles && git pull
-  ;;
-
-  *) echo "Run $0 [install|update]"
+  'fetch')
+    cd ~/.dotfiles && git pull;;
+  'add')
+    cd ~/.dotfiles && git add -p && git commit -v;;
+  'push')
+    cd ~/.dotfiles && git push origin HEAD;;
+  'sync')
+    cd ~/.dotfiles && \
+      git pull && \
+      git add -p && \
+      git commit -v && \
+      git push origin HEAD;;
+  *) echo "Run $0 [install|fetch|add|push|sync]" && exit 1;;
 esac
