@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# Dotfiles
+alias dot-dir="cd ~/.dotfiles"
+alias dot-fetch="dot-dir && git pull"
+alias dot-add="dot-dir && git add -p && git commit -v"
+alias dot-push="dot-dir && git push origin HEAD"
+alias dot-sync="dot-dir && dot-fetch && dot-add && dot-push"
+
+# Vim
+alias vi=vim
+alias bim=vim
+
+# Pass
+alias pass-fetch="pass git pull"
+alias pass-push="pass git push"
+
+# Bundle
+alias bi="bundle install --path ~/.bundle"
+alias be="bundle exec"
+
+# Pass
+alias pass-fetch="pass git pull"
+alias pass-push="pass git push"
+alias pass-sync="pass-fetch && pass-push"
+
+# Vagrant
+alias vup="vagrant up"
+alias vd="vagrant destroy --force"
+alias vp="vagrant provision"
+alias vssh="vagrant ssh"
+
+# Git
+alias gco="git checkout"
+alias gcm="git checkout master && git pull"
+alias gpr="git push origin head && git pr"

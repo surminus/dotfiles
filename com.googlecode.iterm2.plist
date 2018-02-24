@@ -12,7 +12,15 @@
 	<string>manual</string>
 	<key>Default Bookmark Guid</key>
 	<string>E380262E-73CE-4CA4-8CE8-4989BEB32236</string>
+	<key>DimBackgroundWindows</key>
+	<false/>
+	<key>DimOnlyText</key>
+	<false/>
+	<key>DisableFullscreenTransparency</key>
+	<false/>
 	<key>HideActivityIndicator</key>
+	<false/>
+	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTabCloseButton</key>
 	<true/>
@@ -751,6 +759,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/laura/.dotfiles/</string>
+	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -763,12 +773,20 @@
 	<date>2018-02-24T12:30:19Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>ShowBookmarkName</key>
+	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
+	<true/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.31726011618589745</real>
+	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>TabStyle</key>
 	<integer>1</integer>
+	<key>UseBorder</key>
+	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>

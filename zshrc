@@ -47,40 +47,9 @@ export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
-
 eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
-
-# Vim
-alias vi=vim
-alias bim=vim
-
-# Pass
-alias pass-fetch="pass git pull"
-alias pass-push="pass git push"
-
-# Bundle
-alias bi="bundle install --path ~/.bundle"
-alias be="bundle exec"
-
-# Pass
-alias pass-fetch="pass git pull"
-alias pass-push="pass git push"
-alias pass-sync="pass-fetch && pass-push"
-
-# Vagrant
-alias vup="vagrant up"
-alias vd="vagrant destroy --force"
-alias vp="vagrant provision"
-alias vssh="vagrant ssh"
-
-# Git
-alias gco="git checkout"
-alias gcm="git checkout master && git pull"
-alias gpr="git push origin head && git pr"
-
-# Dotfiles
-alias dotfiles="~/.dotfiles/bin/setup update"
+source ~/.dotfiles/config/aliases
 
 export TERRAGOV_CONFIG_FILE=~/.terragov.yml
