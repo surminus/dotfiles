@@ -7,6 +7,9 @@ alias dot-add="~/.dotfiles/bin/setup add"
 alias dot-push="~/.dotfiles/bin/setup push"
 alias dot-sync="~/.dotfiles/bin/setup sync"
 
+# Homebrew
+alias brewfile-update="~/.dotfiles/bin/setup brewfile"
+
 # Vim
 alias vi=vim
 alias bim=vim

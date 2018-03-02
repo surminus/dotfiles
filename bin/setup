@@ -18,6 +18,7 @@ case $1 in
     done
     ;;
 
+  # Dotfile specific
   'fetch')
     cd ~/.dotfiles && git pull;;
   'add')
@@ -30,5 +31,13 @@ case $1 in
       git add -p && \
       git commit -v && \
       git push origin HEAD;;
+
+  'brewfile')
+    cd ~/.dotfiles && \
+    brew bundle dump --force && \
+    git add -p Brewfile && \
+    git commit -m "Brewfile updates" && \
+    git push origin HEAD;;
+
   *) echo "Run $0 [install|fetch|add|push|sync]" && exit 1;;
 esac
