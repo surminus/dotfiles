@@ -15,11 +15,11 @@ fi
 
 plugins=(
   bundler
-  cf
   emoji
   git
   github
   golang
+  iterm2
   j
   osx
   pass
