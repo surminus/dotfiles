@@ -7,8 +7,8 @@ alias vim='/usr/local/bin/vim'
 
 export VAGRANT_GOVUK_NFS=no
 
-if [ -e ~/.oh-my-zsh/themes/robbyrussell-custom.zsh-theme ]; then
-  ZSH_THEME="robbyrussell-custom"
+if [[ -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme ]]; then
+  ZSH_THEME="surminus"
 else
   ZSH_THEME="robbyrussell"
 fi
