@@ -53,3 +53,5 @@ source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/config/aliases
 
 export TERRAGOV_CONFIG_FILE=~/.terragov.yml
+
+source ~/govuk/govuk-aws/tools/govukcli.completion
