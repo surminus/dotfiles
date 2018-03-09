@@ -52,6 +52,4 @@ eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/config/aliases
 
-export TERRAGOV_CONFIG_FILE=~/.terragov.yml
-
-source ~/govuk/govuk-aws/tools/govukcli.completion
+test -f ~/surminus/to-do/to-do.completion && source ~/surminus/to-do/to-do.completion
