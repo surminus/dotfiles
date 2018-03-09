@@ -5,13 +5,8 @@ export ZSH=/Users/$USER/.oh-my-zsh
 export EDITOR=vim
 alias vim='/usr/local/bin/vim'
 
-export VAGRANT_GOVUK_NFS=no
-
-if [[ -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme ]]; then
-  ZSH_THEME="surminus"
-else
-  ZSH_THEME="robbyrussell"
-fi
+ZSH_THEME="robbyrussell"
+test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 
 plugins=(
   bundler
