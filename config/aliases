@@ -40,3 +40,7 @@ alias gpr="git push origin head && git pr"
 
 # to-do
 alias to-do-sync="to-do git fetch && to-do git update && to-do git push"
+
+# Hugo Blog
+alias blog-new="cd ~/surminus/hugo-blog && ./new.sh"
+alias blog-update="cd ~/surminus/hugo-blog && ./deploy.sh"
