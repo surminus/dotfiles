@@ -29,7 +29,7 @@ autoload -U compinit && compinit
 
 # Go
 export GOPATH="$HOME/.go"
-# Set path
+# Set path (including rbenv)
 export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
@@ -41,8 +41,6 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-
-eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/config/aliases
