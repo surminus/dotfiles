@@ -37,6 +37,8 @@ alias vssh="vagrant ssh"
 alias gco="git checkout"
 alias gcm="git checkout master && git pull"
 alias gpr="git push origin head && git pr"
+alias gdiff="git diff"
+alias glog="git log --format=oneline --abbrev-commit"
 
 # to-do
 alias to-do-sync="to-do git fetch && to-do git update && to-do git push"

@@ -1,27 +1,32 @@
 [user]
-	email = surminus@gmail.com
-	name = Laura Martin
+  email = surminus@gmail.com
+  name = Laura Martin
+
 [push]
-	default = simple
+  default = simple
+
 [alias]
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
-	pick-axe = log -p -S
-	squash = rebase -i --autosquash
-	fixup = commit --fixup
-	nuke = reset --hard origin/master
-        pr   = pull-request
-        pushf = push --force-with-lease origin HEAD
-        ammend = commit -a --amend -C HEAD
-        repush = "!f() { \
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  pick-axe = log -p -S
+  squash = rebase -i --autosquash
+  fixup = commit --fixup
+  nuke = reset --hard origin/master
+  pr   = pull-request
+  pushf = push --force-with-lease origin HEAD
+  ammend = commit -a --amend -C HEAD
+  repush = "!f() { \
                     if [[ $(git rev-parse --abbrev-ref HEAD) != 'master' ]]; then git ammend && git pushf; fi; \
                   }; f"
 
+[pull]
+  rebase = preserve
+
 [hub]
-protocol = https
-host = github.gds
+  protocol = https
+  host = github.gds
 
 [github]
-	user = surminus
+  user = surminus

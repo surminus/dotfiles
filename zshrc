@@ -8,6 +8,8 @@ alias vim='/usr/local/bin/vim'
 ZSH_THEME="robbyrussell"
 test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 
+export UNBUNDLED_COMMANDS=(kitchen foodcritic bundler)
+
 plugins=(
   bundler
   emoji
@@ -29,8 +31,8 @@ autoload -U compinit && compinit
 
 # Go
 export GOPATH="$HOME/.go"
-# Set path (including rbenv)
-export PATH="${HOME}/.rbenv/shims:/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
+# Set path
+export PATH="/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
 
@@ -41,6 +43,9 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+
+# rbenv
+eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/config/aliases
