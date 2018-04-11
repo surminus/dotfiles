@@ -20,7 +20,6 @@ alias pass-push="pass git push"
 
 # Bundle
 alias bi="bundle install --path ~/.bundle"
-alias be="bundle exec"
 
 # Pass
 alias pass-fetch="pass git pull"
@@ -32,16 +31,6 @@ alias vup="vagrant up"
 alias vd="vagrant destroy --force"
 alias vp="vagrant provision"
 alias vssh="vagrant ssh"
-
-# Git
-alias gco="git checkout"
-alias gcm="git checkout master && git pull"
-alias gpr="git push origin head && git pr"
-alias gdiff="git diff"
-alias glog="git log --format=oneline --abbrev-commit"
-
-# to-do
-alias to-do-sync="to-do git fetch && to-do git update && to-do git push"
 
 # Hugo Blog
 alias blog-new="cd ~/surminus/hugo-blog && ./new.sh"
