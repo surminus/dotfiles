@@ -24,9 +24,15 @@
 [pull]
   rebase = preserve
 
+[add]
+  patch = true
+
 [hub]
   protocol = https
   host = github.gds
 
 [github]
   user = surminus
+
+[interactive]
+  singleKey = true

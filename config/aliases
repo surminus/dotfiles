@@ -35,3 +35,11 @@ alias vssh="vagrant ssh"
 # Hugo Blog
 alias blog-new="cd ~/surminus/hugo-blog && ./new.sh"
 alias blog-update="cd ~/surminus/hugo-blog && ./deploy.sh"
+
+# Git & Hub
+alias gcmp="git compare"
+
+# Misc
+alias findf="find . |grep $1"
+alias reload_shell="exec $SHELL"
+
