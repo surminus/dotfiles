@@ -1,0 +1,5 @@
+test -f /usr/local/bin/helm && source <(helm completion zsh)
+test -f /usr/local/bin/kubectl && source <(kubectl completion zsh)
+test -f ~/surminus/to-do/to-do.completion && source ~/surminus/to-do/to-do.completion
+test -f /usr/local/bin/awless && source <(awless completion zsh)
+test -f /usr/local/bin/kops && source <(kops completion zsh)

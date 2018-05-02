@@ -38,8 +38,9 @@ alias blog-update="cd ~/surminus/hugo-blog && ./deploy.sh"
 
 # Git & Hub
 alias gcmp="git compare"
+alias gcm="git checkout master && git pull"
 
 # Misc
 alias findf="find . |grep $1"
 alias reload_shell="exec $SHELL"
-
+alias shrug="echo '¯\_(ツ)_/¯'"

@@ -12,12 +12,14 @@ export UNBUNDLED_COMMANDS=(kitchen foodcritic bundler)
 
 plugins=(
   bundler
+  capistrano
   emoji
   git
   github
   golang
   iterm2
   j
+  kubectl
   osx
   pass
   rake
@@ -49,5 +51,5 @@ eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/config/aliases
-
-test -f ~/surminus/to-do/to-do.completion && source ~/surminus/to-do/to-do.completion
+source ~/.dotfiles/config/completions
+test -f /usr/local/bin/colordiff && source ~/.dotfiles/config/diff

@@ -11,7 +11,15 @@ case $1 in
       cd ~/.dotfiles && git pull
     fi
 
-    for i in gitconfig vimrc zshrc ackrc; do
+    for i in gitconfig vimrc zshrc ackrc colordiffrc; do
+      echo "Linking $i"
+      test -f ~/.$i && mv ~/.$i ~/.$i.bak-$(date +%F)
+      ln -s ~/.dotfiles/$i ~/.$i
+    done
+    ;;
+
+  'link')
+    for i in gitconfig vimrc zshrc ackrc colordiffrc; do
       echo "Linking $i"
       test -f ~/.$i && mv ~/.$i ~/.$i.bak-$(date +%F)
       ln -s ~/.dotfiles/$i ~/.$i
@@ -39,5 +47,5 @@ case $1 in
     git commit -m "Brewfile updates" && \
     git push origin HEAD;;
 
-  *) echo "Run $0 [install|fetch|add|push|sync]" && exit 1;;
+  *) echo "Run $0 [install|link|fetch|add|push|sync]" && exit 1;;
 esac
