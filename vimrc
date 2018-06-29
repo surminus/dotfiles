@@ -14,12 +14,16 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rodjek/vim-puppet'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on
 
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
+
+autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
