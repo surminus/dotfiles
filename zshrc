@@ -38,6 +38,9 @@ echo "Autoload for zsh completion"
 autoload -U compinit && compinit
 
 echo "Setting paths"
+# Node 8.x
+export PATH="/usr/local/opt/node@8/bin:$PATH"
+
 # Go
 export GOPATH="$HOME/go"
 export PATH=$PATH:$(go env GOPATH)/bin
@@ -45,6 +48,9 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
+
+# Set MySQL client
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # gnu
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
