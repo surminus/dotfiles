@@ -4,5 +4,3 @@ echo -n $'############  (90%)\r'
 test -f /usr/local/bin/kubectl && source <(kubectl completion zsh)
 echo -n $'############  (93%)\r'
 test -f ~/surminus/to-do/to-do.completion && source ~/surminus/to-do/to-do.completion
-test -f /usr/local/bin/awless && source <(awless completion zsh)
-test -f /usr/local/bin/kops && source <(kops completion zsh)
