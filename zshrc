@@ -1,20 +1,20 @@
 # Path to your oh-my-zsh installation.
-echo "Loading zsh config"
+echo -n $'#             (5%)\r'
 export ZSH=/Users/$USER/.oh-my-zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-echo "Setting editor"
+echo -n $'##            (10%)\r'
 export EDITOR=vim
 alias vim='/usr/local/bin/vim'
 
-echo "Loading zsh theme"
+echo -n $'###           (15%)\r'
 ZSH_THEME="robbyrussell"
 test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 
-echo "Unbundling commands"
+echo -n $'####          (20%)\r'
 export UNBUNDLED_COMMANDS=(kitchen foodcritic bundler)
 
-echo "Setting zsh plugins"
+echo -n $'#####         (24%)\r'
 plugins=(
   bundler
   capistrano
@@ -34,10 +34,10 @@ plugins=(
   zsh-completions
 )
 
-echo "Autoload for zsh completion"
+echo -n $'######        (32%)\r'
 autoload -U compinit && compinit
 
-echo "Setting paths"
+echo -n $'#######       (39%)\r'
 # Node 8.x
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 
@@ -60,18 +60,20 @@ export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
-echo "Loading rbenv"
+export AWS_REGION=eu-west-1
+
+echo -n $'########      (52%)\r'
 # rbenv
 eval "$(rbenv init -)"
 
-echo "zsh final load"
+echo -n $'#########     (60%)\r'
 source $ZSH/oh-my-zsh.sh
 
-echo "Loading aliases"
+echo -n $'##########    (72%)\r'
 source ~/.dotfiles/config/aliases
 
-echo "Loading completions"
+echo -n $'############  (82%)\r'
 source ~/.dotfiles/config/completions
 
-echo "Setting diff"
+echo -n $'############# (99%)\r'
 test -f /usr/local/bin/colordiff && source ~/.dotfiles/config/diff
