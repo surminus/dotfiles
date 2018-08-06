@@ -39,6 +39,7 @@ alias blog-update="cd ~/surminus/hugo-blog && ./deploy.sh"
 # Git & Hub
 alias gcmp="git compare"
 alias gcm="git checkout master && git pull"
+alias gpr="git push origin head && git pull-request"
 
 # Misc
 alias ff="find . |grep $*"
