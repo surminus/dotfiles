@@ -28,12 +28,12 @@
 [add]
   patch = true
 
-[hub]
-  protocol = https
-  host = github.gds
-
 [github]
   user = surminus
 
 [interactive]
   singleKey = true
+
+[rebase]
+  autoStash = true
+  autoSquash = true
