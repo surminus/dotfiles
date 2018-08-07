@@ -11,7 +11,7 @@
   br = branch
   co = checkout
   pick-axe = log -p -S
-  squash = rebase -i --autosquash origin/HEAD
+  squash = rebase -i --autosquash
   fixup = commit --fixup
   nuke = reset --hard origin/master
   last = --no-pager log --oneline -10
