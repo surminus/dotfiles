@@ -1,6 +1,9 @@
 echo -n $'############  (88%)\r'
-test -f /usr/local/bin/helm && source <(helm completion zsh)
-echo -n $'############  (90%)\r'
-test -f /usr/local/bin/kubectl && source <(kubectl completion zsh)
+
+for i in helm awless; do
+  test -f /usr/local/bin/$i && \
+  source <($i completion zsh)
+done
+
 echo -n $'############  (93%)\r'
 test -f ~/surminus/to-do/to-do.completion && source ~/surminus/to-do/to-do.completion
