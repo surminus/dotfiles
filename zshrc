@@ -66,6 +66,10 @@ echo -n $'########      (52%)\r'
 # rbenv
 eval "$(rbenv init -)"
 
+echo -n $'#######       (54%)\r'
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 echo -n $'#########     (60%)\r'
 source $ZSH/oh-my-zsh.sh
 
