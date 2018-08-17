@@ -16,6 +16,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rodjek/vim-puppet'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
+Plugin 'w0rp/ale'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -28,10 +31,32 @@ autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 
+" airline
+let g:airline_theme='atomic'
+
 syntax on
 set background=dark
 colorscheme solarized
 let g:solarized_termtrans = 1
+
+" ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'ruby': ['rubocop'],
+\   'bash': ['shfmt']
+\}
+
+" fix with CTRL+f
+map <C-f> :ALEFix<CR>
+" ALE with airline
+let g:airline#extensions#ale#enabled = 1
+
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_change_sign_column_color = 1
+
+" swapfiles
+set directory=~/.vim/swapfiles
 
 set number
 set nocp
@@ -55,14 +80,22 @@ set backspace=indent,eol,start
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-map <C-p> :set paste<CR>
+" splitting
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+" CTRL+w P to disable paste
+map <C-w>P :set paste<CR>
+" CTRL+n to remove line numbers
 map <C-n> :set nonumber!<CR>
 
-set foldmethod=manual
-inoremap <C-f> <C-O>za
-nnoremap <C-f> za
-onoremap <C-f> <C-C>za
-vnoremap <C-f> zf
+" CTRL+w S to disable syntastic
+nnoremap <C-w>S :SyntasticCheck<CR>
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
