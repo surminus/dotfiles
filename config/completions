@@ -1,9 +1,6 @@
-echo -n $'############  (88%)\r'
+completions=(helm awless)
 
-for i in helm awless; do
+for i in $completions; do
   test -f /usr/local/bin/$i && \
   source <($i completion zsh)
 done
-
-echo -n $'############  (93%)\r'
-test -f ~/surminus/to-do/to-do.completion && source ~/surminus/to-do/to-do.completion
