@@ -5,8 +5,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'Shougo/neocomplete'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'Shougo/neocomplete'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
@@ -43,10 +43,15 @@ let g:solarized_termtrans = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
-\   'bash': ['shfmt']
+\   'bash': ['shfmt'],
+\   'markdown': ['mdl']
 \}
 
-" fix with CTRL+f
+" Uncomment these lines to only lint on save
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = 0
+"
+"" fix with CTRL+f
 map <C-f> :ALEFix<CR>
 " ALE with airline
 let g:airline#extensions#ale#enabled = 1

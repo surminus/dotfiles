@@ -10,6 +10,7 @@
   ci = commit
   br = branch
   co = checkout
+  tidy = clean -fd .
   pick-axe = log -p -S
   squash = rebase -i --autosquash
   fixup = commit --fixup

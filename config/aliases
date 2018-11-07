@@ -45,3 +45,6 @@ alias gpr="git push origin head && git pull-request"
 alias ff="find . |grep $*"
 alias reload_shell="exec $SHELL"
 alias shrug="echo '¯\_(ツ)_/¯'"
+
+# fligo
+alias tf="fligo tf"

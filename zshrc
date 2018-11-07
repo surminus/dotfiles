@@ -60,8 +60,6 @@ export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
-export AWS_REGION=eu-west-1
-
 echo -n $'########      (52%)\r'
 # rbenv
 eval "$(rbenv init -)"
