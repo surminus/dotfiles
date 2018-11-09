@@ -26,10 +26,13 @@ plugins=(
 autoload -U compinit && compinit
 
 # Go
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/go"
 export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:"
+
+export PATH="$PATH:$HOME/local/bin"
 
 source $ZSH/oh-my-zsh.sh
 
