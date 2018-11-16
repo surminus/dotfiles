@@ -44,6 +44,11 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # Set path
 export PATH="/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
 
+# Terralearn
+if test -d ~/futurelearn/futurelearn-terraform/bin; then
+  export PATH="$PATH:$HOME/futurelearn/futurelearn-terraform/bin"
+fi
+
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
 
