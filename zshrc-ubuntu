@@ -34,6 +34,11 @@ export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:"
 
 export PATH="$PATH:$HOME/local/bin"
 
+# Terralearn
+if test -d ~/futurelearn/futurelearn-terraform/bin; then
+  export PATH="$PATH:$HOME/futurelearn/futurelearn-terraform/bin"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # To get autosuggestions to work, also set "fg-239" in
@@ -62,6 +67,9 @@ alias pbpaste='xclip -selection clipboard -o'
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# tfenv
+export PATH="$HOME/.tfenv/bin:$PATH"
 
 source ~/.dotfiles/config/aliases
 source ~/.dotfiles/config/completions
