@@ -42,7 +42,6 @@ alias gcm="git checkout master && git pull"
 alias gpr="git push origin head && git pull-request"
 
 # Misc
-alias ff="find . |grep $*"
 alias reload_shell="exec $SHELL"
 alias shrug="echo '¯\_(ツ)_/¯'"
 
