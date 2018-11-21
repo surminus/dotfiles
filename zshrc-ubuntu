@@ -26,9 +26,11 @@ plugins=(
 autoload -U compinit && compinit
 
 # Go
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH="$HOME/go"
-export PATH=$PATH:$(go env GOPATH)/bin
+if which go >/dev/null 2>&1; then
+  export PATH=$PATH:/usr/local/go/bin
+  export GOPATH="$HOME/go"
+  export PATH=$PATH:$(go env GOPATH)/bin
+fi
 
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:"
 
@@ -65,8 +67,10 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if which rbenv >/dev/null 2&>1; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
