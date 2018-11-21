@@ -26,7 +26,7 @@ plugins=(
 autoload -U compinit && compinit
 
 # Go
-if which go >/dev/null 2>&1; then
+if test -d /usr/local/go; then
   export PATH=$PATH:/usr/local/go/bin
   export GOPATH="$HOME/go"
   export PATH=$PATH:$(go env GOPATH)/bin
