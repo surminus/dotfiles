@@ -67,10 +67,8 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 # rbenv
-if which rbenv >/dev/null 2&>1; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"

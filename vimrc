@@ -34,12 +34,10 @@ let g:neocomplete#enable_at_startup = 1
 " airline
 let g:airline_theme='atomic'
 
-if filereadable("~/.vim/bundle/vim-colors-solarized")
-  syntax on
-  set background=dark
-  colorscheme solarized
-  let g:solarized_termtrans = 1
-endif
+syntax on
+set background=dark
+colorscheme solarized
+let g:solarized_termtrans = 1
 
 " ALE
 let g:ale_fixers = {
@@ -63,9 +61,7 @@ highlight clear ALEWarningSign
 let g:ale_change_sign_column_color = 1
 
 " swapfiles
-if filereadable("~/.vim/swapfiles")
-  set directory=~/.vim/swapfiles
-endif
+set directory=~/.vim/swapfiles
 
 set number
 set nocp
