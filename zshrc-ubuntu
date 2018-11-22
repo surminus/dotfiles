@@ -75,4 +75,7 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 
 source ~/.dotfiles/config/aliases
 source ~/.dotfiles/config/completions
-test -f /usr/local/bin/colordiff && source ~/.dotfiles/config/diff
+
+if which colordiff >/dev/null 2&>1; then
+  source ~/.dotfiles/config/diff
+fi

@@ -1,6 +1,7 @@
 completions=(helm awless)
 
 for i in $completions; do
-  test -f /usr/local/bin/$i && \
-  source <($i completion zsh)
+  if test -f /usr/local/bin/$i; then
+    source <($i completion zsh)
+  fi
 done
