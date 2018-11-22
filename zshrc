@@ -77,3 +77,5 @@ source ~/.dotfiles/config/completions
 
 # diff
 test -f /usr/local/bin/colordiff && source ~/.dotfiles/config/diff
+
+export TERM=xterm-256color
