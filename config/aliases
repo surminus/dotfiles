@@ -42,8 +42,5 @@ alias gcm="git checkout master && git pull"
 alias gpr="git push origin head && git pull-request"
 
 # Misc
-alias reload_shell="exec $SHELL"
+alias reload_shell="exec $SHELL && echo \"${SHELL} reloaded\""
 alias shrug="echo '¯\_(ツ)_/¯'"
-
-# fligo
-alias tf="fligo tf"

@@ -9,13 +9,14 @@ test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 export UNBUNDLED_COMMANDS=(kitchen foodcritic bundler)
 
 plugins=(
+  aws
   bundler
   capistrano
+  docker
   emoji
   git
   github
   golang
-  kubectl
   pass
   rake
   ruby
@@ -37,12 +38,13 @@ fi
 # Home bin
 export PATH="$HOME/bin:$PATH:"
 
+# Fligo
+which fligo >/dev/null && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
+
 # Terralearn
 if test -d ~/futurelearn/futurelearn-terraform/bin; then
   export PATH="$PATH:$HOME/futurelearn/futurelearn-terraform/bin"
 fi
-
-source $ZSH/oh-my-zsh.sh
 
 # To get autosuggestions to work, also set "fg-239" in
 # ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -74,8 +76,9 @@ eval "$(rbenv init -)"
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
 
+source $ZSH/oh-my-zsh.sh
+
 source ~/.dotfiles/config/aliases
-source ~/.dotfiles/config/completions
 
 if which colordiff >/dev/null 2&>1; then
   source ~/.dotfiles/config/diff

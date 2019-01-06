@@ -10,18 +10,18 @@ ZSH_THEME="robbyrussell"
 test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 
 # plugins
-export UNBUNDLED_COMMANDS=(kitchen foodcritic bundler)
+export UNBUNDLED_COMMANDS=(kitchen foodcritic bundler knife)
 
 plugins=(
+  aws
   bundler
   capistrano
+  docker
   emoji
   git
   github
   golang
   iterm2
-  j
-  kubectl
   osx
   pass
   rake
@@ -43,6 +43,12 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 # Set path
 export PATH="/usr/local/Cellar:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin"
+
+# Set local bin
+export PATH="$HOME/bin:$PATH"
+
+# Fligo
+which fligo >/dev/null && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
 
 # Terralearn
 if test -d ~/futurelearn/futurelearn-terraform/bin; then
@@ -71,9 +77,6 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 source ~/.dotfiles/config/aliases
-
-# completions
-source ~/.dotfiles/config/completions
 
 # diff
 test -f /usr/local/bin/colordiff && source ~/.dotfiles/config/diff
