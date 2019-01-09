@@ -39,7 +39,7 @@ fi
 export PATH="$HOME/bin:$PATH:"
 
 # Fligo
-which fligo >/dev/null && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
+which fligo >/dev/null 2&>1 && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
 
 # Terralearn
 if test -d ~/futurelearn/futurelearn-terraform/bin; then
@@ -63,6 +63,13 @@ if [[ "$(grep CODENAME /etc/lsb-release |cut -d "=" -f2)" == "xenial" ]]; then
   alias bi="CC=/usr/bin/gcc-4.9 bundle install --path ~/.bundle"
 else
   alias bi="bundle install --path ~/.bundle"
+fi
+
+# nvm
+if test -d "$HOME/.nvm"; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 # Like OSX
