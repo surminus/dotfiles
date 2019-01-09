@@ -91,6 +91,9 @@ set backspace=indent,eol,start
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
+" delete whitespace with F5
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
 " splitting
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
