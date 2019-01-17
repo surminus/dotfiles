@@ -45,6 +45,6 @@ alias gpr="git push origin head && git pull-request"
 alias reload_shell="exec $SHELL && echo \"${SHELL} reloaded\""
 alias shrug="echo '¯\_(ツ)_/¯'"
 
-if which pt >/dev/null 2&>1 && which ack >/dev/null 2&>1; then
-  alias ack="echo -e \"\033[0;31mUsing pt instead of ack\033[0m\n\" && pt"
+if which pt >/dev/null 2>&1 && which ack >/dev/null; then
+  alias ack="pt"
 fi

@@ -39,7 +39,7 @@ fi
 export PATH="$HOME/bin:$PATH:"
 
 # Fligo
-which fligo >/dev/null 2&>1 && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
+which fligo >/dev/null 2>&1 && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
 
 # Terralearn
 if test -d ~/futurelearn/futurelearn-terraform/bin; then
@@ -87,6 +87,6 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.dotfiles/config/aliases
 
-if which colordiff >/dev/null 2&>1; then
+if which colordiff >/dev/null 2>&1; then
   source ~/.dotfiles/config/diff
 fi
