@@ -5,21 +5,22 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'Shougo/neocomplete'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'godlygeek/tabular'
 Plugin 'hashivim/vim-terraform'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'rodjek/vim-puppet'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
-Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -28,6 +29,9 @@ filetype plugin indent on
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 
 autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
+
+" rainbow
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
