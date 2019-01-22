@@ -4,10 +4,35 @@
 # Show a random animal emoji for good status, and fire for bad status
 local ret_status="%(?:$(random_emoji animals):$emoji[fire])"
 
-# <emoji> /path/to/dir(git_info)
-PROMPT='${ret_status} %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info) '
+function tmux_path() {
+  if [[ $TMUX == "" ]]; then
+    echo "%{$fg_bold[blue]%}%~%{$reset_color%}"
+  else
+    echo ""
+  fi
+}
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%})%{$reset_color%}"
+function tmux_git_prefix() {
+  if [[ $TMUX == "" ]]; then
+    echo "%{$fg_bold[blue]%}(%{$fg[red]%}"
+  else
+    echo "%{$fg_bold[blue]%}git:%{$fg_bold[red]%}"
+  fi
+
+}
+
+function tmux_git_suffix {
+  if [[ $TMUX == "" ]]; then
+    echo "%{$fg[blue]%})%{$reset_color%}"
+  else
+    echo "%{$reset_color%}"
+  fi
+}
+
+# <emoji> /path/to/dir(git_info)
+PROMPT='${ret_status}$(tmux_path)$(git_prompt_info) '
+
+ZSH_THEME_GIT_PROMPT_PREFIX="$(tmux_git_prefix)"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$(tmux_git_suffix)"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="!"
