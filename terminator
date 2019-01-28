@@ -2,6 +2,7 @@
   always_split_with_profile = True
   focus = system
   title_transmit_bg_color = "#959595"
+  window_state = fullscreen
 [keybindings]
 [layouts]
   [[default]]
@@ -26,3 +27,4 @@
     scrollbar_position = hidden
     use_custom_command = True
     use_system_font = False
+    show_titlebar = False
