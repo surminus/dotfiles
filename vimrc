@@ -26,9 +26,6 @@ Plugin 'w0rp/ale'
 call vundle#end()            " required
 filetype plugin indent on
 
-" use OS clipboard
-set clipboard=unnamed
-
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 
 autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
