@@ -5,8 +5,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'Shougo/neocomplete'
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Shougo/neocomplete'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
@@ -16,11 +17,15 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'luochen1990/rainbow'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'rodjek/vim-puppet'
+Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
+
+" nerdtree
+map <C-x> :NERDTreeToggle<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,7 +36,7 @@ autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 " rainbow
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -107,8 +112,6 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" CTRL+w P to disable paste
-map <C-w>P :set paste<CR>
 " CTRL+n to remove line numbers
 map <C-n> :set nonumber!<CR>
 

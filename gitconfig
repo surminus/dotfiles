@@ -8,8 +8,8 @@
 [alias]
   st = status
   c = commit -v
-  b = !git --no-pager branch
-  co = checkout
+  br = branch
+  co = !sh -c 'git stash; git stash apply; git checkout "$@"'
   tidy = clean -fd .
   pick-axe = log -p -S
   squash = rebase -i --autosquash
@@ -19,9 +19,6 @@
   pr   = pull-request
   pushf = push --force-with-lease origin HEAD
   ammend = commit -a --amend -C HEAD
-  repush = "!f() { \
-                    if [[ $(git rev-parse --abbrev-ref HEAD) != 'master' ]]; then git ammend && git pushf; fi; \
-                  }; f"
 
 [pull]
   rebase = preserve

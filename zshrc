@@ -51,8 +51,8 @@ export PATH="$HOME/bin:$PATH"
 which fligo >/dev/null && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
 
 # Terralearn
-if test -d ~/futurelearn/futurelearn-terraform/bin; then
-  export PATH="$PATH:$HOME/futurelearn/futurelearn-terraform/bin"
+if test -d ~/futurelearn/terraform/bin; then
+  export PATH="$PATH:$HOME/futurelearn/terraform/bin"
 fi
 
 # tfenv
