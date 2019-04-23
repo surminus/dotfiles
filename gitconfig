@@ -18,7 +18,7 @@
   last = --no-pager log --oneline -10
   pr   = pull-request
   pushf = push --force-with-lease origin HEAD
-  ammend = commit -a --amend -C HEAD
+  ammend = commit --amend --no-edit
 
 [pull]
   rebase = preserve
