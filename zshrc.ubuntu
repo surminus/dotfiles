@@ -29,10 +29,16 @@ plugins=(
 autoload -U compinit && compinit
 
 # Go
-if test -d /usr/local/go; then
-  export PATH=$PATH:/usr/local/go/bin
+if test -d ~/.goenv; then
+  # goenv
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH=$GOENV_ROOT/bin:$PATH
   export GOPATH="$HOME/go"
-  export PATH=$PATH:$(go env GOPATH)/bin
+  export GOENV_DISABLE_GOPATH=1
+
+  eval "$(goenv init -)"
+  export PATH="$GOROOT/bin:$PATH"
+  export PATH=$GOPATH/bin:$PATH
 fi
 
 # Home bin
