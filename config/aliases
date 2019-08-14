@@ -51,3 +51,7 @@ if which pt >/dev/null 2>&1 && which ack >/dev/null; then
 fi
 
 alias jenkins="fligo ssh -e build -u ubuntu -r deploy"
+
+# Work VPN
+alias vpn-on="nmcli con up uuid $(nmcli con |awk '/Work/ {print $2}')"
+alias vpn-off="nmcli con down uuid $(nmcli con |awk '/Work/ {print $2}')"

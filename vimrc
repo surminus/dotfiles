@@ -23,6 +23,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
+" Plugin 'martinda/Jenkinsfile-vim-syntax'
 
 " nerdtree
 map <C-x> :NERDTreeToggle<CR>
