@@ -97,5 +97,5 @@ source ~/.dotfiles/aliases
 source ~/.dotfiles/aliases.ubuntu
 
 if which colordiff >/dev/null 2>&1; then
-  source ~/.dotfiles/config/diff
+  source ~/.dotfiles/diff
 fi
