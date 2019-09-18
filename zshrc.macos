@@ -76,9 +76,9 @@ eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh
 
 # aliases
-source ~/.dotfiles/config/aliases
+source ~/.dotfiles/aliases
 
 # diff
-test -f /usr/local/bin/colordiff && source ~/.dotfiles/config/diff
+test -f /usr/local/bin/colordiff && source ~/.dotfiles/diff
 
 export TERM=xterm-256color

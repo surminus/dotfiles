@@ -1,0 +1,26 @@
+# Vim
+alias vi=vim
+alias bim=vim
+
+# Bundle
+alias bi="bundle install --path ~/.bundle"
+
+# Pass
+alias pass-fetch="pass git pull"
+alias pass-push="pass git push"
+alias pass-sync="pass-fetch && pass-push"
+
+# Git & Hub
+alias gcm="git checkout master && git pull"
+alias gpr="git push origin head && git pull-request"
+alias gbr="git --no-pager for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n"
+
+# Misc
+alias reload_shell="exec $SHELL"
+alias shrug="echo '¯\_(ツ)_/¯'"
+
+if which pt >/dev/null 2>&1 && which ack >/dev/null; then
+  alias ack="pt"
+fi
+
+alias jenkins="fligo ssh -e build -u ubuntu -r jenkins"

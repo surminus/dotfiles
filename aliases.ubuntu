@@ -1,0 +1,3 @@
+# Work VPN
+alias vpn-on="nmcli con up uuid $(nmcli con |awk '/Work/ {print $2}')"
+alias vpn-off="nmcli con down uuid $(nmcli con |awk '/Work/ {print $2}')"
