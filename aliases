@@ -24,3 +24,5 @@ if which pt >/dev/null 2>&1 && which ack >/dev/null; then
 fi
 
 alias jenkins="fligo ssh -e build -u ubuntu -r jenkins"
+
+alias flocker="PROJECT_HOME=~/futurelearn/futurelearn ~/futurelearn/futurelearn/script/flocker"
