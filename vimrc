@@ -36,6 +36,9 @@ autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 
 autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
+" shared clipboard
+set clipboard=unnamed
+
 " rainbow
 let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
 
