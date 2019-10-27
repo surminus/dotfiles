@@ -1,6 +1,7 @@
 [global_config]
   always_split_with_profile = True
   focus = system
+  putty_paste_style = True
   title_inactive_bg_color = "#204a87"
   title_transmit_bg_color = "#959595"
 [keybindings]
