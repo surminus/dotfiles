@@ -108,3 +108,9 @@ source ~/.dotfiles/aliases.ubuntu
 if which colordiff >/dev/null 2>&1; then
   source ~/.dotfiles/diff
 fi
+
+if test -f ~/.chef/mychef/lastrun; then
+  if [[ "$(find ~/.chef/mychef -name lastrun -mtime +30 |wc -l)" -eq 1 ]]; then
+    echo "Warning: mychef has not been run for over 30 days "
+  fi
+fi
