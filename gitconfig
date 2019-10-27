@@ -6,8 +6,13 @@
   default = simple
 
 [alias]
+  # Alphabet aliases
+  a = add -p
+  c = commit
+  p = push origin HEAD
+  s = status
+
   st = status
-  c = commit -v
   br = branch
   co = !sh -c 'git stash; git stash apply; git checkout "$@"'
   tidy = clean -fd .
@@ -26,6 +31,9 @@
 [add]
   patch = true
 
+[commit]
+  verbose = true
+
 [github]
   user = surminus
 
@@ -35,39 +43,6 @@
 [rebase]
   autoStash = true
   autoSquash = true
-[git-pair]
-  pattern = pairing+%name+%name@futurelearn.com
 
-  authors = alssndro <alex.mura@futurelearn.com>
-  authors = brunabrazao <bruna.brazao@futurelearn.com>
-  authors = daniel-ferguson <danielferguson@me.com>
-  authors = dereckjohnson <dereck.johnson@futurelearn.com>
-  authors = eightbitraptor <matt@eightbitraptor.com>
-  authors = jamiecobbett <jamie.cobbett@futurelearn.com>
-  authors = jcoglan <jcoglan@gmail.com>
-  authors = jsphmrrw <joseph.morrow@futurelearn.com>
-  authors = marcotranchino <marco.tranchino@futurelearn.com>
-  authors = mattbee <matt.bee@futurelearn.com>
-  authors = mocoso <joel.chippindale@futurelearn.com>
-  authors = mseckington <mseckington@gmail.com>
-  authors = nickautomatic <nick.fraenkel@futurelearn.com>
-  authors = nicky <nicky.thompson@futurelearn.com>
-  authors = ohthatjames <ohthatjames@gmail.com>
-  authors = roberta <roberta.mataityte@futurelearn.com>
-  authors = robertsj <robert.schultze-jena@futurelearn.com>
-  authors = sandrameek <sandra.meek@futurelearn.com>
-  authors = scarerkite <sarah.knight@futurelearn.com>
-  authors = sebjacobs <me@sebjacobs.com>
-  authors = seniath <si.wharton@futurelearn.com>
-  authors = sharlakew <sharla.kew@futurelearn.com>
-  authors = smfeest <stephen.feest@futurelearn.com>
-  authors = surminus <laura.martin@futurelearn.com>
-  authors = taraojo <tara.ojo@futurelearn.com>
-  authors = thomasmarshall <tom.marshall@futurelearn.com>
-  authors = tomstuart <tom.stuart@futurelearn.com>
-  authors = toypadlock <sean.clothier@futurelearn.com>
-  authors = urbanautomaton <simon@urbanautomaton.com>
-  authors = vickymg <vicky.gray@futurelearn.com>
-  authors = wannabefro <sam.mctaggart@gmail.com>
 [core]
   excludesfile = /home/laura/.gitignore_global
