@@ -23,10 +23,6 @@ alias gc="git c"
 alias reload_shell="exec $SHELL"
 alias shrug="echo '¯\_(ツ)_/¯'"
 
-if which pt >/dev/null 2>&1 && which ack >/dev/null; then
-  alias ack="pt"
-fi
-
 alias jenkins="fligo ssh -e build -u ubuntu -r jenkins"
 
 alias flocker="PROJECT_HOME=~/futurelearn/futurelearn ~/futurelearn/futurelearn/script/flocker"
