@@ -50,6 +50,7 @@ which fligo >/dev/null 2>&1 && fligo completion zsh > ~/.oh-my-zsh/completions/_
 # Terralearn
 if test -d ~/futurelearn/terraform/bin; then
   export PATH="$PATH:$HOME/futurelearn/terraform/bin"
+  [[ -z $TL_ENV ]] && export TL_ENV=playground # Default to Playground
 fi
 
 # To get autosuggestions to work, also set "fg-239" in
