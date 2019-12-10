@@ -13,7 +13,7 @@
   s = status
 
   st = status
-  br = branch
+  b = !git --no-pager branch -a --format='%(refname)' | rev | cut -d'/' -f1 | rev | sort | uniq |grep -v HEAD
   co = !sh -c 'git stash; git stash apply; git checkout "$@"'
   tidy = clean -fd .
   pick-axe = log -p -S
@@ -24,6 +24,7 @@
   pr   = pull-request
   pushf = push --force-with-lease origin HEAD
   ammend = commit --amend --no-edit
+  mine = !git --no-pager branch -a --format='%(author) %(refname)' | grep -e 'Laura Martin\\|surminus' | rev | cut -d'/' -f1 | rev | sort | uniq |grep -v HEAD
 
 [pull]
   rebase = preserve
