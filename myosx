@@ -1,8 +1,0 @@
----
-dotfiles:
-  repo: 'https://github.com/surminus/dotfiles.git'
-  files:
-    ackrc: '~/.ackrc'
-    gitconfig: '~/.gitconfig'
-    vimrc: '~/.vimrc'
-    zshrc: '~/.zshrc'

@@ -1,6 +1,0 @@
---color
---ignore-dir=.tmp
---ignore-dir=.kitchen
---ignore-dir=.bundle
---ignore-dir=node_modules
---ignore-dir=tmp/
