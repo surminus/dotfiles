@@ -25,6 +25,8 @@
   pushf = push --force-with-lease origin HEAD
   ammend = commit --amend --no-edit
   mine = !git --no-pager branch -a --format='%(author) %(refname)' | grep -e 'Laura Martin\\|surminus' | rev | cut -d'/' -f1 | rev | sort | uniq |grep -v HEAD
+  old = !git --no-pager branch --merged |grep -v master
+  bin = !git branch -D $(git --no-pager branch --merged |grep -v master)
 
 [pull]
   rebase = preserve
@@ -47,3 +49,5 @@
 
 [core]
   excludesfile = /home/laura/.gitignore_global
+[remote "origin"]
+	prune = true
