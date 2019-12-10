@@ -8,25 +8,26 @@
 [alias]
   # Alphabet aliases
   a = add -p
+  b = !git --no-pager branch -a --format='%(refname)' | rev | cut -d'/' -f1 | rev | sort | uniq |grep -v HEAD
+  d = branch -D
   c = commit
   p = push origin HEAD
   s = status
 
-  st = status
-  b = !git --no-pager branch -a --format='%(refname)' | rev | cut -d'/' -f1 | rev | sort | uniq |grep -v HEAD
-  co = !sh -c 'git stash; git stash apply; git checkout "$@"'
-  tidy = clean -fd .
+  ammend   = commit --amend --no-edit
+  bin      = !git branch -D $(git --no-pager branch --merged |grep -v master)
+  co       = !sh -c 'git stash; git stash apply; git checkout "$@"'
+  fixup    = commit --fixup
+  last     = --no-pager log --oneline -10
+  mine     = !git --no-pager branch -a --format='%(author) %(refname)' | grep -e 'Laura Martin\\|surminus' | rev | cut -d'/' -f1 | rev | sort | uniq |grep -v HEAD
+  nuke     = reset --hard origin/master
+  old      = !git --no-pager branch --merged |grep -v master
   pick-axe = log -p -S
-  squash = rebase -i --autosquash
-  fixup = commit --fixup
-  nuke = reset --hard origin/master
-  last = --no-pager log --oneline -10
-  pr   = pull-request
-  pushf = push --force-with-lease origin HEAD
-  ammend = commit --amend --no-edit
-  mine = !git --no-pager branch -a --format='%(author) %(refname)' | grep -e 'Laura Martin\\|surminus' | rev | cut -d'/' -f1 | rev | sort | uniq |grep -v HEAD
-  old = !git --no-pager branch --merged |grep -v master
-  bin = !git branch -D $(git --no-pager branch --merged |grep -v master)
+  pr       = pull-request
+  pushf    = push --force-with-lease origin HEAD
+  squash   = rebase -i --autosquash
+  st       = status
+  tidy     = clean -fd .
 
 [pull]
   rebase = preserve
