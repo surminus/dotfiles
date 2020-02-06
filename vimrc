@@ -61,6 +61,11 @@ let g:ale_fixers = {
 \   'markdown': ['mdl']
 \}
 
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_linters = {
+\   'go': ['gobuild'],
+\}
+
 " Uncomment these lines to only lint on save
 " let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_enter = 0
