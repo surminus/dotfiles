@@ -15,7 +15,6 @@
   s = status
 
   ammend   = commit --amend --no-edit
-  bin      = !git branch -D $(git --no-pager branch --merged |grep -v master)
   co       = !sh -c 'git stash; git stash apply; git checkout "$@"'
   fixup    = commit --fixup
   last     = --no-pager log --oneline -10
