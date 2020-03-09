@@ -112,3 +112,5 @@ if test -f ~/.chef/mychef/lastrun; then
     echo "Warning: mychef has not been run for over 30 days "
   fi
 fi
+
+export FLOCKER_PROJECT_HOME="/home/laura/futurelearn/futurelearn"
