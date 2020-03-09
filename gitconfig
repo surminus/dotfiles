@@ -50,5 +50,6 @@
 
 [core]
   excludesfile = /home/laura/.gitignore_global
+
 [remote "origin"]
-	prune = true
+  prune = true
