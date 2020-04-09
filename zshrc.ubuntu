@@ -96,6 +96,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# awscli v2
+export PATH="/usr/local/aws-cli/v2/current/bin:${PATH}"
+
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=238
 
 source $ZSH/oh-my-zsh.sh
