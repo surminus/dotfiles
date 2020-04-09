@@ -17,7 +17,7 @@
   amend   = commit --amend --no-edit
   co       = !sh -c 'git stash; git stash apply; git checkout "$@"'
   fixup    = commit --fixup
-  last     = --no-pager log --oneline -10
+  last     = !git --no-pager log --oneline -10
   mine     = !git --no-pager branch --sort=committerdate -a --format='%(author) %(refname)' | grep -e 'Laura Martin\\|surminus' | rev | cut -d'/' -f1 | rev | uniq |grep -v HEAD
   nuke     = reset --hard origin/master
   old      = !git --no-pager branch --merged |grep -v master
