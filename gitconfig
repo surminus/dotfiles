@@ -14,7 +14,7 @@
   p = push origin HEAD
   s = status
 
-  ammend   = commit --amend --no-edit
+  amend   = commit --amend --no-edit
   co       = !sh -c 'git stash; git stash apply; git checkout "$@"'
   fixup    = commit --fixup
   last     = --no-pager log --oneline -10
