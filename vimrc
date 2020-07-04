@@ -38,11 +38,14 @@ autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 
 autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
+" " javascript
+" " let g:javascript_plugin_jsdoc = 1
+"
 " shared clipboard
 set clipboard=unnamed
 
-" rainbow
-let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
+" " rainbow
+" let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -50,8 +53,12 @@ let g:neocomplete#enable_at_startup = 1
 " airline
 let g:airline_theme='atomic'
 
-syntax on
+" https://github.com/vim/vim/issues/6112
+set t_TI= t_TE=
+
+" colorized
 set background=dark
+syntax on
 colorscheme solarized
 let g:solarized_termtrans = 1
 
@@ -127,7 +134,7 @@ set splitright
 map <C-n> :set nonumber!<CR>
 
 " CTRL+w S to disable syntastic
-nnoremap <C-w>S :SyntasticCheck<CR>
+" nnoremap <C-w>S :SyntasticCheck<CR>
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/

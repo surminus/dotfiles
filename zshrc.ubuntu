@@ -120,3 +120,7 @@ export FLOCKER_PROJECT_HOME="/home/laura/futurelearn/futurelearn"
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+export HYPERNOVA_CPUS=4
+
+export PATH="${HOME}/surminus/toolkit:${PATH}"

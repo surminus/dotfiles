@@ -24,6 +24,8 @@ alias gp="git p"
 alias reload_shell="exec $SHELL"
 alias shrug="echo '¯\_(ツ)_/¯'"
 
-alias jenkins="fligo ssh -e build -u ubuntu -r jenkins"
+alias jenkins="fligo ssh -e build -u ubuntu -r jenkins --use-iam-auth"
 
 alias flocker="PROJECT_HOME=~/futurelearn/futurelearn ~/futurelearn/futurelearn/script/flocker"
+
+alias plex-sync="sudo rsync -av ~/sync/plex/ /data/plex && sudo chown -R plex:plex /data/plex"
