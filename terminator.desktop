@@ -1,9 +1,26 @@
 [global_config]
-  always_split_with_profile = True
   focus = system
-  title_inactive_bg_color = "#204a87"
+  handle_size = 9
+  window_state = hidden
   title_transmit_bg_color = "#959595"
+  title_inactive_bg_color = "#204a87"
+  always_split_with_profile = True
 [keybindings]
+[profiles]
+  [[default]]
+    background_color = "#002b36"
+    cursor_color = "#839496"
+    font = Monaco 18
+    foreground_color = "#839496"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    word_chars = ",./?%&#:_"
+    use_custom_command = True
+    custom_command = export SHELL=/usr/bin/zsh && /usr/bin/zsh
+    use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -14,18 +31,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    background_color = "#002b36"
-    copy_on_selection = True
-    cursor_color = "#839496"
-    custom_command = export SHELL=/usr/bin/zsh && /usr/bin/zsh
-    font = Monaco 18
-    foreground_color = "#839496"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_custom_command = True
-    use_system_font = False
-    word_chars = ",./?%&#:_-"
