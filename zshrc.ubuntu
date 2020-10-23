@@ -14,7 +14,6 @@ plugins=(
   capistrano
   docker
   emoji
-  git
   github
   golang
   pass
@@ -42,7 +41,7 @@ fi
 export PATH="$HOME/bin:$PATH:"
 
 # Fligo
-which fligo >/dev/null 2>&1 && fligo completion zsh > ~/.oh-my-zsh/completions/_fligo
+command -v fligo >/dev/null 2>&1 && fligo --skip-version-check completion zsh > ~/.oh-my-zsh/completions/_fligo
 
 # Terralearn
 if test -d ~/futurelearn/terraform/bin; then
@@ -95,6 +94,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
 
 # awscli v2
 export PATH="/usr/local/aws-cli/v2/current/bin:${PATH}"
@@ -116,11 +116,11 @@ if test -f ~/.chef/mychef/lastrun; then
   fi
 fi
 
-export FLOCKER_PROJECT_HOME="/home/laura/futurelearn/futurelearn"
-
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
 export HYPERNOVA_CPUS=4
 
-export PATH="${HOME}/surminus/toolkit:${PATH}"
+if test -d ~/surminus/toolkit; then
+  export PATH=$HOME/surminus/toolkit:$PATH
+fi
