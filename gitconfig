@@ -14,7 +14,8 @@
   p = push origin HEAD
   s = status
 
-  amend   = commit --amend --no-edit
+  amend    = commit --amend
+  amendf   = commit --amend --no-edit
   co       = !sh -c 'git stash; git stash apply; git checkout "$@"'
   fixup    = commit --fixup
   last     = !git --no-pager log --oneline -10
@@ -50,6 +51,7 @@
 
 [core]
   excludesfile = /home/laura/.gitignore_global
+  attributesfile = /home/laura/.gitattributes
 
 [remote "origin"]
   prune = true
