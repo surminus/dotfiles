@@ -1,59 +1,79 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Required:
+set runtimepath+=/home/laura/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" Do not set this when another completion plugin is enabled
-" let g:ale_completion_enabled = 1
+" Required:
+if dein#load_state('/home/laura/.cache/dein')
+  call dein#begin('/home/laura/.cache/dein')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/laura/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-""" Completion
-" Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
+  """ Completion
+  " call dein#add('Shougo/neocomplete')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
 
-" Linting
-Plugin 'dense-analysis/ale'
-Plugin 'fatih/vim-go'
+  " Linting
+  " call dein#add('dense-analysis/ale')
+  " https://github.com/dense-analysis/ale/issues/3373#issuecomment-701967881
+  call dein#add('surminus/ale')
 
-" Theme
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'luochen1990/rainbow'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+  " Theme
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('luochen1990/rainbow')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
 
-" Git
-Plugin 'tpope/vim-fugitive'
+  " Git
+  call dein#add('tpope/vim-fugitive')
 
-" Files & search
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'scrooloose/nerdtree'
+  " Files & search
+  call dein#add('junegunn/fzf')
+  call dein#add('junegunn/fzf.vim')
+  call dein#add('scrooloose/nerdtree')
 
-" Syntax
-Plugin 'sheerun/vim-polyglot'
-Plugin 'chr4/nginx.vim'
-Plugin 'rodjek/vim-puppet'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'hashivim/vim-terraform'
+  " Syntax
+  call dein#add('chr4/nginx.vim')
+  call dein#add('rodjek/vim-puppet')
+  call dein#add('ekalinin/Dockerfile.vim')
+  call dein#add('hashivim/vim-terraform')
+  call dein#add('fatih/vim-go')
 
-" Editor config
-Plugin 'editorconfig/editorconfig-vim'
+  " Editor config
+  call dein#add('editorconfig/editorconfig-vim')
 
-" Tools
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-surround'
-" https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
-Plugin 'amcsi/auto-pairs'
+  " Tools
+  call dein#add('godlygeek/tabular')
+  call dein#add('tpope/vim-endwise')
+  call dein#add('tpope/vim-surround')
+  " https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
+  call dein#add('amcsi/auto-pairs')
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+  " Add or remove your plugins here like this:
+  "call dein#add('Shougo/neosnippet.vim')
+  "call dein#add('Shougo/neosnippet-snippets')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
 filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+"End dein Scripts-------------------------
 
 " nerdtree
 map <C-x> :NERDTreeToggle<CR>
@@ -62,6 +82,11 @@ map <C-x> :NERDTreeToggle<CR>
 " with neocomplete for the time-being
 " EDIT: seems to be working?
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#complete_method = "omnifunc"
+
+call deoplete#custom#option('omni_patterns', {
+\ 'go': '[^. *\t]\.\w*',
+\})
 
 " neocomplete
 " let g:neocomplete#enable_at_startup = 1
@@ -72,7 +97,6 @@ let g:deoplete#enable_at_startup = 1
 " \})
 
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-
 autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 " vim-go
@@ -81,6 +105,7 @@ let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_code_completion_enabled = 1
+let g:go_gopls_enabled = 1
 
 " " javascript
 " " let g:javascript_plugin_jsdoc = 1
@@ -130,6 +155,7 @@ let g:airline#extensions#ale#enabled = 1
 
 " fuzzy finder!
 map <C-f> :Files<CR>
+map <C-s> :Rg<CR>
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
