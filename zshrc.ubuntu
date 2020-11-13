@@ -124,3 +124,8 @@ export HYPERNOVA_CPUS=4
 if test -d ~/surminus/toolkit; then
   export PATH=$HOME/surminus/toolkit:$PATH
 fi
+
+# fzf
+if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
+fi
