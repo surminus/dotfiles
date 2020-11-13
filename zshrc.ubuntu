@@ -129,3 +129,5 @@ fi
 if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
   export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
 fi
+[[ $- == *i* ]] && source "/home/laura/.fzf/shell/completion.zsh" 2> /dev/null
+source "/home/laura/.fzf/shell/key-bindings.zsh"
