@@ -35,7 +35,7 @@ if dein#load_state('/home/laura/.cache/dein')
   call dein#add('tpope/vim-fugitive')
 
   " Files & search
-  call dein#add('junegunn/fzf')
+  call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
   call dein#add('junegunn/fzf.vim')
   call dein#add('scrooloose/nerdtree')
 
