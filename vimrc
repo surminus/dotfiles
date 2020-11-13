@@ -78,26 +78,13 @@ endif
 " nerdtree
 map <C-x> :NERDTreeToggle<CR>
 
-" deoplete: can't seem to get it working nicely with vim-go, so sticking
-" with neocomplete for the time-being
-" EDIT: seems to be working?
+" deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#complete_method = "omnifunc"
 
 call deoplete#custom#option('omni_patterns', {
 \ 'go': '[^. *\t]\.\w*',
 \})
-
-" neocomplete
-" let g:neocomplete#enable_at_startup = 1
-
-" Use ALE and also some plugin 'foobar' as completion sources for all code.
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale'],
-" \})
-
-autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 " vim-go
 let g:go_highlight_types = 1
@@ -107,26 +94,20 @@ let g:go_highlight_operators = 1
 let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
 
-" " javascript
-" " let g:javascript_plugin_jsdoc = 1
-"
-" shared clipboard
+" Shared clipboard
 set clipboard=unnamed
 
-" " rainbow
-let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
-
-" airline
+" Airline
 let g:airline_theme='atomic'
 
 " https://github.com/vim/vim/issues/6112
 set t_TI= t_TE=
 
-" colorized
-set background=dark
-syntax on
+" Colorized
 colorscheme solarized
 let g:solarized_termtrans = 1
+set background=dark
+syntax on
 
 " ALE
 let g:ale_fixers = {
@@ -137,29 +118,21 @@ let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports']
 \}
 
-" In ~/.vim/vimrc, or somewhere similar.
 let g:ale_linters = {
 \   'go': ['gobuild', 'gofmt', 'golint', 'gosimple', 'govet'],
 \}
 
-" Uncomment these lines to only lint on save
-" let g:ale_lint_on_text_changed = 'normal'
-" let g:ale_lint_on_enter = 0
-
-""" fix with CTRL+f (never use it)
-" map <C-f> :ALEFix<CR>
-" Next error
-map <C-e> :ALENext<CR>
-" ALE with airline
-let g:airline#extensions#ale#enabled = 1
-
-" fuzzy finder!
-map <C-f> :Files<CR>
-map <C-s> :Rg<CR>
-
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+let g:airline#extensions#ale#enabled = 1
 let g:ale_change_sign_column_color = 1
+
+" Next error
+map <C-e> :ALENext<CR>
+
+" fzf
+map <C-f> :Files<CR>
+map <C-s> :Rg<CR>
 
 " swapfiles
 set directory=~/.vim/swapfiles
@@ -169,45 +142,38 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
-set number
-set nocp
-set ruler
+set autoindent
+set backspace=indent,eol,start
+set colorcolumn=80
 set cursorline
+set expandtab
 set hlsearch
 set incsearch
-
-syntax on
-
-set shiftwidth=2
-set shiftround
-set autoindent
-set tabstop=8
-set expandtab
-set colorcolumn=80
 set modeline
 set modelines=5
-
-set backspace=indent,eol,start
+set nocp
+set number
+set ruler
+set shiftround
+set shiftwidth=2
+set tabstop=8
 
 autocmd filetype crontab setlocal nobackup nowritebackup
+autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
+autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
 
-" delete whitespace with F5
+" Whitespace
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
-" splitting
+" Splitting
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
 set splitbelow
 set splitright
 
-" CTRL+n to remove line numbers
+" Line numbers
 map <C-n> :set nonumber!<CR>
-
-" CTRL+w S to disable syntastic
-" nnoremap <C-w>S :SyntasticCheck<CR>
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
