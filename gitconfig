@@ -25,7 +25,7 @@
   pick-axe = log -p -S
   pr       = pull-request
   pushf    = push --force-with-lease origin HEAD
-  save     = !git add . && git commit -m \"WIP: auto save at $(date +%F)\"
+  save     = !git add . && git commit -m \"WIP: auto save at $(date '+%Y%m%d %H:%m:%S')\"
   squash   = rebase -i --autosquash
   st       = status
   tidy     = clean -fd .
