@@ -1,8 +1,8 @@
-# Vim
-alias vi=vim
+# vim
+alias v=vim
 alias bim=vim
 
-# Bundle
+# bundle
 alias bi="bundle install --path ~/.bundle"
 
 # Pass
@@ -10,20 +10,20 @@ alias pass-fetch="pass git pull"
 alias pass-push="pass git push"
 alias pass-sync="pass-fetch && pass-push"
 
-# Git & Hub
-#alias gcm="(git checkout master || git checkout main) && git pull"
+# git checkout and pull
 function gcm() {
   git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull
 }
 
 alias gco="git checkout"
 
-# Misc
+# reload previously loaded shell
 alias reload_shell="exec $SHELL"
+
+# shrug
 alias shrug="echo '¯\_(ツ)_/¯'"
 
 alias jenkins="fligo ssh -e build -u ubuntu -r jenkins"
 
-alias flocker="PROJECT_HOME=~/futurelearn/futurelearn ~/futurelearn/futurelearn/script/flocker"
-
-alias plex-sync="sudo rsync -av ~/sync/plex/ /data/plex && sudo chown -R plex:plex /data/plex"
+# ignore snaps
+alias df='df -x"squashfs"'
