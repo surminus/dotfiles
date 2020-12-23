@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Use vim
 export EDITOR=vim
 
 ZSH_THEME="robbyrussell"
@@ -49,23 +50,17 @@ if test -d ~/futurelearn/terraform/bin; then
   [[ -z $TL_ENV ]] && export TL_ENV=playground # Default to Playground
 fi
 
-# To get autosuggestions to work, also set "fg-239" in
-# ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# autosuggestions
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=238
 export TERM="xterm-256color"
 
+# hub
 if [ -e /usr/local/bin/hub ]; then
   eval "$(hub alias -s)"
   if [ -e ~/.zsh/completions/_hub ]; then
     fpath=(~/.zsh/completions $fpath)
     autoload -U compinit && compinit
   fi
-fi
-
-# Bundle
-if [[ "$(grep CODENAME /etc/lsb-release |cut -d "=" -f2)" == "xenial" ]]; then
-  alias bi="CC=/usr/bin/gcc-4.9 bundle install --path ~/.bundle"
-else
-  alias bi="bundle install --path ~/.bundle"
 fi
 
 # nvm
@@ -99,17 +94,14 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 # awscli v2
 export PATH="/usr/local/aws-cli/v2/current/bin:${PATH}"
 
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=238
-
+# load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# aliases
 source ~/.dotfiles/aliases
 source ~/.dotfiles/aliases.ubuntu
 
-if which colordiff >/dev/null 2>&1; then
-  source ~/.dotfiles/diff
-fi
-
+# mychef last run
 if test -f ~/.chef/mychef/lastrun; then
   if [[ "$(find ~/.chef/mychef -name lastrun -mtime +30 |wc -l)" -eq 1 ]]; then
     echo "Warning: mychef has not been run for over 30 days "
@@ -119,8 +111,10 @@ fi
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
+# hypernova
 export HYPERNOVA_CPUS=4
 
+# toolkit
 if test -d ~/surminus/toolkit; then
   export PATH=$HOME/surminus/toolkit:$PATH
 fi
@@ -129,5 +123,6 @@ fi
 if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
   export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
 fi
+
 [[ $- == *i* ]] && source "/home/laura/.fzf/shell/completion.zsh" 2> /dev/null
 source "/home/laura/.fzf/shell/key-bindings.zsh"
