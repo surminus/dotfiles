@@ -27,3 +27,6 @@ alias jenkins="fligo ssh -e build -u ubuntu -r jenkins"
 
 # ignore snaps
 alias df='df -x"squashfs"'
+
+# github cli
+alias ghp='gh pr create --label scalable-platform --reviewer futurelearn/scalable-platform-team'
