@@ -62,13 +62,6 @@ if [ -e /usr/local/bin/hub ]; then
   fi
 fi
 
-# nvm
-if test -d "$HOME/.nvm"; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-
 # Like OSX
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
@@ -94,6 +87,11 @@ if test -d $HOME/.pyenv; then
     eval "$(pyenv init -)"
   fi
   export PYTHON_CONFIGURE_OPTS="--enable-shared"
+fi
+
+if test -d $HOME/.nodenv; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
 fi
 
 # awscli v2
