@@ -103,6 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 source ~/.dotfiles/aliases
 
+# secret
+test -f ~/.secret && source ~/.secret
+
 # pulumi
 if test -d $HOME/.pulumi; then
   export PATH=$HOME/.pulumi/bin:$PATH
