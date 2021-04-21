@@ -26,7 +26,7 @@ if dein#load_state('/home/laura/.cache/dein')
   call dein#add('surminus/ale')
 
   " Theme
-  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('bluz71/vim-moonfly-colors')
   call dein#add('luochen1990/rainbow')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
@@ -103,10 +103,9 @@ let g:airline_theme='atomic'
 " https://github.com/vim/vim/issues/6112
 set t_TI= t_TE=
 
-" Colorized
-colorscheme solarized
-let g:solarized_termtrans = 1
-set background=dark
+" Theme
+colorscheme moonfly
+set termguicolors
 syntax on
 
 " ALE

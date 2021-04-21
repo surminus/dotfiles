@@ -8,14 +8,13 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#002b36"
+    background_darkness = 0.44
     cursor_color = "#839496"
-    font = Monaco 18
-    foreground_color = "#839496"
+    font = Monaco 16
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     word_chars = ",./?%&#:_"
     use_custom_command = True
     custom_command = export SHELL=/usr/bin/zsh && /usr/bin/zsh
