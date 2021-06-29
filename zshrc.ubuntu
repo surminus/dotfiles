@@ -13,7 +13,6 @@ plugins=(
   docker
   emoji
   fzf
-  fzf-tab
   github
   golang
   node
