@@ -20,3 +20,12 @@ alias shrug="echo '¯\_(ツ)_/¯'"
 
 # ignore snaps
 alias df='df -x"squashfs"'
+
+# bat
+if $(which batcat >/dev/null 2>&1); then
+  alias cat='batcat -p'
+fi
+
+if $(which bat >/dev/null 2>&1); then
+  alias cat='bat -p'
+fi
