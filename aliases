@@ -5,11 +5,6 @@ alias bim=vim
 # bundle
 alias bi="bundle install --path ~/.bundle"
 
-# Pass
-alias pass-fetch="pass git pull"
-alias pass-push="pass git push"
-alias pass-sync="pass-fetch && pass-push"
-
 # git checkout and pull
 function gcm() {
   git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull
