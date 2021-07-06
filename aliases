@@ -23,11 +23,11 @@ alias df='df -x"squashfs"'
 
 # bat
 if $(which batcat >/dev/null 2>&1); then
-  alias cat='batcat -p'
+  alias cat='batcat -p --paging=never'
 fi
 
 if $(which bat >/dev/null 2>&1); then
-  alias cat='bat -p'
+  alias cat='bat -p --paging=never'
 fi
 
 # Replace rpl with sd in string mode
