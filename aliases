@@ -24,10 +24,18 @@ alias df='df -x"squashfs"'
 # bat
 if $(which batcat >/dev/null 2>&1); then
   alias cat='batcat -p --paging=never'
+
+  if $(which fzf >/dev/null 2>&1); then
+    alias fzf="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
+  fi
 fi
 
 if $(which bat >/dev/null 2>&1); then
   alias cat='bat -p --paging=never'
+
+  if $(which fzf >/dev/null 2>&1); then
+    alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+  fi
 fi
 
 # Replace rpl with sd in string mode

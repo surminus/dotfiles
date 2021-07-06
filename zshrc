@@ -85,9 +85,6 @@ export PATH="/usr/local/aws-cli/v2/current/bin:${PATH}"
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# aliases
-source ~/.dotfiles/aliases
-
 # secret
 test -f ~/.secret && source ~/.secret
 
@@ -109,6 +106,8 @@ if test -d $HOME/.fzf; then
 
   [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
   source "$HOME/.fzf/shell/key-bindings.zsh"
+
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude ".git"'
 fi
 
 # Enable pass extensions
@@ -142,9 +141,12 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   # Ubuntu on WSL #
   #################
     pgrep gpg-agent >/dev/null 2>&1 || eval $(gpg-agent --daemon --quiet)
-    
+
     # Like MacOS
     alias pbcopy="clip.exe"
     alias pbpaste="powershell.exe -command 'Get-Clipboard' | tr -d '\r'"
   fi
 fi
+
+# Load aliases at the end
+source ~/.dotfiles/aliases
