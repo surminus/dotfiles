@@ -20,8 +20,8 @@
   fixup    = commit --fixup
   last     = !git --no-pager log --oneline -10
   mine     = !git --no-pager branch --sort=committerdate -a --format='%(author) %(refname)' | grep -e 'Laura Martin\\|surminus' | rev | cut -d'/' -f1 | rev | uniq |grep -v HEAD
-  nuke     = reset --hard origin/master
-  old      = !git --no-pager branch --merged |grep -v master
+  nuke     = reset --hard @{upstream}
+  old      = !git --no-pager branch --merged |grep -ev 'master\\|main'
   pick-axe = log -p -S
   pr       = pull-request
   pushf    = push --force-with-lease origin HEAD
@@ -30,6 +30,7 @@
   st       = status
   tidy     = clean -fd .
   tree     = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) <%an> %Creset' --abbrev-commit
+  undo     = reset HEAD^
 
 [pull]
   rebase = true
