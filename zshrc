@@ -125,7 +125,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
   export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
-  alias vim='/usr/local/bin/vim'
+  test -f /usr/local/bin/vim && alias vim='/usr/local/bin/vim'
 fi
 
 #########
