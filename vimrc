@@ -4,15 +4,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/laura/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/laura/.cache/dein')
-  call dein#begin('/home/laura/.cache/dein')
+if dein#load_state("$HOME/.cache/dein")
+  call dein#begin("$HOME/.cache/dein")
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/laura/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
   """ Completion
   " call dein#add('Shougo/neocomplete')
