@@ -16,8 +16,12 @@ function suffix {
   echo "%{$fg[blue]%})%{$reset_color%}"
 }
 
+function remote {
+  [[ -n $ZSH_THEME_SURMINUS_REMOTE ]] && echo "$emoji[globe_with_meridians]"
+}
+
 # <emoji> /path/to/dir(git_info)
-PROMPT='${ret_status} $(path)$(git_prompt_info) '
+PROMPT='$(remote)${ret_status} $(path)$(git_prompt_info) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="$(prefix)"
 ZSH_THEME_GIT_PROMPT_SUFFIX="$(suffix)"
