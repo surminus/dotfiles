@@ -132,15 +132,17 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   test -f /usr/local/bin/vim && alias vim='/usr/local/bin/vim'
 fi
 
+# Like MacOS, if xclip is available
+if command -v xclip >/dev/null 2>&1; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
+
 ##########
 # Ubuntu #
 ##########
-if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg; then
-  if ! dpkg -l | grep -q ubuntu-wsl; then
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
-  else
-
+if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg >/dev/null 2>&1; then
+  if dpkg -l | grep -q ubuntu-wsl; then
   #################
   # Ubuntu on WSL #
   #################
