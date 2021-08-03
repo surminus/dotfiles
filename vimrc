@@ -19,6 +19,7 @@ if dein#load_state("$HOME/.cache/dein")
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
+  call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
 
   " Linting
   " call dein#add('dense-analysis/ale')
@@ -55,10 +56,6 @@ if dein#load_state("$HOME/.cache/dein")
   call dein#add('tpope/vim-surround')
   " https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
   call dein#add('amcsi/auto-pairs')
-
-  " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
 
   " Required:
   call dein#end()
