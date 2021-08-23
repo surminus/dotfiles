@@ -20,6 +20,8 @@ if dein#load_state("$HOME/.cache/dein")
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
   call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
+  call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'branch': 'next' })
+  call dein#add('Shougo/neco-syntax')
 
   " Linting
   " call dein#add('dense-analysis/ale')
@@ -82,6 +84,13 @@ let g:deoplete#complete_method = "omnifunc"
 call deoplete#custom#option('omni_patterns', {
 \ 'go': '[^. *\t]\.\w*',
 \})
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+\ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+\ }
 
 " vim-go
 let g:go_highlight_types = 1
