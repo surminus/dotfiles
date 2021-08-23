@@ -88,8 +88,12 @@ call deoplete#custom#option('omni_patterns', {
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
+" To install configured language servers:
+" gem install solargraph
+" npm i -g bash-language-server
 let g:LanguageClient_serverCommands = {
 \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+\ 'sh': ['bash-language-server', 'start']
 \ }
 
 " vim-go
@@ -97,6 +101,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
+" This handles using gopls language server
 let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
 
