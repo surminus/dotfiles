@@ -74,10 +74,14 @@ if test -d $HOME/.pyenv; then
   export PYTHON_CONFIGURE_OPTS="--enable-shared"
 fi
 
+# nodenv
 if test -d $HOME/.nodenv; then
   export PATH="$HOME/.nodenv/bin:$PATH"
   eval "$(nodenv init -)"
 fi
+
+# cargo
+test -d $HOME/.cargo/bin && export PATH="$HOME/.cargo/bin:$PATH"
 
 # awscli v2
 export PATH="/usr/local/aws-cli/v2/current/bin:${PATH}"
