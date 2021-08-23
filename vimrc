@@ -75,7 +75,7 @@ endif
 "End dein Scripts-------------------------
 
 " nerdtree
-map <C-x> :NERDTreeToggle<CR>
+map <C-p> :NERDTreeToggle<CR>
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -187,3 +187,6 @@ set splitright
 
 " Line numbers
 map <C-n> :set nonumber!<CR>
+
+" Terminal shortcut
+map <C-T> :term ++close ++rows=10<cr>
