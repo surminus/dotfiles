@@ -23,9 +23,9 @@ if dein#load_state("$HOME/.cache/dein")
   call dein#add('Shougo/neco-syntax')
 
   " Linting
-  " call dein#add('dense-analysis/ale')
+  call dein#add('dense-analysis/ale')
   " https://github.com/dense-analysis/ale/issues/3373#issuecomment-701967881
-  call dein#add('surminus/ale')
+  " call dein#add('surminus/ale')
 
   " Theme
   call dein#add('bluz71/vim-moonfly-colors')
