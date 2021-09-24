@@ -15,7 +15,6 @@ if dein#load_state("$HOME/.cache/dein")
   call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
   """ Completion
-  " call dein#add('Shougo/neocomplete')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
