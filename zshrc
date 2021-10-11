@@ -154,5 +154,17 @@ if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg >/dev/null 2>&1; then
   fi
 fi
 
+if test -f ~/.chef/mychef/lastrun; then
+  if [[ $(find ~/.chef/mychef/lastrun -mtime +30 |wc -l) -gt 0 ]]; then
+    echo "WARNING: mychef has not been run in 30 days, run now? y/n"
+    read ANSWER
+
+    case $ANSWER in
+      y|Y) mychef;;
+      *) echo "OK, will ignore for another 30 days" && touch ~/.chef/mychef/lastrun;;
+    esac
+  fi
+fi
+
 # Load aliases at the end
 source ~/.dotfiles/aliases
