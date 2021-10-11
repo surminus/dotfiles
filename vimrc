@@ -92,7 +92,8 @@ set hidden
 " npm i -g bash-language-server
 let g:LanguageClient_serverCommands = {
 \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-\ 'sh': ['bash-language-server', 'start']
+\ 'sh': ['bash-language-server', 'start'],
+\ 'terraform': ['terraform-ls', 'serve'],
 \ }
 
 " vim-go
