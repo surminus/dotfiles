@@ -7,61 +7,58 @@ endif
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state("$HOME/.cache/dein")
-  call dein#begin("$HOME/.cache/dein")
+call dein#begin("$HOME/.cache/dein")
 
-  " Let dein manage dein
-  " Required:
-  call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
+" Let dein manage dein
+" Required:
+call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
-  """ Completion
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-  call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
-  call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'branch': 'next' })
-  call dein#add('Shougo/neco-syntax')
+""" Completion
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('roxma/nvim-yarp')
+call dein#add('roxma/vim-hug-neovim-rpc')
+call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
+call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'branch': 'next' })
+call dein#add('Shougo/neco-syntax')
 
-  " Linting
-  call dein#add('dense-analysis/ale')
-  " https://github.com/dense-analysis/ale/issues/3373#issuecomment-701967881
-  " call dein#add('surminus/ale')
+" Linting
+call dein#add('dense-analysis/ale')
+" https://github.com/dense-analysis/ale/issues/3373#issuecomment-701967881
+" call dein#add('surminus/ale')
 
-  " Theme
-  call dein#add('bluz71/vim-moonfly-colors')
-  call dein#add('luochen1990/rainbow')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
+" Theme
+call dein#add('bluz71/vim-moonfly-colors')
+call dein#add('luochen1990/rainbow')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 
-  " Git
-  call dein#add('tpope/vim-fugitive')
+" Git
+call dein#add('tpope/vim-fugitive')
 
-  " Files & search
-  call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim')
-  call dein#add('scrooloose/nerdtree')
+" Files & search
+call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
+call dein#add('junegunn/fzf.vim')
+call dein#add('scrooloose/nerdtree')
 
-  " Syntax
-  call dein#add('chr4/nginx.vim')
-  call dein#add('rodjek/vim-puppet')
-  call dein#add('ekalinin/Dockerfile.vim')
-  call dein#add('hashivim/vim-terraform')
-  call dein#add('fatih/vim-go')
+" Syntax
+call dein#add('chr4/nginx.vim')
+call dein#add('rodjek/vim-puppet')
+call dein#add('ekalinin/Dockerfile.vim')
+call dein#add('hashivim/vim-terraform')
+call dein#add('fatih/vim-go')
 
-  " Editor config
-  call dein#add('editorconfig/editorconfig-vim')
+" Editor config
+call dein#add('editorconfig/editorconfig-vim')
 
-  " Tools
-  call dein#add('godlygeek/tabular')
-  call dein#add('tpope/vim-endwise')
-  call dein#add('tpope/vim-surround')
-  " https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
-  call dein#add('amcsi/auto-pairs')
+" Tools
+call dein#add('godlygeek/tabular')
+call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-surround')
+" https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
+call dein#add('amcsi/auto-pairs')
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
