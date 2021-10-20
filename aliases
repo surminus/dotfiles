@@ -3,7 +3,7 @@ alias v=vim
 alias bim=vim
 
 # bundle
-alias bi="bundle install --path ~/.bundle"
+alias bi="bundle install"
 
 # git checkout and pull
 function gcm() {

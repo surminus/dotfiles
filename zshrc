@@ -58,6 +58,10 @@ if test -d $HOME/.rbenv; then
   fi
 fi
 
+if command -v bundle >/dev/null 2>&1 && ! grep -q BUNDLE_PATH $HOME/.bundle/config; then
+  bundle config set --local path "$HOME/.bundle"
+fi
+
 # tfenv
 if test -d $HOME/.tfenv; then
   export PATH="$HOME/.tfenv/bin:$PATH"
