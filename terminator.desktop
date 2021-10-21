@@ -6,6 +6,9 @@
   title_inactive_bg_color = "#204a87"
   always_split_with_profile = True
 [keybindings]
+  broadcast_all = None
+  broadcast_group = None
+  broadcast_off = None
 [profiles]
   [[default]]
     background_darkness = 0.44
