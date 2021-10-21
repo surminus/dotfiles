@@ -71,7 +71,11 @@ endif
 "End dein Scripts-------------------------
 
 " nerdtree
-map <C-p> :NERDTreeToggle<CR>
+if $TMUX
+  map <C-p> :NERDTreeToggle<CR>
+else
+  map <C-x> :NERDTreeToggle<CR>
+endif
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
