@@ -43,4 +43,10 @@ alias rpl="sd -s"
 
 # I like fd, but the globbing zsh behaviour
 # means it doesn't work so well
-alias fd="noglob fd"
+#
+# If installed using apt, then it may be called fdfind
+if command -v fdfind >/dev/null 2>&1; then
+  alias fd="noglob fdfind"
+elif command -v fd >/dev/null 2>&1; then
+  alias fd="noglob fd"
+fi
