@@ -181,5 +181,9 @@ match ExtraWhitespace /\s\+$/
 " Line numbers
 map <C-n> :set nonumber!<CR>
 
+" Splitting
+set splitbelow
+set splitright
+
 " Terminal shortcut
 map <C-T> :term ++close ++rows=10<cr>
