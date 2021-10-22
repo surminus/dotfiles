@@ -36,7 +36,6 @@ call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-fugitive')
 
 " Files & search
-call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
 call dein#add('junegunn/fzf.vim')
 call dein#add('scrooloose/nerdtree')
 
@@ -142,6 +141,18 @@ let g:ale_change_sign_column_color = 1
 map <C-e> :ALENext<CR>
 
 " fzf
+" Requires that fzf is cloned in ~/.fzf
+set rtp+=~/.fzf
+
+let g:fzf_history_dir = '~/.fzf-history'
+let g:fzf_buffers_jump = 1
+
+" Try to work out tags some other time...
+"
+" let g:fzf_tags_command = 'ctags -R'
+" call fzf#vim#tags(expand('<cword>'))
+" nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+
 map <C-f> :Files<CR>
 map <C-s> :Rg<CR>
 
