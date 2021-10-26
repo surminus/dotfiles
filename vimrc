@@ -147,14 +147,10 @@ set rtp+=~/.fzf
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
 
-" Try to work out tags some other time...
-"
-" let g:fzf_tags_command = 'ctags -R'
-" call fzf#vim#tags(expand('<cword>'))
-" nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
-
 map <C-f> :Files<CR>
-map <C-s> :Rg<CR>
+
+" Searches for the word under the cursor
+map <C-s> :Rg <C-r><C-w><CR>
 
 " swapfiles
 set directory=~/.vim/swapfiles
