@@ -106,7 +106,19 @@ if test -d ~/surminus/toolkit; then
   export PATH=$HOME/surminus/toolkit:$PATH
 fi
 
-# fzf
+# Search (fzf and fd)
+#
+# If installed using apt, then it may be called fdfind
+if command -v fdfind >/dev/null 2>&1; then
+  FD_COMMAND="fdfind"
+elif command -v fd >/dev/null 2>&1; then
+  FD_COMMAND="fd"
+fi
+
+# I like fd, but the globbing zsh behaviour
+# means it doesn't work so well
+[[ -n $FD_COMMAND ]] && alias fd="noglob ${FD_COMMAND}"
+
 if test -d $HOME/.fzf; then
   if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
     export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
@@ -115,7 +127,7 @@ if test -d $HOME/.fzf; then
   [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
   source "$HOME/.fzf/shell/key-bindings.zsh"
 
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude ".git"'
+  [[ -n $FD_COMMAND ]] && export FZF_DEFAULT_COMMAND="${FD_COMMAND} --type f --hidden --follow --exclude '.git'"
 fi
 
 # Enable pass extensions
