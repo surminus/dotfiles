@@ -52,6 +52,7 @@
 [core]
   excludesfile = /home/laura/.gitignore_global
   attributesfile = /home/laura/.gitattributes
+  pager = less -XFR
 
 [remote "origin"]
   prune = true
