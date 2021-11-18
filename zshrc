@@ -89,7 +89,7 @@ test -d $HOME/.cargo/bin && export PATH="$HOME/.cargo/bin:$PATH"
 
 # awscli v2
 export PATH="/usr/local/aws-cli/v2/current/bin:${PATH}"
-export AWS_PAGER= # I hate the paging with AWS CLI
+export AWS_PAGER="less -XFR"
 
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
