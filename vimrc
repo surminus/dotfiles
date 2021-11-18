@@ -177,9 +177,10 @@ set shiftround
 set shiftwidth=2
 set tabstop=8
 
-autocmd filetype crontab setlocal nobackup nowritebackup
+autocmd FileType crontab setlocal nobackup nowritebackup
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-autocmd Filetype go set autoindent noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType go set autoindent noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType make setlocal noexpandtab
 
 " Whitespace
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
