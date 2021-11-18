@@ -62,9 +62,11 @@
 
 # Use delta
 # https://github.com/dandavison/delta
+[include]
+  path = ~/.delta/themes.gitconfig
+
 [pager]
   diff = delta
-  log = delta
   reflog = delta
   show = delta
 
@@ -82,8 +84,8 @@
 [delta "decorations"]
   commit-decoration-style = blue ol
   commit-style = raw
-  file-style = omit
+  file-style = file box
   hunk-header-decoration-style = blue box
   hunk-header-file-style = red
   hunk-header-line-number-style = "#067a00"
-  hunk-header-style = file line-number syntax
+  hunk-header-style = omit
