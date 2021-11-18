@@ -45,6 +45,7 @@ call dein#add('rodjek/vim-puppet')
 call dein#add('ekalinin/Dockerfile.vim')
 call dein#add('hashivim/vim-terraform')
 call dein#add('fatih/vim-go')
+call dein#add('google/vim-jsonnet')
 
 " Editor config
 call dein#add('editorconfig/editorconfig-vim')
