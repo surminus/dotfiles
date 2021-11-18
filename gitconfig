@@ -74,6 +74,7 @@
 
 [delta]
   features = decorations
+  line-numbers = true
 
 [delta "interactive"]
   keep-plus-minus-markers = false
