@@ -68,6 +68,10 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
+
+" To update plugins:
+" call dein#update()
+
 "End dein Scripts-------------------------
 
 " nerdtree
