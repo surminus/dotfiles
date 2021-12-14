@@ -4,6 +4,11 @@
 alias v=vim
 alias bim=vim
 
+function update-vim-plugins() {
+  vim -c 'call dein#update()' -c 'qa!'
+  mkdir -p ~/.vim && touch ~/.vim/plugins.updated
+}
+
 # bundle
 alias bi="bundle install"
 
