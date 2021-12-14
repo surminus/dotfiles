@@ -13,6 +13,12 @@ function gcm() {
 }
 
 alias gco="git checkout"
+alias gsw="git switch"
+
+# Move to root of repo
+function grt() {
+  cd $(git rev-parse --show-toplevel)
+}
 
 # reload previously loaded shell
 alias reload_shell="exec $SHELL"
