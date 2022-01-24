@@ -4,6 +4,10 @@
 alias v=vim
 alias bim=vim
 
+function vx() {
+  vim $(fzf)
+}
+
 function update-vim-plugins() {
   vim -c 'call dein#update()' -c 'qa!'
   mkdir -p ~/.vim && touch ~/.vim/plugins.updated
@@ -19,6 +23,10 @@ function gcm() {
 
 alias gco="git checkout"
 alias gsw="git switch"
+
+function gsl() {
+  git switch $(git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' |cut -d'/' -f3 | tac | fzf --preview='git log --oneline {} |head -20')
+}
 
 # Move to root of repo
 function grt() {
@@ -53,3 +61,6 @@ fi
 
 # Replace rpl with sd in string mode
 alias rpl="sd -s"
+
+# Terraform
+alias tf="terraform"
