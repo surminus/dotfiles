@@ -128,6 +128,7 @@ syntax on
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
+\   'rb': ['rubocop'],
 \   'bash': ['shfmt'],
 \   'markdown': ['mdl'],
 \   'go': ['gofmt', 'goimports']
