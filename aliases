@@ -1,29 +1,37 @@
 # vi: ft=bash
 
-# vim
+###
+### Vim
+###
 alias v=vim
 alias bim=vim
 
 function vx() {
   vim $(fzf)
 }
+###
+### End
+###
 
-function update-vim-plugins() {
-  vim -c 'call dein#update()' -c 'qa!'
-  mkdir -p ~/.vim && touch ~/.vim/plugins.updated
+
+###
+### Git
+###
+function git_default_branch() {
+  git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
 }
-
-# bundle
-alias bi="bundle install"
 
 # git checkout and pull
 function gcm() {
-  git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull
+  git switch $(git_default_branch) && git pull
 }
 
-alias gco="git checkout"
-alias gsw="git switch"
+# Automatic rebase with default branch
+function grb() {
+  gcm && git switch - && git rebase $(git_default_branch)
+}
 
+# Interactive branch selector
 function gsl() {
   git switch $(git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' |cut -d'/' -f3 | tac | fzf --preview='git log --oneline {} |head -20')
 }
@@ -33,16 +41,16 @@ function grt() {
   cd $(git rev-parse --show-toplevel)
 }
 
-# reload previously loaded shell
-alias reload_shell="exec $SHELL"
+alias gco="git checkout"
+alias gsw="git switch"
+###
+### End
+###
 
-# shrug
-alias shrug="echo '¯\_(ツ)_/¯'"
 
-# ignore snaps
-alias df='df -x"squashfs"'
-
-# bat
+###
+### Bat
+###
 if $(which batcat >/dev/null 2>&1); then
   alias cat='batcat -p --paging=never'
 
@@ -58,9 +66,36 @@ if $(which bat >/dev/null 2>&1); then
     alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
   fi
 fi
+###
+### End
+###
+
+
+###
+### Misc
+###
+function update-vim-plugins() {
+  vim -c 'call dein#update()' -c 'qa!'
+  mkdir -p ~/.vim && touch ~/.vim/plugins.updated
+}
+
+# Reload previously loaded shell
+alias reload_shell="exec $SHELL"
+
+# Shrug
+alias shrug="echo '¯\_(ツ)_/¯'"
+
+# Ignore snaps
+alias df='df -x"squashfs"'
+
+# Bundler
+alias bi="bundle install"
 
 # Replace rpl with sd in string mode
 alias rpl="sd -s"
 
 # Terraform
 alias tf="terraform"
+###
+### End
+###
