@@ -41,11 +41,12 @@ call dein#add('scrooloose/nerdtree')
 
 " Syntax
 call dein#add('chr4/nginx.vim')
-call dein#add('rodjek/vim-puppet')
 call dein#add('ekalinin/Dockerfile.vim')
-call dein#add('hashivim/vim-terraform')
 call dein#add('fatih/vim-go')
 call dein#add('google/vim-jsonnet')
+call dein#add('hashivim/vim-terraform')
+call dein#add('martinda/Jenkinsfile-vim-syntax')
+call dein#add('rodjek/vim-puppet')
 
 " Editor config
 call dein#add('editorconfig/editorconfig-vim')
