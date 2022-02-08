@@ -70,6 +70,7 @@
   diff = delta
   reflog = delta
   show = delta
+  log = delta
 
 [interactive]
   diffFilter = delta --color-only --features=interactive
