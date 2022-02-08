@@ -33,7 +33,17 @@ function grb() {
 
 # Interactive branch selector
 function gsl() {
-  git switch $(git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' |cut -d'/' -f3 | tac | fzf --preview='git log --oneline {} |head -20')
+  git switch $(git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' |cut -d'/' -f3 | tac | fzf --preview='git log --color=always --oneline {} |head -20')
+}
+
+# Interactive commit sha selector, automatically copies into paste buffer
+function glo() {
+  git log --oneline --format=format:%H | fzf --preview='git show --color=always {}'
+}
+
+# Interactive fixup selector
+function gfi() {
+  git fixup $(glo)
 }
 
 # Move to root of repo
