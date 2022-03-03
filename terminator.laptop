@@ -8,6 +8,7 @@
   broadcast_off = None
   broadcast_group = None
   broadcast_all = None
+  layout_launcher = None
 [profiles]
   [[default]]
     cursor_color = "#839496"
