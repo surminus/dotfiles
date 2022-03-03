@@ -1,15 +1,13 @@
-"dein Scripts-----------------------------
+"""dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
+""" Required:
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
 call dein#begin("$HOME/.cache/dein")
 
-" Let dein manage dein
+""" Let dein manage dein
 " Required:
 call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
@@ -75,14 +73,14 @@ endif
 
 "End dein Scripts-------------------------
 
-" nerdtree
+""" nerdtree
 if $TMUX
   map <C-p> :NERDTreeToggle<CR>
 else
-  map <C-x> :NERDTreeToggle<CR>
+ map <C-x> :NERDTreeToggle<CR>
 endif
 
-" deoplete
+""" deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#complete_method = "omnifunc"
 
@@ -90,6 +88,9 @@ call deoplete#custom#option('omni_patterns', {
 \ 'go': '[^. *\t]\.\w*',
 \})
 
+call deoplete#initialize()
+
+""" Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
@@ -98,11 +99,11 @@ set hidden
 " npm i -g bash-language-server
 let g:LanguageClient_serverCommands = {
 \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+\ 'terraform': ['terraform-lsp', 'serve'],
 \ 'sh': ['bash-language-server', 'start'],
-\ 'terraform': ['terraform-ls', 'serve'],
 \ }
 
-" vim-go
+""" vim-go
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
@@ -111,21 +112,21 @@ let g:go_highlight_operators = 1
 let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
 
-" Shared clipboard
+""" Shared clipboard
 set clipboard=unnamed
 
-" Airline
+""" Airline
 let g:airline_theme='atomic'
 
-" https://github.com/vim/vim/issues/6112
+""" https://github.com/vim/vim/issues/6112
 set t_TI= t_TE=
 
-" Theme
+""" Theme
 colorscheme moonfly
 set termguicolors
 syntax on
 
-" ALE
+""" ALE
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
@@ -137,6 +138,7 @@ let g:ale_fixers = {
 
 let g:ale_linters = {
 \   'go': ['gobuild', 'gofmt', 'golint', 'gosimple', 'govet'],
+\   'terraform': ['terraform', 'terraform_lsp']
 \}
 
 highlight clear ALEErrorSign
@@ -145,12 +147,11 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_change_sign_column_color = 1
 
 " Next error
-map <C-e> :ALENext<CR>
+" map <C-e> :ALENext<CR>
 
-" fzf
+""" fzf
 " Requires that fzf is cloned in ~/.fzf
 set rtp+=~/.fzf
-
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
 
@@ -159,14 +160,15 @@ map <C-f> :Files<CR>
 " Searches for the word under the cursor
 map <C-s> :Rg <C-r><C-w><CR>
 
-" swapfiles
+""" swapfiles
 set directory=~/.vim/swapfiles
 
-" vim-ruby omni https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport#omni-completion-functions
+""" vim-ruby omni https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport#omni-completion-functions
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
+""" Defaults
 set autoindent
 set backspace=indent,eol,start
 set colorcolumn=80
@@ -188,22 +190,28 @@ autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 autocmd FileType go set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType make setlocal noexpandtab
 
-" Whitespace
+""" Whitespace
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-" Line numbers
+""" Line numbers
 map <C-n> :set nonumber!<CR>
 
-" Splitting
+""" Splitting
 set splitbelow
 set splitright
 
-" Terminal shortcut
+""" Terminal shortcut
 map <C-T> :term ++close ++rows=10<cr>
 
-" Prompt to create directory if it doesn't exist
+" Disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+""" Prompt to create directory if it doesn't exist
 " https://stackoverflow.com/a/42872275
 augroup vimrc-auto-mkdir
   autocmd!
