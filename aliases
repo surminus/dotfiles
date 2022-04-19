@@ -42,7 +42,7 @@ function glo() {
 }
 
 # Interactive fixup selector
-function gfi() {
+function gfu() {
   git fixup $(glo)
 }
 
