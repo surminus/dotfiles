@@ -112,7 +112,7 @@ let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
 
 """ Shared clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 """ Airline
 let g:airline_theme='atomic'
