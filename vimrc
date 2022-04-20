@@ -110,6 +110,8 @@ let g:go_highlight_operators = 1
 " This handles using gopls language server
 let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
+" lint across the whole package to avoid false positives
+let g:ale_go_golangci_lint_package = 1
 
 """ Shared clipboard
 set clipboard=unnamedplus
@@ -136,7 +138,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-\   'go': ['gobuild', 'gofmt', 'golint', 'gosimple', 'govet'],
+\   'go': ['gobuild', 'gofmt', 'golint', 'gosimple', 'govet', 'golangci-lint'],
 \   'terraform': ['terraform', 'terraform_lsp']
 \}
 
