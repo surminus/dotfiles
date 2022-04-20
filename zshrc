@@ -60,7 +60,7 @@ fi
 
 if command -v bundle >/dev/null 2>&1; then
   test -d $HOME/.bundle || mkdir -p $HOME/.bundle
-  if ! grep -q BUNDLE_PATH $HOME/.bundle/config; then
+  if ! test -f $HOME/.bundle/config || ! grep -q BUNDLE_PATH $HOME/.bundle/config; then
     bundle config set --local path "$HOME/.bundle"
   fi
 fi
