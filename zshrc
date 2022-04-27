@@ -93,6 +93,9 @@ test -d $HOME/.cargo/bin && export PATH="$HOME/.cargo/bin:$PATH"
 # awscli v2
 export AWS_PAGER="less -XFR"
 
+# GitHub CLI
+export GH_PAGER="less -XFR"
+
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
