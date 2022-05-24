@@ -97,6 +97,9 @@ export AWS_PAGER="less -XFR"
 # GitHub CLI
 export GH_PAGER="less -XFR"
 
+# ablyctl
+export ABLYCTL_PAGER="less -XFR"
+
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
