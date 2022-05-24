@@ -18,6 +18,7 @@ plugins=(
   pass
   rake
   ruby
+  terraform
   ubuntu
   zsh-autosuggestions
 )
