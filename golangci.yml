@@ -5,6 +5,7 @@ linters:
     - gochecknoglobals
     - gochecknoinits
     - godot
+    - gomnd
     - testpackage
     - wrapcheck
     - wsl
