@@ -106,6 +106,10 @@ alias rpl="sd -s"
 
 # Terraform
 alias tf="terraform"
+
+# Tmux
+alias tmux="tmux -2"
+
 ###
 ### End
 ###
