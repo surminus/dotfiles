@@ -3,6 +3,10 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+" try ale complete
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 10
+
 """ Required:
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 call dein#begin("$HOME/.cache/dein")
@@ -11,19 +15,8 @@ call dein#begin("$HOME/.cache/dein")
 " Required:
 call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
-""" Completion
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('roxma/nvim-yarp')
-call dein#add('roxma/vim-hug-neovim-rpc')
-" call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
-call dein#disable('tbodt/deoplete-tabnine')
-call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'branch': 'next' })
-call dein#add('Shougo/neco-syntax')
-
-" Linting
+" Linting and completion
 call dein#add('dense-analysis/ale')
-" https://github.com/dense-analysis/ale/issues/3373#issuecomment-701967881
-" call dein#add('surminus/ale')
 
 " Theme
 call dein#add('bluz71/vim-moonfly-colors')
@@ -79,28 +72,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-""" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#complete_method = "omnifunc"
-
-call deoplete#custom#option('omni_patterns', {
-\ 'go': '[^. *\t]\.\w*',
-\})
-
-call deoplete#initialize()
-
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
-
-" To install configured language servers:
-" gem install solargraph
-" npm i -g bash-language-server
-let g:LanguageClient_serverCommands = {
-\ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-\ 'terraform': ['terraform-lsp', 'serve'],
-\ 'sh': ['bash-language-server', 'start'],
-\ }
 
 """ vim-go
 let g:go_highlight_types = 1
@@ -137,18 +111,10 @@ let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports']
 \}
 
-let g:ale_linters = {
-\   'go': ['gobuild', 'gofmt', 'golint', 'gosimple', 'govet', 'golangci-lint'],
-\   'terraform': ['terraform', 'terraform_lsp']
-\}
-
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
 let g:ale_change_sign_column_color = 1
-
-" Next error
-" map <C-e> :ALENext<CR>
 
 """ fzf
 " Requires that fzf is cloned in ~/.fzf
