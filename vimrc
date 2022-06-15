@@ -3,10 +3,6 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" try ale complete
-let g:ale_completion_enabled = 1
-let g:ale_completion_delay = 10
-
 """ Required:
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 call dein#begin("$HOME/.cache/dein")
@@ -17,7 +13,7 @@ call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
 " Linting and completion
 call dein#add('dense-analysis/ale')
-call dein#add('ervandew/supertab')
+call dein#add('neoclide/coc.nvim', { 'branch': 'master', 'build': 'yarn install --frozen-lockfile' })
 
 " Theme
 call dein#add('bluz71/vim-moonfly-colors')
@@ -50,6 +46,7 @@ call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-surround')
 " https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
 call dein#add('amcsi/auto-pairs')
+call dein#add('tpope/vim-sensible')
 
 " Required:
 call dein#end()
@@ -109,8 +106,11 @@ let g:ale_fixers = {
 \   'rb': ['rubocop'],
 \   'bash': ['shfmt'],
 \   'markdown': ['mdl'],
-\   'go': ['gofmt', 'goimports']
+\   'go': ['gofmt', 'goimports'],
+\   'terraform': ['terraform']
 \}
+
+let g:ale_fix_on_save = 1
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
