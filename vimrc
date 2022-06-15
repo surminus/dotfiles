@@ -17,6 +17,7 @@ call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
 " Linting and completion
 call dein#add('dense-analysis/ale')
+call dein#add('ervandew/supertab')
 
 " Theme
 call dein#add('bluz71/vim-moonfly-colors')
