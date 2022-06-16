@@ -3,6 +3,10 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+" Use CoC for LSP features
+" https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
+let g:ale_disable_lsp = 1
+
 """ Required:
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 call dein#begin("$HOME/.cache/dein")
@@ -13,7 +17,9 @@ call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
 " Linting and completion
 call dein#add('dense-analysis/ale')
-call dein#add('neoclide/coc.nvim', { 'branch': 'master', 'build': 'yarn install --frozen-lockfile' })
+call dein#add('Shougo/neco-vim')
+call dein#add('neoclide/coc-neco')
+call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'master', 'build': 'yarn install --frozen-lockfile' })
 
 " Theme
 call dein#add('bluz71/vim-moonfly-colors')
@@ -70,6 +76,17 @@ map <C-n> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+""" CoC
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Merge signcolumn and number column into one
+set signcolumn=number
+
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -105,17 +122,20 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'rb': ['rubocop'],
 \   'bash': ['shfmt'],
-\   'markdown': ['mdl'],
 \   'go': ['gofmt', 'goimports'],
 \   'terraform': ['terraform']
 \}
 
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
 let g:ale_change_sign_column_color = 1
+let g:ale_list_window_size = 5
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """ fzf
 " Requires that fzf is cloned in ~/.fzf
@@ -170,11 +190,34 @@ set splitright
 """ Terminal shortcut
 map <C-T> :term ++close ++rows=10<cr>
 
-" Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+""" Disable arrow keys
+" Command Mode
+cnoremap <Down> <Nop>
+cnoremap <Left> <Nop>
+cnoremap <Right> <Nop>
+cnoremap <Up> <Nop>
+
+" Insert Mode
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+
+" Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+" Visual Mode
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+
+" Disable page-up & page-down
+nnoremap <PageUp> <Nop>
+nnoremap <PageDown> <Nop>
 
 """ Prompt to create directory if it doesn't exist
 " https://stackoverflow.com/a/42872275
