@@ -90,6 +90,3 @@
   hunk-header-file-style = red
   hunk-header-line-number-style = "#067a00"
   hunk-header-style = omit
-
-[url "git@github.com:"]
-  insteadOf = https://github.com/
