@@ -3,6 +3,10 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+" Use CoC for LSP features
+" https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
+let g:ale_disable_lsp = 1
+
 """ Required:
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 call dein#begin("$HOME/.cache/dein")
@@ -11,19 +15,11 @@ call dein#begin("$HOME/.cache/dein")
 " Required:
 call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
-""" Completion
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('roxma/nvim-yarp')
-call dein#add('roxma/vim-hug-neovim-rpc')
-" call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
-call dein#disable('tbodt/deoplete-tabnine')
-call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'branch': 'next' })
-call dein#add('Shougo/neco-syntax')
-
-" Linting
+" Linting and completion
 call dein#add('dense-analysis/ale')
-" https://github.com/dense-analysis/ale/issues/3373#issuecomment-701967881
-" call dein#add('surminus/ale')
+call dein#add('Shougo/neco-vim')
+call dein#add('neoclide/coc-neco')
+call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'master', 'build': 'yarn install --frozen-lockfile' })
 
 " Theme
 call dein#add('bluz71/vim-moonfly-colors')
@@ -56,6 +52,7 @@ call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-surround')
 " https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
 call dein#add('amcsi/auto-pairs')
+call dein#add('tpope/vim-sensible')
 
 " Required:
 call dein#end()
@@ -79,28 +76,20 @@ map <C-n> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-""" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#complete_method = "omnifunc"
+""" CoC
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
-call deoplete#custom#option('omni_patterns', {
-\ 'go': '[^. *\t]\.\w*',
-\})
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
-call deoplete#initialize()
+" Merge signcolumn and number column into one
+set signcolumn=number
 
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
-
-" To install configured language servers:
-" gem install solargraph
-" npm i -g bash-language-server
-let g:LanguageClient_serverCommands = {
-\ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-\ 'terraform': ['terraform-lsp', 'serve'],
-\ 'sh': ['bash-language-server', 'start'],
-\ }
 
 """ vim-go
 let g:go_highlight_types = 1
@@ -133,22 +122,20 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'rb': ['rubocop'],
 \   'bash': ['shfmt'],
-\   'markdown': ['mdl'],
-\   'go': ['gofmt', 'goimports']
+\   'go': ['gofmt', 'goimports'],
+\   'terraform': ['terraform']
 \}
 
-let g:ale_linters = {
-\   'go': ['gobuild', 'gofmt', 'golint', 'gosimple', 'govet', 'golangci-lint'],
-\   'terraform': ['terraform', 'terraform_lsp']
-\}
+let g:ale_fix_on_save = 0
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
 let g:ale_change_sign_column_color = 1
+let g:ale_list_window_size = 5
 
-" Next error
-" map <C-e> :ALENext<CR>
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """ fzf
 " Requires that fzf is cloned in ~/.fzf
@@ -203,11 +190,34 @@ set splitright
 """ Terminal shortcut
 map <C-T> :term ++close ++rows=10<cr>
 
-" Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+""" Disable arrow keys
+" Command Mode
+cnoremap <Down> <Nop>
+cnoremap <Left> <Nop>
+cnoremap <Right> <Nop>
+cnoremap <Up> <Nop>
+
+" Insert Mode
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+
+" Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+" Visual Mode
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+
+" Disable page-up & page-down
+nnoremap <PageUp> <Nop>
+nnoremap <PageDown> <Nop>
 
 """ Prompt to create directory if it doesn't exist
 " https://stackoverflow.com/a/42872275
