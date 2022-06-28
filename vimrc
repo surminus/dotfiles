@@ -50,8 +50,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-" https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
-Plug 'amcsi/auto-pairs'
 Plug 'tpope/vim-sensible'
 
 call plug#end()
@@ -72,6 +70,9 @@ set shortmess+=c
 
 " Merge signcolumn and number column into one
 set signcolumn=number
+
+" Automatically install default plugins
+let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-solargraph']
 
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
