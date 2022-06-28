@@ -1,75 +1,61 @@
-"""dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible " Be iMproved
 endif
 
 " Use CoC for LSP features
 " https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
 let g:ale_disable_lsp = 1
 
-""" Required:
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
-call dein#begin("$HOME/.cache/dein")
-
-""" Let dein manage dein
-" Required:
-call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
-
-" Linting and completion
-call dein#add('dense-analysis/ale')
-call dein#add('Shougo/neco-vim')
-call dein#add('neoclide/coc-neco')
-call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'master', 'build': 'yarn install --frozen-lockfile' })
-
-" Theme
-call dein#add('bluz71/vim-moonfly-colors')
-call dein#add('luochen1990/rainbow')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-
-" Git
-call dein#add('tpope/vim-fugitive')
-
-" Files & search
-call dein#add('junegunn/fzf.vim')
-call dein#add('scrooloose/nerdtree')
-
-" Syntax
-call dein#add('chr4/nginx.vim')
-call dein#add('ekalinin/Dockerfile.vim')
-call dein#add('fatih/vim-go')
-call dein#add('google/vim-jsonnet')
-call dein#add('hashivim/vim-terraform')
-call dein#add('martinda/Jenkinsfile-vim-syntax')
-call dein#add('rodjek/vim-puppet')
-
-" Editor config
-call dein#add('editorconfig/editorconfig-vim')
-
-" Tools
-call dein#add('godlygeek/tabular')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-surround')
-" https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
-call dein#add('amcsi/auto-pairs')
-call dein#add('tpope/vim-sensible')
-
-" Required:
-call dein#end()
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
+" vim-plug start
+let data_dir = '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" To update plugins:
-" call dein#update()
+call plug#begin()
 
-"End dein Scripts-------------------------
+" Linting and completion
+Plug 'dense-analysis/ale'
+Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc-neco'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Theme
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'luochen1990/rainbow'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Files & search
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+
+" Syntax
+Plug 'chr4/nginx.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'fatih/vim-go'
+Plug 'google/vim-jsonnet'
+Plug 'hashivim/vim-terraform'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'rodjek/vim-puppet'
+
+" Editor config
+Plug 'editorconfig/editorconfig-vim'
+
+" Tools
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+" https://github.com/jiangmiao/auto-pairs/issues/74#issuecomment-54138837
+Plug 'amcsi/auto-pairs'
+Plug 'tpope/vim-sensible'
+
+call plug#end()
+""" vim-plug end
 
 """ nerdtree
 map <C-n> :NERDTreeToggle<CR>
