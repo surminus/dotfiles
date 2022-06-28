@@ -72,7 +72,13 @@ set shortmess+=c
 set signcolumn=number
 
 " Automatically install default plugins
-let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-solargraph']
+let g:coc_global_extensions = [
+\ 'coc-go',
+\ 'coc-json',
+\ 'coc-pairs',
+\ 'coc-snippets',
+\ 'coc-solargraph',
+\]
 
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
