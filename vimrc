@@ -101,6 +101,7 @@ let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
 " lint across the whole package to avoid false positives
 let g:ale_go_golangci_lint_package = 1
+let g:go_def_reuse_buffer = 1
 
 """ Shared clipboard
 set clipboard=unnamedplus
