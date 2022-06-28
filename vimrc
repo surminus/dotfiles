@@ -80,6 +80,9 @@ let g:coc_global_extensions = [
 \ 'coc-solargraph',
 \]
 
+" Expand snippets using CTRL+l
+imap <C-l> <Plug>(coc-snippets-expand)
+
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
