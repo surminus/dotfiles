@@ -73,11 +73,15 @@ set signcolumn=number
 
 " Automatically install default plugins
 let g:coc_global_extensions = [
+\ 'coc-docker',
 \ 'coc-go',
 \ 'coc-json',
 \ 'coc-pairs',
+\ 'coc-sh',
 \ 'coc-snippets',
 \ 'coc-solargraph',
+\ 'coc-tsserver',
+\ 'coc-yaml',
 \]
 
 " Expand snippets using CTRL+l
