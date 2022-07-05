@@ -182,27 +182,3 @@ fi
 
 # Load aliases at the end
 source ~/.dotfiles/aliases
-
-# Update mychef if we need to
-if test -f ~/.chef/mychef/lastrun; then
-  if [[ $(find ~/.chef/mychef/lastrun -mtime +30 |wc -l) -gt 0 ]]; then
-    echo "WARNING: mychef has not been run in 30 days, run now? y/n"
-    read ANSWER
-
-    case $ANSWER in
-      y|Y)
-        cd ~/.chef/mychef
-
-        if [[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]]; then
-          echo "On master branch, attempting update..."
-          git pull origin master
-        fi
-
-        mychef
-        cd $HOME
-        ;;
-
-      *) echo "OK, will ignore for another 30 days" && touch ~/.chef/mychef/lastrun;;
-    esac
-  fi
-fi
