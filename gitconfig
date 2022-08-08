@@ -3,7 +3,6 @@
   name = Laura Martin
 
 [push]
-  autoSetupRemote = true
   default = simple
 
 [alias]

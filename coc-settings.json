@@ -5,6 +5,5 @@
       "filetypes": ["terraform"]
     }
   },
-  "coc.preferences.extensionUpdateCheck": "weekly",
-  "coc.preferences.formatOnType": true
+  "coc.preferences.extensionUpdateCheck": "weekly"
 }
