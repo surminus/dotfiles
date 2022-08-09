@@ -32,6 +32,7 @@ Plug 'tpope/vim-fugitive'
 
 " Files & search
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdtree'
 
 " Syntax
