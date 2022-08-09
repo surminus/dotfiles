@@ -89,6 +89,13 @@ let g:coc_global_extensions = [
 " Expand snippets using CTRL+l
 imap <C-l> <Plug>(coc-snippets-expand)
 
+" Formatting selected code: \f
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -104,6 +111,9 @@ let g:go_gopls_enabled = 1
 " lint across the whole package to avoid false positives
 let g:ale_go_golangci_lint_package = 1
 let g:go_def_reuse_buffer = 1
+
+""" go mod tidy
+:command GoModTidy !go mod tidy -v
 
 """ Shared clipboard
 set clipboard=unnamedplus
@@ -178,7 +188,7 @@ set tabstop=8
 
 autocmd FileType crontab setlocal nobackup nowritebackup
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-autocmd FileType go set autoindent noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType go,cue set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType make setlocal noexpandtab
 
 """ Whitespace
