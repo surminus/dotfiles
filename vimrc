@@ -41,6 +41,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'google/vim-jsonnet'
 Plug 'hashivim/vim-terraform'
+Plug 'jjo/vim-cue'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rodjek/vim-puppet'
 
