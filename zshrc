@@ -180,6 +180,10 @@ if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg >/dev/null 2>&1; then
   fi
 fi
 
+if command -v cue >/dev/null 2>&1; then
+  cue completion zsh > ~/.oh-my-zsh/completions/_cue
+fi
+
 # Load aliases at the end
 source ~/.dotfiles/aliases
 
