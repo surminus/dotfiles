@@ -2,8 +2,12 @@
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform"]
+      "filetypes": [
+        "terraform"
+      ]
     }
   },
-  "coc.preferences.extensionUpdateCheck": "weekly"
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "coc.preferences.formatOnType": true,
+  "codeLens.enable": true
 }
