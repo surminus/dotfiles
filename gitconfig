@@ -77,7 +77,8 @@
   singleKey = true
 
 [delta]
-  features = decorations
+  line-numbers = true
+  features = decorations unobtrusive-line-numbers
 
 [delta "interactive"]
   keep-plus-minus-markers = false
