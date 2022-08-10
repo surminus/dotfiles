@@ -29,6 +29,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Files & search
 Plug 'junegunn/fzf.vim'
