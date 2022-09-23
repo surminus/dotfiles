@@ -54,10 +54,11 @@ Plug 'rodjek/vim-puppet'
 Plug 'editorconfig/editorconfig-vim'
 
 " Tools
+Plug 'cohama/lexima.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 """ vim-plug end
@@ -83,7 +84,6 @@ let g:coc_global_extensions = [
 \ 'coc-docker',
 \ 'coc-go',
 \ 'coc-json',
-\ 'coc-pairs',
 \ 'coc-sh',
 \ 'coc-snippets',
 \ 'coc-solargraph',
