@@ -85,8 +85,13 @@ fi
 ### Misc
 ###
 function update-vim-plugins() {
-  vim -c 'call dein#update()' -c 'qa!'
+  vim -c 'PlugUpdate' -c 'qa!'
   mkdir -p ~/.vim && touch ~/.vim/plugins.updated
+}
+
+function update-tmux-plugins() {
+  ~/.tmux/plugins/tpm/bin/update_plugins all
+  mkdir -p ~/.tmux && touch ~/.tmux/plugins.updated
 }
 
 # Reload previously loaded shell
