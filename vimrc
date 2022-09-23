@@ -101,6 +101,16 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-@> coc#refresh()
+
+" Use tab for making selections
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
