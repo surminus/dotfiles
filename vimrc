@@ -202,11 +202,13 @@ set incsearch
 set modeline
 set modelines=5
 set nocp
-set number
 set ruler
 set shiftround
 set shiftwidth=2
 set tabstop=8
+
+set number         " Show current line number
+set relativenumber " Show relative line numbers
 
 autocmd FileType crontab setlocal nobackup nowritebackup
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'

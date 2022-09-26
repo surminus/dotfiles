@@ -67,10 +67,11 @@
   path = ~/.delta/themes.gitconfig
 
 [pager]
+  blame = delta
   diff = delta
+  log = delta
   reflog = delta
   show = delta
-  log = delta
 
 [interactive]
   diffFilter = delta --color-only --features=interactive
@@ -79,6 +80,7 @@
 [delta]
   line-numbers = true
   features = decorations unobtrusive-line-numbers
+  hyperlinks = true
 
 [delta "interactive"]
   keep-plus-minus-markers = false

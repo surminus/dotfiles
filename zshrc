@@ -26,6 +26,9 @@ plugins=(
 
 autoload -U compinit && compinit
 
+bindkey '^ne' edit-command-line
+bindkey '^n^e' edit-command-line
+
 # Home bin
 export PATH="$HOME/bin:$PATH:"
 
@@ -131,10 +134,6 @@ if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg >/dev/null 2>&1; then
     alias pbcopy="clip.exe"
     alias pbpaste="powershell.exe -command 'Get-Clipboard' | tr -d '\r'"
   fi
-fi
-
-if command -v cue >/dev/null 2>&1; then
-  cue completion zsh > ~/.oh-my-zsh/completions/_cue
 fi
 
 # Load aliases at the end
