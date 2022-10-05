@@ -49,6 +49,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'jjo/vim-cue'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rodjek/vim-puppet'
+Plug 'vim-ruby/vim-ruby'
 
 " Editor config
 Plug 'editorconfig/editorconfig-vim'
