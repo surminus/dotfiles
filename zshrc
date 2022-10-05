@@ -99,6 +99,9 @@ fi
 # Enable pass extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
+# ripgrep config file
+export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
+
 #########
 # MacOS #
 #########
