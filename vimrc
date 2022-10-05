@@ -225,9 +225,6 @@ match ExtraWhitespace /\s\+$/
 set splitbelow
 set splitright
 
-""" Terminal shortcut
-map <C-T> :term ++close ++rows=10<cr>
-
 """ Disable arrow keys
 " Command Mode
 cnoremap <Down> <Nop>
