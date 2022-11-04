@@ -4,6 +4,7 @@
 
 [push]
   default = simple
+  autoSetupRemote = true
 
 [alias]
   # Alphabet aliases
@@ -33,6 +34,9 @@
   tip      = rev-parse HEAD
   tree     = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) <%an> %Creset' --abbrev-commit
   undo     = reset HEAD^
+
+[include]
+  path = ~/.gitconfig.secret
 
 [pull]
   rebase = true
@@ -93,3 +97,9 @@
   hunk-header-file-style = red
   hunk-header-line-number-style = "#067a00"
   hunk-header-style = omit
+
+[credential "https://github.com"]
+  helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+  helper = !/usr/bin/gh auth git-credential
