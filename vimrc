@@ -38,7 +38,6 @@ endif
 " Files & search
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'scrooloose/nerdtree'
 
 " Syntax
 Plug 'chr4/nginx.vim'
@@ -47,6 +46,7 @@ Plug 'fatih/vim-go'
 Plug 'google/vim-jsonnet'
 Plug 'hashivim/vim-terraform'
 Plug 'jjo/vim-cue'
+Plug 'keith/rspec.vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rodjek/vim-puppet'
 Plug 'vim-ruby/vim-ruby'
@@ -58,18 +58,18 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'cohama/lexima.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 
 call plug#end()
 """ vim-plug end
 
-""" nerdtree
-map <C-n> :NERDTreeToggle<CR>
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
 """ CoC
+" Ensure we use system node so it doesn't conflict with asdf and repos with
+" older node version
+let g:coc_node_path = '/usr/bin/node'
+
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
@@ -83,11 +83,13 @@ set signcolumn=number
 " Automatically install default plugins
 let g:coc_global_extensions = [
 \ 'coc-docker',
+\ 'coc-explorer',
 \ 'coc-go',
 \ 'coc-json',
 \ 'coc-sh',
 \ 'coc-snippets',
 \ 'coc-solargraph',
+\ 'coc-swagger',
 \ 'coc-tsserver',
 \ 'coc-yaml',
 \]
@@ -118,6 +120,9 @@ function! CheckBackSpace() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" explorer
+nmap <space>e <Cmd>CocCommand explorer<CR>
 
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
@@ -267,3 +272,6 @@ augroup vimrc-auto-mkdir
     endif
   endfunction
 augroup END
+
+""" Custom commands
+command Save Git save
