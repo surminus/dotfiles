@@ -115,6 +115,9 @@ alias tf="terraform"
 # Tmux
 alias tmux="tmux -2"
 
+# myduct
+alias myduct="sudo ~/.myduct/build/myduct"
+
 ###
 ### End
 ###
