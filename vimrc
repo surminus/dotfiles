@@ -83,9 +83,11 @@ set signcolumn=number
 " Automatically install default plugins
 let g:coc_global_extensions = [
 \ 'coc-docker',
+\ 'coc-eslint',
 \ 'coc-explorer',
 \ 'coc-go',
 \ 'coc-json',
+\ 'coc-prettier',
 \ 'coc-sh',
 \ 'coc-snippets',
 \ 'coc-solargraph',
@@ -123,6 +125,9 @@ let g:coc_snippet_next = '<tab>'
 
 " explorer
 nmap <space>e <Cmd>CocCommand explorer<CR>
+
+" prettier
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
@@ -197,6 +202,9 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
+""" Terraform
+let g:terraform_fmt_on_save=1
+
 """ Defaults
 set autoindent
 set backspace=indent,eol,start
@@ -216,10 +224,10 @@ set tabstop=8
 set number         " Show current line number
 set relativenumber " Show relative line numbers
 
+autocmd FileType make set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType crontab setlocal nobackup nowritebackup
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 autocmd FileType go,cue set autoindent noexpandtab tabstop=4 shiftwidth=4
-autocmd FileType make setlocal noexpandtab
 
 """ Whitespace
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
