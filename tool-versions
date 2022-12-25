@@ -1,5 +1,5 @@
 awscli 2.7.21
-golang 1.18.4
+golang 1.19.3
 nodejs 18.5.0
 python 3.10.5
 ruby 3.0.3
