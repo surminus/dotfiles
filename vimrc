@@ -29,11 +29,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git
 Plug 'tpope/vim-fugitive'
-
 " https://github.com/tpope/vim-rhubarb#installation
-if filereadable("~/.netrc")
-  Plug 'tpope/vim-rhubarb'
-endif
+Plug 'tpope/vim-rhubarb'
 
 " Files & search
 Plug 'junegunn/fzf.vim'
