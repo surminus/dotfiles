@@ -126,6 +126,9 @@ nmap <space>e <Cmd>CocCommand explorer<CR>
 " prettier
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
+" swagger
+command -nargs=0 Swagger :CocCommand swagger.render
+
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
