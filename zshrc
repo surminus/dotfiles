@@ -141,3 +141,6 @@ fi
 
 # Load aliases at the end
 source ~/.dotfiles/aliases
+
+# Finally load tmux
+if [[ -z $TMUX ]]; then tmux attach; fi
