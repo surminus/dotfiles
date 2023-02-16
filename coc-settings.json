@@ -10,5 +10,9 @@
   },
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
-  "codeLens.enable": true
+  "codeLens.enable": true,
+  "explorer.file.hiddenRules": {
+    "filenames": ["node_modules", ".git"],
+    "patternMatches": []
+  }
 }
