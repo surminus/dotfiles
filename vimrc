@@ -192,7 +192,8 @@ let g:fzf_buffers_jump = 1
 map <C-f> :Files<CR>
 
 " Searches for the word under the cursor
-map <C-s> :Rg <C-r><C-w><CR>
+" map <C-s> :Rg <C-r><C-w><CR>
+map <C-s> :Rg<CR>
 
 """ swapfiles
 set directory=~/.vim/swapfiles
@@ -239,33 +240,20 @@ set splitbelow
 set splitright
 
 """ Disable arrow keys
-" Command Mode
-cnoremap <Down> <Nop>
-cnoremap <Left> <Nop>
-cnoremap <Right> <Nop>
-cnoremap <Up> <Nop>
-
-" Insert Mode
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
-
-" Normal Mode
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Up> <Nop>
-
-" Visual Mode
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
-vnoremap <Up> <Nop>
+for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+  exec 'noremap' key '<Nop>'
+  exec 'inoremap' key '<Nop>'
+  exec 'cnoremap' key '<Nop>'
+endfor
 
 " Disable page-up & page-down
 nnoremap <PageUp> <Nop>
 nnoremap <PageDown> <Nop>
+
+""" Tabs
+" Remap short for switch tabs
+nnoremap H gT
+nnoremap L gt
 
 """ Prompt to create directory if it doesn't exist
 " https://stackoverflow.com/a/42872275
@@ -283,3 +271,19 @@ augroup END
 
 """ Custom commands
 command Save Git save
+command Reload source ~/.vimrc
+command Terminal term ++close ++rows=10
+
+" Directory navigation
+command Root exe 'cd '.system('git rev-parse --show-cdup')
+command Cur cd %:p:h
+
+" Automatically switch to current working directory
+set autochdir
+
+""" Gutentag
+let g:gutentags_file_list_command = {
+\   'markers': {
+\     '.git': 'git ls-files',
+\   },
+\ }
