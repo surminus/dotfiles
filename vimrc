@@ -275,7 +275,7 @@ function! _terraformDocs()
   let provider = split(full_resource, "_")[0]
   let resource = substitute(full_resource, provider.'_', '', '')
   let url = "https://registry.terraform.io/providers/hashicorp/" . provider . "/latest/docs/resources/" . resource
-  execute '!xdg-open ' . url
+  execute system('xdg-open ' . url)
 endfunction
 
 command TerraformDocs call _terraformDocs()
