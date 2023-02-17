@@ -269,6 +269,17 @@ augroup vimrc-auto-mkdir
   endfunction
 augroup END
 
+" Automatically open Terraform docs resource
+function! _terraformDocs()
+  let full_resource = matchstr(getline('.'), '\vresource "\zs(\w+)')
+  let provider = split(full_resource, "_")[0]
+  let resource = substitute(full_resource, provider.'_', '', '')
+  let url = "https://registry.terraform.io/providers/hashicorp/" . provider . "/latest/docs/resources/" . resource
+  execute '!xdg-open ' . url
+endfunction
+
+command TerraformDocs call _terraformDocs()
+
 """ Custom commands
 command Save Git save
 command Reload source ~/.vimrc
