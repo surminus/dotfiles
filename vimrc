@@ -53,7 +53,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'editorconfig/editorconfig-vim'
 
 " Tools
-Plug 'bling/vim-bufferline'
 Plug 'cohama/lexima.vim'
 Plug 'godlygeek/tabular'
 Plug 'lambdalisue/battery.vim'
