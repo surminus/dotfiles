@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 " https://github.com/tpope/vim-rhubarb#installation
 Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
 
 " Files & search
 Plug 'junegunn/fzf.vim'
@@ -52,8 +53,10 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'editorconfig/editorconfig-vim'
 
 " Tools
+Plug 'bling/vim-bufferline'
 Plug 'cohama/lexima.vim'
 Plug 'godlygeek/tabular'
+Plug 'lambdalisue/battery.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -152,7 +155,8 @@ let g:go_def_reuse_buffer = 1
 set clipboard=unnamedplus
 
 """ Airline
-let g:airline_theme='atomic'
+let g:airline_theme='deus'
+let g:airline#extensions#tabline#enabled = 1
 
 """ https://github.com/vim/vim/issues/6112
 set t_TI= t_TE=
@@ -217,6 +221,7 @@ set incsearch
 set modeline
 set modelines=5
 set nocp
+set noshowmode
 set ruler
 set shiftround
 set shiftwidth=2
