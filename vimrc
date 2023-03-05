@@ -56,6 +56,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'cohama/lexima.vim'
 Plug 'godlygeek/tabular'
 Plug 'lambdalisue/battery.vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'roxma/vim-paste-easy'
+Plug 'szw/vim-g'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -221,13 +224,11 @@ set modeline
 set modelines=5
 set nocp
 set noshowmode
+set number
 set ruler
 set shiftround
 set shiftwidth=2
 set tabstop=8
-
-set number         " Show current line number
-set relativenumber " Show relative line numbers
 
 autocmd FileType make set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType crontab setlocal nobackup nowritebackup
