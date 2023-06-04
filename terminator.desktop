@@ -2,18 +2,15 @@
   focus = system
   handle_size = 9
   window_state = hidden
-  title_transmit_bg_color = "#959595"
-  title_inactive_bg_color = "#204a87"
   always_split_with_profile = True
 [keybindings]
-  broadcast_all = None
-  broadcast_group = None
   broadcast_off = None
+  broadcast_group = None
+  broadcast_all = None
 [profiles]
   [[default]]
     background_darkness = 0.44
-    cursor_color = "#839496"
-    font = Monaco 16
+    font = Mallanna 16
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
