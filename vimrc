@@ -218,7 +218,7 @@ map <C-f> :Files<CR>
 map <C-s> :Rg<CR>
 
 """ swapfiles
-set directory=~/.vim/swapfiles
+set directory=~/.vim/swapfiles//
 
 """ vim-ruby omni https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport#omni-completion-functions
 let g:rubycomplete_buffer_loading = 1
