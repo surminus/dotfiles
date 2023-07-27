@@ -4,7 +4,7 @@ endif
 
 " Use CoC for LSP features
 " https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
-let g:ale_disable_lsp = 1
+" let g:ale_disable_lsp = 1
 
 " vim-plug start
 let data_dir = '~/.vim'
@@ -16,7 +16,7 @@ endif
 call plug#begin()
 
 " Linting and completion
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -35,7 +35,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Files & search
 Plug 'junegunn/fzf.vim'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Syntax
 Plug 'chr4/nginx.vim'
@@ -84,6 +84,7 @@ set signcolumn=number
 
 " Automatically install default plugins
 let g:coc_global_extensions = [
+\ 'coc-diagnostic',
 \ 'coc-docker',
 \ 'coc-eslint',
 \ 'coc-explorer',
@@ -97,6 +98,10 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-yaml',
 \]
+
+" Go to diagnostics
+nmap <C-j> <Plug>(coc-diagnostic-next)
+nmap <C-k> <Plug>(coc-diagnostic-prev)
 
 " Expand snippets using CTRL+l
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -153,7 +158,7 @@ let g:go_highlight_operators = 1
 let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
 " lint across the whole package to avoid false positives
-let g:ale_go_golangci_lint_package = 1
+" let g:ale_go_golangci_lint_package = 1
 let g:go_def_reuse_buffer = 1
 
 """ go mod tidy
@@ -179,27 +184,21 @@ set termguicolors
 syntax on
 
 """ ALE
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'ruby': ['rubocop'],
-\   'rb': ['rubocop'],
-\   'bash': ['shfmt'],
-\   'go': ['gofmt', 'goimports'],
-\   'terraform': ['terraform']
-\}
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'bash': ['shfmt'],
+" \   'go': ['gofmt', 'goimports'],
+" \   'ruby': ['rubocop'],
+" \   'terraform': ['terraform']
+" \}
 
-let g:ale_fix_on_save = 0
+" let g:ale_fix_on_save = 0
 
-let g:ale_virtualtext_cursor = 1
-
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:airline#extensions#ale#enabled = 1
-let g:ale_change_sign_column_color = 1
-let g:ale_list_window_size = 5
-
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_change_sign_column_color = 1
+" let g:ale_list_window_size = 5
 
 """ numbers
 " \n for toggling number
