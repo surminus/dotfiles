@@ -54,15 +54,15 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Tools
 Plug 'cohama/lexima.vim'
+Plug 'farmergreg/vim-lastplace'
 Plug 'godlygeek/tabular'
-Plug 'lambdalisue/battery.vim'
 Plug 'myusuf3/numbers.vim'
-Plug 'roxma/vim-paste-easy'
 Plug 'szw/vim-g'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 """ vim-plug end
@@ -134,6 +134,12 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 " swagger
 command -nargs=0 Swagger :CocCommand swagger.render
 
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 """ Language Servers
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -153,12 +159,16 @@ let g:go_def_reuse_buffer = 1
 """ go mod tidy
 :command GoModTidy !go mod tidy -v
 
+""" git-gutter
+set signcolumn=yes
+
 """ Shared clipboard
 set clipboard=unnamedplus
 
 """ Airline
 let g:airline_theme='deus'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 """ https://github.com/vim/vim/issues/6112
 set t_TI= t_TE=
@@ -180,6 +190,8 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save = 0
 
+let g:ale_virtualtext_cursor = 1
+
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
@@ -188,6 +200,10 @@ let g:ale_list_window_size = 5
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+""" numbers
+" \n for toggling number
+nnoremap <leader>n :NumbersToggle<CR>
 
 """ fzf
 " Requires that fzf is cloned in ~/.fzf
@@ -319,6 +335,7 @@ command TerraformFunc call TerraformFunc()
 command Save Git save
 command Reload source ~/.vimrc
 command Terminal term ++close ++rows=10
+command Blame Git blame
 
 " Directory navigation
 command Root exe 'cd '.system('git rev-parse --show-cdup')
