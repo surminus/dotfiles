@@ -56,6 +56,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'cohama/lexima.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'godlygeek/tabular'
+Plug 'honza/vim-snippets'
 Plug 'myusuf3/numbers.vim'
 Plug 'szw/vim-g'
 Plug 'tpope/vim-endwise'
@@ -129,6 +130,20 @@ function! CheckBackSpace() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Add `:Format` command to format current buffer
+command! -nargs=0 Format :call CocActionAsync('format')
 
 " explorer
 nmap <space>e <Cmd>CocCommand explorer<CR>
