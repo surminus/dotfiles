@@ -29,13 +29,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git
 Plug 'tpope/vim-fugitive'
-" https://github.com/tpope/vim-rhubarb#installation
-Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb' " https://github.com/tpope/vim-rhubarb#installation
 Plug 'airblade/vim-gitgutter'
 
 " Files & search
 Plug 'junegunn/fzf.vim'
-" Plug 'ludovicchabant/vim-gutentags'
 
 " Syntax
 Plug 'chr4/nginx.vim'
@@ -58,6 +56,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'myusuf3/numbers.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'szw/vim-g'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
@@ -90,12 +89,14 @@ let g:coc_global_extensions = [
 \ 'coc-eslint',
 \ 'coc-explorer',
 \ 'coc-go',
+\ 'coc-html',
 \ 'coc-json',
 \ 'coc-prettier',
 \ 'coc-sh',
 \ 'coc-snippets',
 \ 'coc-solargraph',
 \ 'coc-swagger',
+\ 'coc-toml',
 \ 'coc-tsserver',
 \ 'coc-yaml',
 \]
@@ -106,10 +107,6 @@ nmap <C-k> <Plug>(coc-diagnostic-prev)
 
 " Expand snippets using CTRL+l
 imap <C-l> <Plug>(coc-snippets-expand)
-
-" Formatting selected code: \f
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -225,11 +222,14 @@ set rtp+=~/.fzf
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
 
-map <C-f> :Files<CR>
+" Search for files
+nmap <leader>f :Files<CR>
 
-" Searches for the word under the cursor
-" map <C-s> :Rg <C-r><C-w><CR>
-map <C-s> :Rg<CR>
+" Search for word
+nmap <leader>s :Rg<CR>
+
+" Search for the word under the cursor
+nmap <leader>w :Rg <C-r><C-w><CR>
 
 """ swapfiles
 set directory=~/.vim/swapfiles//
@@ -269,6 +269,9 @@ autocmd FileType go,cue set autoindent noexpandtab tabstop=4 shiftwidth=4
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+" Delete whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 """ Splitting
 set splitbelow
