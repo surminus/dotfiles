@@ -10,7 +10,7 @@
 [profiles]
   [[default]]
     background_darkness = 0.44
-    font = Monaco 16
+    font = Monaco 18
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
