@@ -4,7 +4,7 @@ endif
 
 " Use CoC for LSP features
 " https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
-let g:ale_disable_lsp = 1
+" let g:ale_disable_lsp = 1
 
 " vim-plug start
 let data_dir = '~/.vim'
@@ -16,7 +16,7 @@ endif
 call plug#begin()
 
 " Linting and completion
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -29,13 +29,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git
 Plug 'tpope/vim-fugitive'
-" https://github.com/tpope/vim-rhubarb#installation
-Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb' " https://github.com/tpope/vim-rhubarb#installation
 Plug 'airblade/vim-gitgutter'
 
 " Files & search
 Plug 'junegunn/fzf.vim'
-Plug 'ludovicchabant/vim-gutentags'
 
 " Syntax
 Plug 'chr4/nginx.vim'
@@ -56,8 +54,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'cohama/lexima.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'godlygeek/tabular'
+Plug 'honza/vim-snippets'
 Plug 'myusuf3/numbers.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'szw/vim-g'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -84,26 +85,29 @@ set signcolumn=number
 
 " Automatically install default plugins
 let g:coc_global_extensions = [
+\ 'coc-diagnostic',
 \ 'coc-docker',
 \ 'coc-eslint',
 \ 'coc-explorer',
 \ 'coc-go',
+\ 'coc-html',
 \ 'coc-json',
 \ 'coc-prettier',
 \ 'coc-sh',
 \ 'coc-snippets',
 \ 'coc-solargraph',
 \ 'coc-swagger',
+\ 'coc-toml',
 \ 'coc-tsserver',
 \ 'coc-yaml',
 \]
 
+" Go to diagnostics
+nmap <C-j> <Plug>(coc-diagnostic-next)
+nmap <C-k> <Plug>(coc-diagnostic-prev)
+
 " Expand snippets using CTRL+l
 imap <C-l> <Plug>(coc-snippets-expand)
-
-" Formatting selected code: \f
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -124,6 +128,20 @@ function! CheckBackSpace() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Add `:Format` command to format current buffer
+command! -nargs=0 Format :call CocActionAsync('format')
 
 " explorer
 nmap <space>e <Cmd>CocCommand explorer<CR>
@@ -149,12 +167,13 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
-" This handles using gopls language server
-let g:go_code_completion_enabled = 1
+
+" Compability with coc-go
 let g:go_gopls_enabled = 1
-" lint across the whole package to avoid false positives
-let g:ale_go_golangci_lint_package = 1
-let g:go_def_reuse_buffer = 1
+let g:go_diagnostics_level = 0
+let g:go_doc_keywordprg_enabled = 0
+let g:go_code_completion_enabled = 0
+let g:go_def_mapping_enabled = 0
 
 """ go mod tidy
 :command GoModTidy !go mod tidy -v
@@ -179,27 +198,21 @@ set termguicolors
 syntax on
 
 """ ALE
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'ruby': ['rubocop'],
-\   'rb': ['rubocop'],
-\   'bash': ['shfmt'],
-\   'go': ['gofmt', 'goimports'],
-\   'terraform': ['terraform']
-\}
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'bash': ['shfmt'],
+" \   'go': ['gofmt', 'goimports'],
+" \   'ruby': ['rubocop'],
+" \   'terraform': ['terraform']
+" \}
 
-let g:ale_fix_on_save = 0
+" let g:ale_fix_on_save = 0
 
-let g:ale_virtualtext_cursor = 1
-
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:airline#extensions#ale#enabled = 1
-let g:ale_change_sign_column_color = 1
-let g:ale_list_window_size = 5
-
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_change_sign_column_color = 1
+" let g:ale_list_window_size = 5
 
 """ numbers
 " \n for toggling number
@@ -211,11 +224,14 @@ set rtp+=~/.fzf
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
 
-map <C-f> :Files<CR>
+" Search for files
+nmap <leader>f :Files<CR>
 
-" Searches for the word under the cursor
-" map <C-s> :Rg <C-r><C-w><CR>
-map <C-s> :Rg<CR>
+" Search for word
+nmap <leader>s :Rg<CR>
+
+" Search for the word under the cursor
+nmap <leader>w :Rg <C-r><C-w><CR>
 
 """ swapfiles
 set directory=~/.vim/swapfiles//
@@ -255,6 +271,9 @@ autocmd FileType go,cue set autoindent noexpandtab tabstop=4 shiftwidth=4
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+" Delete whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 """ Splitting
 set splitbelow

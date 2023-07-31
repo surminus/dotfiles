@@ -1,18 +1,21 @@
 {
-  "diagnostic.displayByAle": true,
   "languageserver": {
     "terraform": {
       "command": "terraform-ls",
       "args": ["serve"],
-      "filetypes": [
-        "terraform"
-      ]
+      "filetypes": ["terraform"]
     }
   },
-  "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
+  "coc.preferences.messageLevel": "error",
   "explorer.file.hiddenRules": {
     "filenames": ["node_modules", ".git"],
     "patternMatches": []
-  }
+  },
+  "solargraph.autoformat": true,
+  "solargraph.completion": true,
+  "solargraph.definitions": true,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true
 }
