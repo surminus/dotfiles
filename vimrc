@@ -45,7 +45,6 @@ Plug 'jjo/vim-cue'
 Plug 'keith/rspec.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'pangloss/vim-javascript'
 Plug 'rodjek/vim-puppet'
 Plug 'vim-ruby/vim-ruby'
 
@@ -238,11 +237,6 @@ nmap <leader>w :Rg <C-r><C-w><CR>
 """ swapfiles
 set directory=~/.vim/swapfiles//
 
-""" vim-ruby omni https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport#omni-completion-functions
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-let g:rubycomplete_rails = 1
-
 """ Terraform
 let g:terraform_fmt_on_save=1
 
@@ -364,10 +358,3 @@ command Cur cd %:p:h
 
 " Automatically switch to current working directory
 set autochdir
-
-""" Gutentag
-let g:gutentags_file_list_command = {
-\   'markers': {
-\     '.git': 'git ls-files',
-\   },
-\ }
