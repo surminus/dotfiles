@@ -2,10 +2,6 @@ if &compatible
   set nocompatible " Be iMproved
 endif
 
-" Use CoC for LSP features
-" https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
-" let g:ale_disable_lsp = 1
-
 " vim-plug start
 let data_dir = '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -15,10 +11,7 @@ endif
 
 call plug#begin()
 
-" Linting and completion
-" Plug 'dense-analysis/ale'
-Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
+" coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Theme
@@ -44,8 +37,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'jjo/vim-cue'
 Plug 'keith/rspec.vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'rodjek/vim-puppet'
 Plug 'vim-ruby/vim-ruby'
 
 " Editor config
@@ -197,23 +188,6 @@ set t_TI= t_TE=
 colorscheme moonfly
 set termguicolors
 syntax on
-
-""" ALE
-" let g:ale_fixers = {
-" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-" \   'bash': ['shfmt'],
-" \   'go': ['gofmt', 'goimports'],
-" \   'ruby': ['rubocop'],
-" \   'terraform': ['terraform']
-" \}
-
-" let g:ale_fix_on_save = 0
-
-" highlight clear ALEErrorSign
-" highlight clear ALEWarningSign
-" let g:airline#extensions#ale#enabled = 1
-" let g:ale_change_sign_column_color = 1
-" let g:ale_list_window_size = 5
 
 """ numbers
 " \n for toggling number
