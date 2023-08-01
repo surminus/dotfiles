@@ -201,15 +201,16 @@ let g:fzf_buffers_jump = 1
 
 " Search for files
 nmap <leader>f :Files<CR>
-
 " Search for Git files
-nmap <leader>g :GFiles
-
+nmap <leader>g :GFiles<CR>
+" Git diff files
+nmap <leader>d :GFiles?<CR>
 " Search for word
 nmap <leader>s :Rg<CR>
-
 " Search for the word under the cursor
 nmap <leader>w :Rg <C-r><C-w><CR>
+" Open buffers
+nmap <leader>b :Buffers<CR>
 
 """ swapfiles
 set directory=~/.vim/swapfiles//
