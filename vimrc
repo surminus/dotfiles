@@ -202,6 +202,9 @@ let g:fzf_buffers_jump = 1
 " Search for files
 nmap <leader>f :Files<CR>
 
+" Search for Git files
+nmap <leader>g :GFiles
+
 " Search for word
 nmap <leader>s :Rg<CR>
 
