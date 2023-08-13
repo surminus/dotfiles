@@ -44,6 +44,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'editorconfig/editorconfig-vim'
 
 " Tools
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'godlygeek/tabular'
