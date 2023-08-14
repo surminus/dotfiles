@@ -97,8 +97,8 @@ let g:coc_global_extensions = [
 \]
 
 " Go to diagnostics
-nmap <C-j> <Plug>(coc-diagnostic-next)
-nmap <C-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j :call CocAction('diagnosticNext')<cr>
+nmap <silent> <leader>k :call CocAction('diagnosticPrevious')<cr>
 
 " Expand snippets using CTRL+l
 imap <C-l> <Plug>(coc-snippets-expand)
