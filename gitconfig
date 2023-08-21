@@ -55,7 +55,6 @@
   autoSquash = true
 
 [core]
-  excludesfile = /home/laura/.gitignore_global
   attributesfile = /home/laura/.gitattributes
   pager = less -XFR
 
