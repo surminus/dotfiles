@@ -179,7 +179,7 @@ set signcolumn=yes
 set clipboard=unnamedplus
 
 """ Airline
-let g:airline_theme='deus'
+let g:airline_theme='moonfly'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
@@ -190,6 +190,9 @@ set t_TI= t_TE=
 colorscheme moonfly
 set termguicolors
 syntax on
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 """ numbers
 " \n for toggling number
