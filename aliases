@@ -53,6 +53,10 @@ function grt() {
 
 alias gco="git checkout"
 alias gsw="git switch"
+
+alias commit="git rev-parse HEAD"
+alias branch="git rev-parse --abbrev-ref HEAD"
+
 ###
 ### End
 ###
