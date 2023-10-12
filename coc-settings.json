@@ -8,6 +8,7 @@
   },
   "coc.preferences.formatOnType": true,
   "coc.preferences.messageLevel": "error",
+  "diagnostic.checkCurrentLine": true,
   "explorer.file.hiddenRules": {
     "filenames": ["node_modules", ".git"],
     "patternMatches": []
@@ -18,5 +19,6 @@
   "solargraph.definitions": true,
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
-  "solargraph.hover": true
+  "solargraph.hover": true,
+  "solargraph.checkGemVersion": false
 }
