@@ -27,6 +27,7 @@
   pick-axe = log -p -S
   pr       = pull-request
   pushf    = push --force-with-lease origin HEAD
+  rename   = git branch -m
   save     = !git add . && git commit --no-verify --quiet -m \"WIP: auto save at $(date '+%Y-%m-%d %H:%M:%S')\"
   squash   = rebase -i --autosquash
   st       = status
