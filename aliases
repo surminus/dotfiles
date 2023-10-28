@@ -113,9 +113,6 @@ alias bi="bundle install"
 # Replace rpl with sd in string mode
 alias rpl="sd -s"
 
-# Terraform
-alias tf="terraform"
-
 # Tmux
 alias tmux="tmux -2"
 
