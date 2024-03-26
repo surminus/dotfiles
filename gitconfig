@@ -21,13 +21,14 @@
   del      = branch -D
   fixup    = commit --fixup
   last     = !git --no-pager log --oneline -10
+  ls       = ls-tree -r --name-only HEAD
   mine     = !git --no-pager branch --sort=committerdate -a --format='%(author) %(refname)' | grep -e 'Laura Martin\\|surminus' | rev | cut -d'/' -f1 | rev | uniq |grep -v HEAD
   nuke     = reset --hard @{upstream}
   old      = !git --no-pager branch --merged |grep -ev 'master\\|main'
   pick-axe = log -p -S
   pr       = pull-request
   pushf    = push --force-with-lease origin HEAD
-  rename   = git branch -m
+  rename   = branch -m
   save     = !git add . && git commit --no-verify --quiet -m \"WIP: auto save at $(date '+%Y-%m-%d %H:%M:%S')\"
   squash   = rebase -i --autosquash
   st       = status
