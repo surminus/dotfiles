@@ -119,7 +119,7 @@ fi
 
 # Like MacOS, if xclip is available
 if command -v xclip >/dev/null 2>&1; then
-  alias pbcopy='xclip -selection clipboard'
+  alias pbcopy='xclip -selection clipboard -rmlastnl'
   alias pbpaste='xclip -selection clipboard -o'
 fi
 
