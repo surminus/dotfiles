@@ -143,6 +143,4 @@ fi
 source ~/.dotfiles/aliases
 
 # Finally load tmux, unless it's an SSH session
-if [[ -z $SSH_TTY ]]; then
-  if [[ -z $TMUX ]]; then tmux attach; fi
-fi
+# if [[ -z $SSH_TTY ]]; then if [[ -z $TMUX ]]; then tmux attach; fi; fi
