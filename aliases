@@ -101,6 +101,9 @@ function update-tmux-plugins() {
 # Reload previously loaded shell
 alias reload_shell="exec $SHELL"
 
+# Reload kitty terminal
+alias reload_kitty="kill -SIGUSR1 \$(pgrep kitty)"
+
 # Shrug
 alias shrug="echo '¯\_(ツ)_/¯'"
 
