@@ -139,6 +139,10 @@ if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg >/dev/null 2>&1; then
   fi
 fi
 
+# I use ctrl+d to scroll down in kitty, ignore accidentally closing
+# my terminal window
+set -o ignoreeof
+
 # Load aliases at the end
 source ~/.dotfiles/aliases
 
