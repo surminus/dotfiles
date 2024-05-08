@@ -8,6 +8,7 @@
   },
   "coc.preferences.formatOnType": true,
   "coc.preferences.messageLevel": "error",
+  "coc.preferences.jumpCommand": "tabe",
   "diagnostic.checkCurrentLine": true,
   "explorer.file.hiddenRules": {
     "filenames": ["node_modules", ".git"],
