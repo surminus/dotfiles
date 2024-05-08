@@ -103,3 +103,9 @@
 
 [credential "https://gist.github.com"]
   helper = !/usr/bin/gh auth git-credential
+
+[rerere]
+  enabled = true
+
+[maintenance]
+  repo = /home/laura/ably/infrastructure
