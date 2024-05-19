@@ -96,6 +96,11 @@ if test -d $HOME/.fzf; then
   [[ -n $FD_COMMAND ]] && export FZF_DEFAULT_COMMAND="${FD_COMMAND} --type f --hidden --follow --exclude '.git'"
 fi
 
+# Zoxide
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
 # Enable pass extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
