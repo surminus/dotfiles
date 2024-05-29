@@ -48,7 +48,11 @@ function gfu() {
 
 # Move to root of repo
 function grt() {
-  cd $(git rev-parse --show-toplevel)
+  if command -v z >/dev/null 2>&1; then
+    z $(git rev-parse --show-toplevel)
+  else
+    cd $(git rev-parse --show-toplevel)
+  fi
 }
 
 alias gco="git checkout"
