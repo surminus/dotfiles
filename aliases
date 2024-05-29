@@ -66,7 +66,7 @@ alias branch="git rev-parse --abbrev-ref HEAD"
 ### Bat
 ###
 if $(which batcat >/dev/null 2>&1); then
-  alias cat='batcat -p --paging=never'
+  alias cat='batcat'
 
   if $(which fzf >/dev/null 2>&1); then
     alias fzf="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
@@ -74,7 +74,7 @@ if $(which batcat >/dev/null 2>&1); then
 fi
 
 if $(which bat >/dev/null 2>&1); then
-  alias cat='bat -p --paging=never'
+  alias cat='bat'
 
   if $(which fzf >/dev/null 2>&1); then
     alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
