@@ -251,6 +251,13 @@ nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :noh
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+function! ReplaceFn(replace_with)
+  execute "normal! *"
+  execute "%s//". a:replace_with."/g"
+endfunction
+
+command! -nargs=1 -range Replace call ReplaceFn(<f-args>)
+
 " Delete whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
