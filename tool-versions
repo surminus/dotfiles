@@ -4,5 +4,5 @@ goss 0.3.20
 jq 1.6
 nodejs 18.5.0
 python 3.10.5
-ruby 3.0.3
+ruby 3.3.1
 terraform 1.2.6
