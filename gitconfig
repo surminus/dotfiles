@@ -58,7 +58,7 @@
 
 [core]
   attributesfile = /home/laura/.gitattributes
-  pager = less -XFR
+  pager = delta
 
 [remote "origin"]
   prune = true
