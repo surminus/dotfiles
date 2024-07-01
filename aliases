@@ -33,7 +33,7 @@ function grb() {
 
 # Interactive branch selector
 function gsl() {
-  git switch $(git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' | sed 's/refs\/heads\///g' | tac | fzf --preview='git log --color=always --oneline {} |head -20')
+  (git switch $(git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' | sed 's/refs\/heads\///g' | tac | fzf --preview='git log --color=always --oneline {} |head -20')) || true
 }
 
 # Interactive commit sha selector, automatically copies into paste buffer
