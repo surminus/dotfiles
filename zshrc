@@ -45,6 +45,9 @@ if [ -e /usr/local/bin/hub ]; then
   fi
 fi
 
+# Bundler
+export BUNDLE_AUTO_INSTALL=true
+
 if command -v bundle >/dev/null 2>&1; then
   test -d $HOME/.bundle || mkdir -p $HOME/.bundle
   if ! test -f $HOME/.bundle/config || ! grep -q BUNDLE_PATH $HOME/.bundle/config; then
