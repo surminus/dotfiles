@@ -4,6 +4,17 @@
       "command": "terraform-ls",
       "args": ["serve"],
       "filetypes": ["terraform"]
+    },
+    "tflint": {
+      "command": "tflint",
+      "args": ["--langserver"],
+      "filetypes": ["terraform"]
+    },
+    "jsonnet": {
+      "command": "jsonnet-language-server",
+      "args": ["-t"],
+      "rootPatterns": [".git/", "jsonnetfile.json"],
+      "filetypes": ["jsonnet","libsonnet"]
     }
   },
   "coc.preferences.formatOnType": true,
