@@ -44,14 +44,12 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'editorconfig/editorconfig-vim'
 
 " Tools
-" Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'farmergreg/vim-lastplace'
+Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'myusuf3/numbers.vim'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'szw/vim-g'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
@@ -340,6 +338,14 @@ endfunction
 
 command TerraformDocs call TerraformDocs()
 command TerraformFunc call TerraformFunc()
+
+""" Copilot
+imap <silent><script><expr> <leader>c copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+let g:copilot_filetypes = {
+\ 'gitcommit': v:true,
+\ }
 
 """ Custom commands
 command Save Git save
