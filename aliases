@@ -6,7 +6,7 @@
 alias v=vim
 alias bim=vim
 
-function vx() {
+function vimi() {
   vim $(fzf)
 }
 ###
@@ -125,6 +125,22 @@ alias tmux="tmux -2"
 
 # myduct
 alias myduct="sudo ~/.myduct/build/myduct"
+
+# Docker Compose
+if command -v docker >/dev/null 2>&1; then
+  alias docker-compose="docker compose"
+fi
+
+# Terraform
+function tf() {
+  if command -v tofu >/dev/null 2>&1; then
+    tofu $@
+  else
+    terraform $@
+  fi
+}
+
+export TERRAFORM_BINARY_NAME="tf"
 
 ###
 ### End

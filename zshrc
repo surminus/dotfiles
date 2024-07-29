@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export SHELL=/bin/zsh
 
 # Use vim
 export EDITOR=vim
@@ -16,10 +17,10 @@ plugins=(
   github
   golang
   node
+  opentofu
   pass
   rake
   ruby
-  terraform
   ubuntu
   zsh-autosuggestions
 )
@@ -62,13 +63,15 @@ export AWS_PAGER="less -XFR"
 export GH_PAGER="less -XFR"
 
 # ablyctl
-export ABLYCTL_PAGER="less -XFR"
+if command -v ablyctl >/dev/null 2>&1; then
+  mkdir -p ~/.oh-my-zsh/completions
+  ablyctl completion zsh > ~/.oh-my-zsh/completions/_ablyctl
+  export ABLYCTL_PAGER="less -XFR"
+fi
 
 # load oh-my-zsh
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
-
-# secret
-test -f ~/.secret && source ~/.secret
 
 # toolkit
 if test -d ~/surminus/toolkit; then
@@ -99,31 +102,11 @@ if test -d $HOME/.fzf; then
   [[ -n $FD_COMMAND ]] && export FZF_DEFAULT_COMMAND="${FD_COMMAND} --type f --hidden --follow --exclude '.git'"
 fi
 
-# Zoxide
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh --cmd cd --hook pwd)"
-fi
-
 # Enable pass extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 # ripgrep config file
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
-
-#########
-# MacOS #
-#########
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  # gnu tools
-  export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-  export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-  export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-  export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-  export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-  export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-
-  test -f /usr/local/bin/vim && alias vim='/usr/local/bin/vim'
-fi
 
 # Like MacOS, if xclip is available
 if command -v xclip >/dev/null 2>&1; then
@@ -131,9 +114,6 @@ if command -v xclip >/dev/null 2>&1; then
   alias pbpaste='xclip -selection clipboard -o'
 fi
 
-##########
-# Ubuntu #
-##########
 if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg >/dev/null 2>&1; then
   if dpkg -l | grep -q ubuntu-wsl; then
   #################
@@ -147,12 +127,28 @@ if [[ "$(uname -s)" == "Linux" ]] && command -v dpkg >/dev/null 2>&1; then
   fi
 fi
 
+# Set Terraform plugin cache
+export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
+
+# Jira
+if command -v jira &> /dev/null; then
+  eval "$(jira --completion-script-zsh)"
+fi
+
 # I use ctrl+d to scroll down in kitty, ignore accidentally closing
 # my terminal window
 set -o ignoreeof
 
+# shellenv contains non-sensitive per-device configuration
+test -f ~/.shellenv && source ~/.shellenv
+
+# Secret contains sensitive per-device configuration
+test -f ~/.secretenv && source ~/.secretenv
+
 # Load aliases at the end
 source ~/.dotfiles/aliases
 
-# Finally load tmux, unless it's an SSH session
-# if [[ -z $SSH_TTY ]]; then if [[ -z $TMUX ]]; then tmux attach; fi; fi
+# Source zoxide at the end of configuration
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
