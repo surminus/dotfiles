@@ -3,6 +3,11 @@
 ###
 ### Vim
 ###
+if command -v nvim >/dev/null 2>&1 && test $HOME/.config/nvim; then
+  alias vim='nvim'
+  alias vi='nvim'
+fi
+
 alias v=vim
 alias bim=vim
 
