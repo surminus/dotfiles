@@ -1,11 +1,11 @@
 -- Configure language servers
 local servers = {
-  "tsserver",
   "gopls",
   "lua_ls",
+  "solargraph",
   "terraformls",
   "tflint",
-  "solargraph",
+  "tsserver",
 }
 
 local cmp = require 'cmp'
@@ -24,22 +24,6 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-
-    ['<C-p>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-
-    ['<C-n'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
   }),
 
   sources = {
