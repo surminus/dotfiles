@@ -12,7 +12,7 @@ require("config.goto-preview")
 require("config.telescope")
 
 -- oil is a file explorer
-require("oil").setup()
+require("config.oil")
 
 -- lualine is a statusline
 require("config.lualine")
