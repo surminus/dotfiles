@@ -45,8 +45,15 @@ return {
 
   -- Statusline
   {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' }
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+
+  -- Terminal
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = true
   },
 
   -- Syntax

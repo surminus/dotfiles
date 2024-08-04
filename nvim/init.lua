@@ -17,6 +17,9 @@ require("config.oil")
 -- lualine is a statusline
 require("config.lualine")
 
+-- toggleterm is a terminal
+require("config.toggleterm")
+
 -- open definitons in a new tab
 vim.keymap.set("n", "gd", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", {})
 
