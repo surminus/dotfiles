@@ -18,6 +18,8 @@ return {
   "hrsh7th/cmp-vsnip",
   "hrsh7th/nvim-cmp",
   "hrsh7th/vim-vsnip",
+  "williamboman/mason-lspconfig.nvim",
+  "williamboman/mason.nvim",
 
   -- Definitions
   {
