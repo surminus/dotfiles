@@ -33,3 +33,6 @@ vim.keymap.set('i', '<leader>c', 'copilot#Accept("\\<CR>")', {
   replace_keycodes = false
 })
 vim.g.copilot_no_tab_map = true
+
+vim.keymap.set("n", "<leader>j", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>k", vim.diagnostic.goto_prev)
