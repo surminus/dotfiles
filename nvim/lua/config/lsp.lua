@@ -57,6 +57,10 @@ cmp.setup.cmdline(':', {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
+local on_attach = function()
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { silent = true, noremap = true })
+end
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     settings = {
@@ -69,5 +73,6 @@ for _, lsp in ipairs(servers) do
       },
     },
     capabilities = capabilities,
+    on_attach = on_attach,
   }
 end
