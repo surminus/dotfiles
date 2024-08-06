@@ -1,5 +1,6 @@
 -- Lazy is the package manager
 vim.g.mapleader = "\\" -- Leader must be specified before lazy
+vim.g.maplocalleader = "\\"
 require("config.lazy")
 
 -- LSP configures the language server

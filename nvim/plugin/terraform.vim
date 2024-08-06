@@ -39,3 +39,6 @@ endfunction
 
 command TerraformDocs call TerraformDocs()
 command TerraformFunc call TerraformFunc()
+
+let g:terraform_binary_path = "tofu"
+let g:terraform_fmt_on_save = 1

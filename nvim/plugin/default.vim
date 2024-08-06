@@ -15,6 +15,7 @@ set number
 set ruler
 set shiftround
 set shiftwidth=2
+set signcolumn=yes
 set tabstop=8
 
 autocmd FileType crontab setlocal nobackup nowritebackup

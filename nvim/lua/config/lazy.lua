@@ -16,23 +16,22 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = "\\"
-
--- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
-    -- import your plugins
-    { import = "plugins" },
+  spec = { { import = "plugins" } },
+
+  install = {
+    colorscheme = { "moonfly" },
+    missing = true,
   },
 
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "moonfly" } },
+  checker = {
+    enabled = true,
+    notify = false,
+    frequency = 86400,
+  },
 
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
 })
