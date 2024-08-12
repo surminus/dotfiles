@@ -14,6 +14,7 @@ require("mason-lspconfig").setup({
 })
 
 local cmp = require 'cmp'
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -32,6 +33,7 @@ cmp.setup {
   }),
 
   sources = {
+    { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
   },

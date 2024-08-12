@@ -58,6 +58,15 @@ return {
     config = true
   },
 
+  -- Copilot
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  },
+
   -- Syntax
   "ekalinin/Dockerfile.vim",
   "fatih/vim-go",
@@ -74,7 +83,6 @@ return {
   "cohama/lexima.vim",
   "dstein64/vim-startuptime",
   "farmergreg/vim-lastplace",
-  "github/copilot.vim",
   "godlygeek/tabular",
   "myusuf3/numbers.vim",
   "tpope/vim-commentary",
