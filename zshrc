@@ -31,9 +31,6 @@ plugins=(
 
 autoload -U compinit && compinit
 
-bindkey '^ne' edit-command-line
-bindkey '^n^e' edit-command-line
-
 # Home bin
 export PATH="$HOME/bin:$PATH:"
 
