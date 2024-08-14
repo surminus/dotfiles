@@ -3,6 +3,9 @@ vim.g.mapleader = "\\" -- Leader must be specified before lazy
 vim.g.maplocalleader = "\\"
 require("config.lazy")
 
+-- Setup icons
+require("nvim-web-devicons").setup()
+
 -- LSP configures the language server
 require("config.lsp")
 

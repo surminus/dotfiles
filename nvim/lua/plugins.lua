@@ -87,6 +87,7 @@ return {
   "farmergreg/vim-lastplace",
   "godlygeek/tabular",
   "myusuf3/numbers.vim",
+  "nvim-tree/nvim-web-devicons",
   "tpope/vim-commentary",
   "tpope/vim-endwise",
   "tpope/vim-repeat",

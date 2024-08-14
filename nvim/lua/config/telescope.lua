@@ -13,12 +13,7 @@ require('telescope').setup({
       i = {
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-j>"] = actions.move_selection_next,
+      }
     }
-  }
   },
-  pickers = {
-    find_files = {
-      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" }
-    },
-  }
 })
