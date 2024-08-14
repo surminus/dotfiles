@@ -2,7 +2,6 @@ awscli 2.7.21
 golang 1.22.3
 goss 0.3.20
 jq 1.6
-lua-language-server 3.10.1
 nodejs 18.5.0
 opentofu 1.6.2
 python 3.10.5
