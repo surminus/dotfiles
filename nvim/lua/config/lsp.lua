@@ -1,11 +1,13 @@
 -- Configure language servers
 local servers = {
   "gopls",
+  "jsonls",
   "lua_ls",
   "solargraph",
   "terraformls",
   "tflint",
   "tsserver",
+  "yamlls",
 }
 
 require("mason").setup()
@@ -34,7 +36,11 @@ cmp.setup {
 
   sources = {
     { name = "copilot" },
+    { name = 'buffer' },
+    { name = 'cmp-yank' },
+    { name = 'git' },
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'vsnip' },
   },
 }
@@ -59,8 +65,9 @@ cmp.setup.cmdline(':', {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
-local on_attach = function()
+local on_attach = function(client)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { silent = true, noremap = true })
+  client.server_capabilities.documentFormattingProvider = true
 end
 
 for _, lsp in ipairs(servers) do
