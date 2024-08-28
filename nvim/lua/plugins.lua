@@ -21,15 +21,19 @@ return {
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/vim-vsnip",
 	"petertriho/cmp-git",
-	"williamboman/mason-lspconfig.nvim",
+
+	-- Mason
 	"williamboman/mason.nvim",
+
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	"rshkarin/mason-nvim-lint",
+	"williamboman/mason-lspconfig.nvim",
 
 	-- Formatting
 	"mhartington/formatter.nvim",
 
 	-- Linting
 	"mfussenegger/nvim-lint",
-	"rshkarin/mason-nvim-lint",
 
 	-- Definitions
 	{
