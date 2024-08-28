@@ -6,3 +6,4 @@ nodejs 18.5.0
 opentofu 1.6.2
 python 3.10.5
 ruby 3.3.1
+rust 1.80.1
