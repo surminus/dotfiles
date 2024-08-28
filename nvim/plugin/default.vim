@@ -19,8 +19,7 @@ set signcolumn=yes
 set tabstop=8
 
 autocmd FileType crontab setlocal nobackup nowritebackup
-autocmd FileType go,cue set autoindent noexpandtab tabstop=4 shiftwidth=4
-autocmd FileType make set autoindent noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType go,cue,lua,make set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 
 " Whitespace

@@ -3,7 +3,8 @@ local servers = {
   "gopls",
   "jsonls",
   "lua_ls",
-  "solargraph",
+  "ruby_lsp",
+  "taplo",
   "terraformls",
   "tflint",
   "tsserver",
@@ -35,13 +36,13 @@ cmp.setup {
   }),
 
   sources = {
-    { name = "copilot" },
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
     { name = 'buffer' },
     { name = 'cmp-yank' },
-    { name = 'git' },
-    { name = 'nvim_lsp' },
     { name = 'path' },
-    { name = 'vsnip' },
+    { name = "copilot" },
+    { name = 'git' },
   },
 }
 
