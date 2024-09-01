@@ -140,6 +140,12 @@ fi
 # my terminal window
 set -o ignoreeof
 
+# KDE
+if command -v ksshaskpass >/dev/null 2>&1; then
+  export SSH_ASKPASS="/usr/bin/ksshaskpass"
+  export SSH_ASKPASS_REQUIRE="prefer"
+fi
+
 # shellenv contains non-sensitive per-device configuration
 test -f ~/.shellenv && source ~/.shellenv
 
