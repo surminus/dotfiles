@@ -3,7 +3,6 @@ local servers = {
 	"gopls",
 	"jsonls",
 	"lua_ls",
-	-- "ruby_lsp",
 	"solargraph",
 	"taplo",
 	"terraformls",
