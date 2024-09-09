@@ -9,7 +9,6 @@ require("formatter").setup({
 
 		lua = { filetypes.lua.stylua },
 		sh = { filetypes.sh.shfmt },
-		yaml = { filetypes.yaml.yamlfmt },
 		json = { filetypes.json.jq },
 
 		["*"] = { filetypes.any.remove_trailing_whitespace },

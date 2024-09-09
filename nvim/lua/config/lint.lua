@@ -5,7 +5,6 @@ require("lint").linters_by_ft = {
 	ruby = { "standardrb" },
 	sh = { "shellcheck" },
 	terraform = { "tflint" },
-	yaml = { "yamllint" },
 }
 
 require("mason-nvim-lint").setup({})
