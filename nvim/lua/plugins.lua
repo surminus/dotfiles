@@ -99,6 +99,7 @@ return {
 	"dstein64/vim-startuptime",
 	"farmergreg/vim-lastplace",
 	"godlygeek/tabular",
+	"lewis6991/gitsigns.nvim",
 	"myusuf3/numbers.vim",
 	"nvim-tree/nvim-web-devicons",
 	"tpope/vim-commentary",
