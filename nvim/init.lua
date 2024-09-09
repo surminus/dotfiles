@@ -48,3 +48,12 @@ vim.g.go_highlight_fields = 0
 vim.g.go_highlight_function_calls = 0
 vim.g.go_highlight_operators = 0
 vim.g.go_highlight_types = 0
+
+-- Browse
+vim.api.nvim_create_user_command(
+  'Browse',
+  function (opts)
+    vim.fn.system { 'xdg-open', opts.fargs[1] }
+  end,
+  { nargs = 1 }
+)
