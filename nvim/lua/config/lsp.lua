@@ -36,13 +36,13 @@ cmp.setup({
 	}),
 
 	sources = {
-		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer" },
 		{ name = "cmp-yank" },
 		{ name = "copilot" },
 		{ name = "git" },
+		{ name = "luasnip" },
 	},
 })
 

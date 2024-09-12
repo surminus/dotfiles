@@ -108,4 +108,9 @@ return {
 	"tpope/vim-sensible",
 	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
+
+	{
+		"gbprod/substitute.nvim",
+		opts = {},
+	},
 }
