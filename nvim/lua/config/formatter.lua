@@ -10,6 +10,7 @@ require("formatter").setup({
 		lua = { filetypes.lua.stylua },
 		sh = { filetypes.sh.shfmt },
 		json = { filetypes.json.jq },
+		typescript = { filetypes.typescript.prettier },
 
 		["*"] = { filetypes.any.remove_trailing_whitespace },
 	},

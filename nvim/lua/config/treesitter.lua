@@ -27,6 +27,6 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 		disable = { "gitcommit" },
-		additional_vim_regex_highlighting = false,
+		additional_vim_regex_highlighting = true,
 	},
 })
