@@ -61,6 +61,7 @@ function grt() {
 }
 
 alias gco="git checkout"
+alias gcp="git cherry-pick"
 alias gsw="git switch"
 
 alias commit="git rev-parse HEAD"

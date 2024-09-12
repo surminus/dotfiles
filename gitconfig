@@ -18,6 +18,7 @@
   amend    = commit --amend
   amendf   = commit --amend --no-edit
   co       = !sh -c 'git stash; git stash apply; git checkout "$@"'
+  cp       = cherry-pick
   del      = branch -D
   fixup    = commit --fixup
   last     = !git --no-pager log --oneline -10
