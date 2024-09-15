@@ -16,12 +16,13 @@ require("formatter").setup({
 	},
 })
 
-require('mason-tool-installer').setup({
+require("mason-tool-installer").setup({
 	ensure_installed = {
 		"jq",
+		"prettier",
 		"shfmt",
-		"yamlfmt",
-	}
+		"stylua",
+	},
 })
 
 local augroup = vim.api.nvim_create_augroup
