@@ -7,7 +7,7 @@ local servers = {
 	"taplo",
 	"terraformls",
 	"tflint",
-	"tsserver",
+	"ts_ls",
 	"yamlls",
 }
 
