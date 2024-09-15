@@ -73,7 +73,6 @@ local on_attach = function(client)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts) -- Hover definition
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts) -- Open definition in buffer
 	vim.keymap.set("n", "gt", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", bufopts) -- Open definition in tab
-	vim.keymap.set("n", "gv", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", bufopts) -- Open definition in vsplit
 
 	client.server_capabilities.documentFormattingProvider = true
 end
