@@ -20,6 +20,7 @@ require("config.lualine")
 require("config.oil")
 require("config.substitute")
 require("config.telescope")
+require("config.terraform")
 require("config.toggleterm")
 
 -- copilot is an AI assistant
