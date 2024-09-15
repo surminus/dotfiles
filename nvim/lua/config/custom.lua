@@ -1,6 +1,3 @@
--- open definitons in a new tab
-vim.keymap.set("n", "gd", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", {})
-
 -- Disable mouse
 vim.opt.mouse = ""
 
