@@ -35,3 +35,17 @@ vim.opt.swapfile = false
 
 -- Save undo history
 vim.opt.undofile = true
+
+-- Switch between buffers
+vim.keymap.set("n", "H", ":bprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "L", ":bnext<CR>", { noremap = true, silent = true })
+
+-- Move between windows
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { noremap = true, silent = true })
+
+-- Split sensibly
+vim.opt.splitbelow = true
+vim.opt.splitright = true

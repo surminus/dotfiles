@@ -8,7 +8,6 @@ require("lualine").setup({
 		lualine_z = { "location" },
 	},
 	tabline = {
-		lualine_a = { "tabs" },
-		lualine_z = { "buffers" },
+		lualine_a = { "buffers" },
 	},
 })
