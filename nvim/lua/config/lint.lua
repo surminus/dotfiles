@@ -2,7 +2,7 @@ require("lint").linters_by_ft = {
 	bash = { "shellcheck" },
 	go = { "golangcilint" },
 	markdown = { "vale" },
-	ruby = { "standardrb" },
+	-- ruby = { "standardrb" },
 	sh = { "shellcheck" },
 	terraform = { "tflint" },
 }

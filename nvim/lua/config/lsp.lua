@@ -1,5 +1,6 @@
 -- Configure language servers
 local servers = {
+	"dagger",
 	"gopls",
 	"jsonls",
 	"lua_ls",
@@ -25,24 +26,48 @@ cmp.setup({
 		end,
 	},
 
-	mapping = cmp.mapping.preset.insert({
+	window = {
+		documentation = cmp.config.window.bordered(),
+	},
+
+	mapping = {
+		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
 		["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-e>"] = cmp.mapping.close(),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<Tab>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
-	}),
+	},
 
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer" },
-		{ name = "cmp-yank" },
+		{ name = "yank" },
 		{ name = "copilot" },
 		{ name = "git" },
 		{ name = "luasnip" },
+	},
+
+	formatting = {
+		format = require("lspkind").cmp_format({
+			with_text = true,
+			menu = {
+				buffer = "[Buffer]",
+				copilot = "[CoPilot]",
+				git = "[Git]",
+				luasnip = "[LuaSnip]",
+				nvim_lsp = "[LSP]",
+				path = "[Path]",
+				yank = "[Yank]",
+			},
+		}),
 	},
 })
 
@@ -72,7 +97,6 @@ local on_attach = function(client)
 	local bufopts = { noremap = true, silent = true }
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts) -- Hover definition
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts) -- Open definition in buffer
-	vim.keymap.set("n", "gt", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", bufopts) -- Open definition in tab
 
 	client.server_capabilities.documentFormattingProvider = true
 end

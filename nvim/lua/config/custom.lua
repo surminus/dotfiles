@@ -33,9 +33,6 @@ vim.opt.autoread = true
 -- Disable swapfiles
 vim.opt.swapfile = false
 
--- Save undo history
-vim.opt.undofile = true
-
 -- Switch between buffers
 vim.keymap.set("n", "H", ":bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "L", ":bnext<CR>", { noremap = true, silent = true })

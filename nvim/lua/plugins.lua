@@ -1,13 +1,5 @@
 return {
-	{
-		"bluz71/vim-moonfly-colors",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			-- load the colorscheme here
-			vim.cmd([[colorscheme moonfly]])
-		end,
-	},
+	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
 
 	-- LSP
 	"neovim/nvim-lspconfig",
@@ -18,6 +10,7 @@ return {
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/cmp-path",
 	"hrsh7th/nvim-cmp",
+	"onsails/lspkind.nvim",
 	"petertriho/cmp-git",
 
 	{
@@ -34,6 +27,9 @@ return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"rshkarin/mason-nvim-lint",
 	"williamboman/mason-lspconfig.nvim",
+
+	-- Theme
+	{ "bluz71/vim-moonfly-colors" },
 
 	-- Formatting
 	"mhartington/formatter.nvim",
@@ -95,6 +91,7 @@ return {
 	"hashivim/vim-terraform",
 
 	-- Tools
+	"AndrewRadev/switch.vim",
 	"cohama/lexima.vim",
 	"dstein64/vim-startuptime",
 	"farmergreg/vim-lastplace",

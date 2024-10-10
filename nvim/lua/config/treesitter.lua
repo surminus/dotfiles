@@ -11,7 +11,7 @@ require("nvim-treesitter.configs").setup({
 
 		-- Optional
 		"bash",
-		"cue",
+		-- "cue",
 		"go",
 		"gomod",
 		"hcl",
@@ -27,6 +27,6 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 		disable = { "gitcommit" },
-		additional_vim_regex_highlighting = true,
+		additional_vim_regex_highlighting = false,
 	},
 })
