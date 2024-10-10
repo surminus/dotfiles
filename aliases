@@ -36,19 +36,29 @@ function grb() {
   gcm && git switch - && git rebase $(git_default_branch)
 }
 
+# Interactive branch viewer
+function gbr() {
+  git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' $@ | sed 's/refs\/heads\///g' | tac | fzf --preview='git log --color=always --oneline {} |head -20' | head -n1 || true
+}
+
 # Interactive branch selector
 function gsl() {
-  (git switch $(git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' | sed 's/refs\/heads\///g' | tac | fzf --preview='git log --color=always --oneline {} |head -20') $@) || true
+  git switch $(gbr) $@ || true
 }
 
 # Interactive commit sha selector, automatically copies into paste buffer
 function glo() {
-  git log --oneline --format=format:%H | fzf --preview='git show --color=always {}'
+  git log --oneline --format=format:%H $@ | fzf --preview='git show --color=always {}' || true
 }
 
 # Interactive fixup selector
 function gfu() {
   git fixup $(glo) $@
+}
+
+# Cherry pick
+function gcp() {
+  git cherry-pick $@
 }
 
 # Move to root of repo
@@ -61,7 +71,6 @@ function grt() {
 }
 
 alias gco="git checkout"
-alias gcp="git cherry-pick"
 alias gsw="git switch"
 
 alias commit="git rev-parse HEAD"
@@ -146,7 +155,7 @@ function tf() {
   fi
 }
 
-export TERRAFORM_BINARY_NAME="tf"
+export TERRAFORM_BINARY_NAME="tofu"
 
 ###
 ### End
