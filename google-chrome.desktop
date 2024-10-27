@@ -1,0 +1,30 @@
+[Desktop Action new-private-window]
+Exec=/usr/bin/google-chrome-stable --incognito
+Name[en_GB]=New Incognito window
+Name=New Incognito Window
+
+[Desktop Action new-window]
+Exec=/usr/bin/google-chrome-stable
+Name[en_GB]=New Window
+Name=New Window
+
+[Desktop Entry]
+Actions=new-window;new-private-window;
+Categories=Network;WebBrowser;
+Comment[en_GB]=Access the Internet
+Comment=Access the Internet
+Exec=/usr/bin/google-chrome-stable --force-device-scale-factor=1.5 %U
+GenericName[en_GB]=Web Browser
+GenericName=Web Browser
+Icon=google-chrome
+MimeType=text/html;image/webp;image/png;image/jpeg;image/gif;application/xml;application/xml;application/xhtml+xml;application/rss+xml;application/rdf+xml;application/pdf;
+Name[en_GB]=Google Chrome
+Name=Google Chrome
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-KDE-SubstituteUID=false
+X-KDE-Username=
