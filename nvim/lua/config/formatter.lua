@@ -7,10 +7,12 @@ require("formatter").setup({
 		-- Note: use vim-go for Go
 		-- go = { filetypes.go.gofmt, filetypes.go.goimports }
 
+		javascript = { filetypes.typescript.prettier, filetypes.typescript.eslint_d },
+		json = { filetypes.json.jq },
 		lua = { filetypes.lua.stylua },
 		sh = { filetypes.sh.shfmt },
-		json = { filetypes.json.jq },
-		typescript = { filetypes.typescript.prettier },
+		toml = { filetypes.toml.taplo },
+		typescript = { filetypes.typescript.prettier, filetypes.typescript.eslint_d },
 
 		["*"] = { filetypes.any.remove_trailing_whitespace },
 	},
@@ -18,10 +20,12 @@ require("formatter").setup({
 
 require("mason-tool-installer").setup({
 	ensure_installed = {
+		"eslint_d",
 		"jq",
 		"prettier",
 		"shfmt",
 		"stylua",
+		"taplo",
 	},
 })
 

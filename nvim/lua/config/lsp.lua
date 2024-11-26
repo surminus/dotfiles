@@ -1,6 +1,7 @@
 -- Configure language servers
 local servers = {
 	"dagger",
+	"eslint",
 	"gopls",
 	"jsonls",
 	"lua_ls",

@@ -1,8 +1,11 @@
 require("lint").linters_by_ft = {
+	-- ruby = { "standardrb" },
+	-- javascript = { "eslint_d" },
+	-- typescript = { "eslint_d" },
+
 	bash = { "shellcheck" },
 	go = { "golangcilint" },
 	markdown = { "vale" },
-	-- ruby = { "standardrb" },
 	sh = { "shellcheck" },
 	terraform = { "tflint" },
 }
