@@ -7,6 +7,7 @@ require("formatter").setup({
 		-- Note: use vim-go for Go
 		-- go = { filetypes.go.gofmt, filetypes.go.goimports }
 
+		html = { filetypes.html.htmlbeautifier },
 		javascript = { filetypes.typescript.prettier, filetypes.typescript.eslint_d },
 		json = { filetypes.json.jq },
 		lua = { filetypes.lua.stylua },
@@ -21,6 +22,7 @@ require("formatter").setup({
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"eslint_d",
+		"htmlbeautifier",
 		"jq",
 		"prettier",
 		"shfmt",

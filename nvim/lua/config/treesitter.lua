@@ -11,15 +11,17 @@ require("nvim-treesitter.configs").setup({
 
 		-- Optional
 		"bash",
-		-- "cue",
 		"go",
 		"gomod",
 		"hcl",
+		"html",
 		"json",
 		"jsonnet",
 		"ruby",
 		"terraform",
 		"yaml",
+
+		-- "cue",
 	},
 
 	sync_install = false,
@@ -29,4 +31,7 @@ require("nvim-treesitter.configs").setup({
 		disable = { "gitcommit" },
 		additional_vim_regex_highlighting = false,
 	},
+	endwise = { enable = true },
 })
+
+require("nvim-ts-autotag").setup()

@@ -85,6 +85,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
+	"windwp/nvim-ts-autotag",
 
 	"fatih/vim-go",
 	"fladson/vim-kitty",
@@ -92,7 +93,7 @@ return {
 
 	-- Tools
 	"AndrewRadev/switch.vim",
-	"cohama/lexima.vim",
+	"cohama/lexima.vim", -- Auto close parentheses
 	"dstein64/vim-startuptime",
 	"farmergreg/vim-lastplace",
 	"godlygeek/tabular",
@@ -101,6 +102,7 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	"tpope/vim-commentary",
 	"tpope/vim-endwise",
+	"tpope/vim-rails",
 	"tpope/vim-repeat",
 	"tpope/vim-sensible",
 	"tpope/vim-sleuth",
