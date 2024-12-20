@@ -131,6 +131,7 @@ alias df='df -x"squashfs"'
 
 # Bundler
 alias bi="bundle install"
+alias be="bundle exec"
 
 # Replace rpl with sd in string mode
 alias rpl="sd -s"
@@ -150,12 +151,11 @@ fi
 function tf() {
   if command -v tofu >/dev/null 2>&1; then
     tofu $@
+    export TERRAFORM_BINARY_NAME="tofu"
   else
     terraform $@
   fi
 }
-
-export TERRAFORM_BINARY_NAME="tofu"
 
 ###
 ### End
