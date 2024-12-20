@@ -32,7 +32,7 @@ return {
 	{ "bluz71/vim-moonfly-colors" },
 
 	-- Formatting
-	"mhartington/formatter.nvim",
+	"stevearc/conform.nvim",
 
 	-- Linting
 	"mfussenegger/nvim-lint",

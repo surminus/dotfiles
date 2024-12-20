@@ -13,7 +13,7 @@ require("nvim-web-devicons").setup()
 -- Core
 require("config.lsp")
 require("config.treesitter")
-require("config.formatter")
+require("config.format")
 require("config.lint")
 
 -- More
