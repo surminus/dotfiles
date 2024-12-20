@@ -7,13 +7,15 @@ require("formatter").setup({
 		-- Note: use vim-go for Go
 		-- go = { filetypes.go.gofmt, filetypes.go.goimports }
 
+		css = { filetypes.css.prettierd },
 		html = { filetypes.html.htmlbeautifier },
-		javascript = { filetypes.typescript.prettier, filetypes.typescript.eslint_d },
+		javascript = { filetypes.typescript.prettierd, filetypes.typescript.eslint_d },
 		json = { filetypes.json.jq },
 		lua = { filetypes.lua.stylua },
+		scss = { filetypes.css.prettierd },
 		sh = { filetypes.sh.shfmt },
 		toml = { filetypes.toml.taplo },
-		typescript = { filetypes.typescript.prettier, filetypes.typescript.eslint_d },
+		typescript = { filetypes.typescript.prettierd, filetypes.typescript.eslint_d },
 
 		["*"] = { filetypes.any.remove_trailing_whitespace },
 	},
@@ -24,7 +26,7 @@ require("mason-tool-installer").setup({
 		"eslint_d",
 		"htmlbeautifier",
 		"jq",
-		"prettier",
+		"prettierd",
 		"shfmt",
 		"stylua",
 		"taplo",
