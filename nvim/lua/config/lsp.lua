@@ -1,5 +1,6 @@
 -- Configure language servers
 local servers = {
+	"cssls",
 	"dagger",
 	"eslint",
 	"gopls",
