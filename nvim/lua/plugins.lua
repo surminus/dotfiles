@@ -87,9 +87,9 @@ return {
 	},
 	"windwp/nvim-ts-autotag",
 
-	"fatih/vim-go",
 	"fladson/vim-kitty",
 	"hashivim/vim-terraform",
+	"ray-x/go.nvim",
 
 	-- Tools
 	"AndrewRadev/switch.vim",

@@ -19,6 +19,7 @@ require("config.lint")
 -- More
 require("config.custom")
 require("config.gitsigns")
+require("config.go")
 require("config.goto-preview")
 require("config.hard")
 require("config.lualine")
