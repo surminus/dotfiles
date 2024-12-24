@@ -1,7 +1,6 @@
 require("conform").setup({
 	formatters_by_ft = {
 		css = { "prettierd" },
-		go = { "gofmt", "goimports" },
 		html = { "htmlbeautifier" },
 		javascript = { "prettierd", "eslint_d" },
 		json = { "jq" },
@@ -27,6 +26,5 @@ require("mason-tool-installer").setup({
 		"shfmt",
 		"stylua",
 		"taplo",
-		"goimports",
 	},
 })

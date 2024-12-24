@@ -89,7 +89,12 @@ return {
 
 	"fladson/vim-kitty",
 	"hashivim/vim-terraform",
-	"ray-x/go.nvim",
+
+	{
+		"ray-x/go.nvim",
+		dependencies = { "guihua.lua" },
+		ft = { "go", "gomod" },
+	},
 
 	-- Tools
 	"AndrewRadev/switch.vim",
