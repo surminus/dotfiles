@@ -92,7 +92,7 @@ return {
 
 	{
 		"ray-x/go.nvim",
-		dependencies = { "guihua.lua" },
+		dependencies = { "ray-x/guihua.lua" },
 		ft = { "go", "gomod" },
 	},
 
