@@ -6,9 +6,9 @@ require("conform").setup({
 		json = { "jq" },
 		lua = { "stylua" },
 		scss = { "prettierd" },
-		sh = { "shfmt" },
 		toml = { "taplo" },
 		typescript = { "prettierd", "eslint_d" },
+		yaml = { "trim_whitespace" }, -- Do not format YAML, but trim_whitespace
 	},
 
 	format_on_save = {

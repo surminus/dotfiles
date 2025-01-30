@@ -3,8 +3,10 @@ return {
 
 	-- LSP
 	"neovim/nvim-lspconfig",
-	"hrsh7th/cmp-nvim-lsp",
+	"linrongbin16/lsp-progress.nvim",
 
+	-- Completions
+	"hrsh7th/cmp-nvim-lsp",
 	"chrisgrieser/cmp_yanky",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-cmdline",
@@ -90,13 +92,23 @@ return {
 	"fladson/vim-kitty",
 	"hashivim/vim-terraform",
 
+	-- Go
 	{
 		"ray-x/go.nvim",
 		dependencies = { "ray-x/guihua.lua" },
 		ft = { "go", "gomod" },
 	},
 
-	-- Tools
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+			"theHamsta/nvim-dap-virtual-text",
+		},
+	},
+
+	-- Other tools
 	"AndrewRadev/switch.vim",
 	"cohama/lexima.vim", -- Auto close parentheses
 	"dstein64/vim-startuptime",

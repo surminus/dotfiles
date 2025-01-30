@@ -1,7 +1,8 @@
 require("mason-tool-installer").setup({
 	ensure_installed = {
-		"goimports",
+		"delve",
 		"gofumpt",
+		"goimports",
 	},
 })
 
