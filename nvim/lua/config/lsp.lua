@@ -6,6 +6,7 @@ local servers = {
 	"gopls",
 	"html",
 	"jsonls",
+	"jsonnet_ls",
 	"lua_ls",
 	"solargraph",
 	"taplo",
