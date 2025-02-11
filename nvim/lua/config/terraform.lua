@@ -64,7 +64,7 @@ local function terraform_docs()
 		return
 	end
 
-	local provider, identifier = string.match(name, "^(%w+)_([%w+)$")
+	local provider, identifier = string.match(name, "^(%w+)_([%w_]+)$")
 	local namespace = provider
 
 	for _, value in ipairs(hashicorp_providers) do
