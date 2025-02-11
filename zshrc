@@ -2,13 +2,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export SHELL=/bin/zsh
 
-# Use vim
-if command -v nvim >/dev/null; then
-  export EDITOR=nvim
-else
-  export EDITOR=vim
-fi
-
 ZSH_THEME="robbyrussell"
 test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 

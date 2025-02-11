@@ -3,9 +3,18 @@
 ###
 ### Vim
 ###
+
+# Install neovim manually
+if test -d /usr/share/nvim; then
+  export PATH=/usr/share/nvim/bin:$PATH
+fi
+
 if command -v nvim >/dev/null 2>&1 && test $HOME/.config/nvim; then
+  export EDITOR=nvim
   alias vim='nvim'
   alias vi='nvim'
+else
+  export EDITOR=vim
 fi
 
 alias v=vim
