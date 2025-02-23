@@ -8,6 +8,7 @@ local servers = {
 	"jsonls",
 	"jsonnet_ls",
 	"lua_ls",
+	"pyright",
 	"solargraph",
 	"taplo",
 	"terraformls",

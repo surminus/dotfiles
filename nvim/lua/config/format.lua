@@ -4,8 +4,10 @@ require("conform").setup({
 		html = { "htmlbeautifier" },
 		javascript = { "prettierd", "eslint_d" },
 		json = { "jq" },
-		jsonnet = { "jsonnetfmt" },
+		-- jsonnet = { "jsonnetfmt" },
+		jsonnet = { "trim_whitespace" },
 		lua = { "stylua" },
+		python = { "flake8" },
 		scss = { "prettierd" },
 		toml = { "taplo" },
 		typescript = { "prettierd", "eslint_d" },
@@ -21,6 +23,7 @@ require("conform").setup({
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"eslint_d",
+		"flake8",
 		"htmlbeautifier",
 		"jq",
 		"jsonnetfmt",

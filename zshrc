@@ -26,6 +26,7 @@ autoload -U compinit && compinit
 
 # Home bin
 export PATH="$HOME/bin:$PATH:"
+export PATH="$HOME/.local/bin:$PATH"
 
 # autosuggestions
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=238
