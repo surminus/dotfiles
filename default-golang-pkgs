@@ -1,9 +1,9 @@
 github.com/cloudflare/cloudflare-go/cmd/flarectl@latest
 github.com/fatih/gomodifytags@latest
 github.com/go-delve/delve/cmd/dlv@latest
-github.com/go-jira/jira/cmd/jira@latest
 github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 github.com/google/go-jsonnet/cmd/jsonnet@latest
+github.com/mikefarah/yq/v4@latest
 github.com/silenceper/gowatch@latest
 golang.org/x/tools/cmd/goimports@latest
 golang.org/x/tools/gopls@latest
