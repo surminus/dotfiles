@@ -125,11 +125,6 @@ fi
 # Set Terraform plugin cache
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 
-# Jira
-if command -v jira &> /dev/null; then
-  eval "$(jira --completion-script-zsh)"
-fi
-
 # I use ctrl+d to scroll down in kitty, ignore accidentally closing
 # my terminal window
 set -o ignoreeof
