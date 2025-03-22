@@ -6,13 +6,13 @@ ZSH_THEME="robbyrussell"
 test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 
 plugins=(
-  asdf
   aws
   docker
   emoji
   fzf
   github
   golang
+  mise
   node
   opentofu
   pass
