@@ -3,6 +3,8 @@ require("mason-tool-installer").setup({
 		"delve",
 		"gofumpt",
 		"goimports",
+		"golangci-lint",
+		"golangci-lint-langserver",
 	},
 })
 

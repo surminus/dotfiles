@@ -3,6 +3,7 @@ local servers = {
 	"cssls",
 	"dagger",
 	"eslint",
+	"golangci_lint_ls",
 	"gopls",
 	"html",
 	"jsonls",
