@@ -5,6 +5,8 @@ export SHELL=/bin/zsh
 ZSH_THEME="robbyrussell"
 test -f ~/.oh-my-zsh/custom/themes/surminus.zsh-theme && ZSH_THEME="surminus"
 
+export MISE_TRUSTED_CONFIG_PATHS=~/.config/mise/config.toml
+
 plugins=(
   aws
   docker
