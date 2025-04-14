@@ -13,7 +13,7 @@ local servers = {
 	"solargraph",
 	"taplo",
 	"terraformls",
-	"tflint",
+	-- "tflint",
 	"ts_ls",
 	"yamlls",
 }
@@ -66,7 +66,6 @@ cmp.setup({
 		},
 
 		{ name = "yank" },
-		{ name = "copilot" },
 		{ name = "git" },
 		{ name = "luasnip" },
 	},
@@ -76,7 +75,6 @@ cmp.setup({
 			with_text = true,
 			menu = {
 				buffer = "[Buffer]",
-				copilot = "[CoPilot]",
 				git = "[Git]",
 				luasnip = "[LuaSnip]",
 				nvim_lsp = "[LSP]",

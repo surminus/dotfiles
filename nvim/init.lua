@@ -30,5 +30,5 @@ require("config.telescope")
 require("config.terraform")
 require("config.toggleterm")
 
--- copilot is an AI assistant
--- require("config.copilot")
+-- AI
+require("config.ai")

@@ -73,13 +73,17 @@ return {
 		config = true,
 	},
 
-	-- Copilot
+	-- AI
 	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = { "zbirenbaum/copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup()
-		end,
+		"greggh/claude-code.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
 	},
 
 	-- Syntax
@@ -98,7 +102,6 @@ return {
 		dependencies = { "ray-x/guihua.lua" },
 		ft = { "go", "gomod" },
 	},
-
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = {
@@ -125,7 +128,6 @@ return {
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
-
 	{
 		"gbprod/substitute.nvim",
 		opts = {},

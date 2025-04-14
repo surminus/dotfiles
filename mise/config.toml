@@ -1,14 +1,14 @@
 [tools]
-awscli   = "latest"
-duckdb   = "latest"
-go       = "latest"
-jq       = "latest"
-node     = "latest"
+awscli = "latest"
+duckdb = "latest"
+go = "latest"
+jq = "latest"
+node = "latest"
 opentofu = "latest"
-python   = "latest"
-ruby     = "latest"
-rust     = "latest"
-usage    = "latest"
+python = "latest"
+ruby = "latest"
+rust = "latest"
+usage = "latest"
 
 [settings]
 ignored_config_paths = ["~/.dotfiles"]
