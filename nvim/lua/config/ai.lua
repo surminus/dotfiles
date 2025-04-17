@@ -8,4 +8,8 @@ require("copilot").setup({
 		type = "binary",
 	},
 	copilot_model = "gpt-4o-copilot",
+	filetypes = {
+		gitcommit = true,
+		markdown = true,
+	},
 })

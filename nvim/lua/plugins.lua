@@ -85,6 +85,7 @@ return {
 		cmd = "Copilot",
 		event = "InsertEnter",
 	},
+	{ "AndreM222/copilot-lualine" },
 
 	-- Syntax
 	{

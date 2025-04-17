@@ -18,6 +18,7 @@ require("lualine").setup({
 	},
 	tabline = {
 		lualine_a = { "buffers" },
+		lualine_x = { "copilot" },
 		lualine_z = { lsp_progress },
 	},
 })
