@@ -134,7 +134,7 @@ return {
 	"tpope/vim-rails",
 	"tpope/vim-repeat",
 	-- "tpope/vim-sensible",
-	"tpope/vim-sleuth",
+	-- "tpope/vim-sleuth",
 	"tpope/vim-surround",
-	"tpope/vim-unimpaired",
+	-- "tpope/vim-unimpaired",
 }
