@@ -1,5 +1,10 @@
 return {
-	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+	{
+		"bluz71/vim-moonfly-colors",
+		name = "moonfly",
+		lazy = false,
+		priority = 1000,
+	},
 
 	-- LSP
 	"neovim/nvim-lspconfig",
@@ -31,7 +36,7 @@ return {
 	"williamboman/mason-lspconfig.nvim",
 
 	-- Theme
-	{ "bluz71/vim-moonfly-colors" },
+	"bluz71/vim-moonfly-colors",
 
 	-- Formatting
 	"stevearc/conform.nvim",
@@ -51,12 +56,15 @@ return {
 	"tpope/vim-rhubarb",
 
 	-- Search
-	{ "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 
 	-- Filesystem
 	{
 		"stevearc/oil.nvim",
-		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
@@ -117,6 +125,7 @@ return {
 	"cohama/lexima.vim", -- Auto close parentheses
 	"dstein64/vim-startuptime",
 	"farmergreg/vim-lastplace",
+	"gbprod/substitute.nvim",
 	"godlygeek/tabular",
 	"lewis6991/gitsigns.nvim",
 	"myusuf3/numbers.vim",
@@ -129,8 +138,4 @@ return {
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
-	{
-		"gbprod/substitute.nvim",
-		opts = {},
-	},
 }

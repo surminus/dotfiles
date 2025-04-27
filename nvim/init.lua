@@ -7,17 +7,19 @@ require("config.lazy")
 vim.opt.termguicolors = true
 vim.cmd([[colorscheme moonfly]])
 
+-- Default settings
+require("settings")
+
 -- Setup icons
 require("nvim-web-devicons").setup()
 
 -- Core
 require("config.lsp")
-require("config.treesitter")
 require("config.format")
 require("config.lint")
+require("config.treesitter")
 
 -- More
-require("config.custom")
 require("config.gitsigns")
 require("config.go")
 require("config.goto-preview")
