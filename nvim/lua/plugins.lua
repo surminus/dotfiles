@@ -123,7 +123,6 @@ return {
 	-- Other tools
 	"AndrewRadev/switch.vim",
 	"cohama/lexima.vim", -- Auto close parentheses
-	"dstein64/vim-startuptime",
 	"farmergreg/vim-lastplace",
 	"gbprod/substitute.nvim",
 	"godlygeek/tabular",
@@ -134,7 +133,7 @@ return {
 	"tpope/vim-endwise",
 	"tpope/vim-rails",
 	"tpope/vim-repeat",
-	"tpope/vim-sensible",
+	-- "tpope/vim-sensible",
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
