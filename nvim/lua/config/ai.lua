@@ -13,3 +13,5 @@ require("copilot").setup({
 		markdown = true,
 	},
 })
+
+vim.keymap.set("n", "<leader>l", "<CMD>Copilot toggle<CR>", { desc = "Toggle Copilot" })
