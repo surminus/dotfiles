@@ -7,6 +7,9 @@ return {
 	},
 
 	-- LSP
+	"mason-org/mason.nvim",
+	"mason-org/mason-lspconfig.nvim",
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"neovim/nvim-lspconfig",
 	"linrongbin16/lsp-progress.nvim",
 
@@ -28,17 +31,11 @@ return {
 	},
 	"saadparwaiz1/cmp_luasnip",
 
-	-- Mason
-	"williamboman/mason.nvim",
-
-	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	"rshkarin/mason-nvim-lint",
-	"williamboman/mason-lspconfig.nvim",
-
 	-- Theme
 	"bluz71/vim-moonfly-colors",
 
 	-- Formatting
+	"rshkarin/mason-nvim-lint",
 	"stevearc/conform.nvim",
 
 	-- Linting
