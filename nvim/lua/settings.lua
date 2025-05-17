@@ -38,3 +38,6 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { noremap = true, silent = true })
 -- Split sensibly
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Delete without yanking, like P
+vim.keymap.set("x", "D", '"_d', { desc = "Delete without yanking" })
