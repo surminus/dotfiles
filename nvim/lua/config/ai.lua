@@ -8,10 +8,6 @@ require("copilot").setup({
 		type = "binary",
 	},
 	copilot_model = "gpt-4o-copilot",
-	filetypes = {
-		gitcommit = true,
-		markdown = true,
-	},
 })
 
 vim.keymap.set("n", "<leader>l", "<CMD>Copilot toggle<CR>", { desc = "Toggle Copilot" })
