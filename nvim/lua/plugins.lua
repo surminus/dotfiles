@@ -117,6 +117,15 @@ return {
 		},
 	},
 
+	-- Practice
+	-- Use :Hardtime to toggle
+	{
+		"m4xshen/hardtime.nvim",
+		lazy = false,
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {},
+	},
+
 	-- Other tools
 	"AndrewRadev/switch.vim",
 	"cohama/lexima.vim", -- Auto close parentheses
@@ -128,10 +137,7 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	"tpope/vim-commentary",
 	"tpope/vim-endwise",
-	"tpope/vim-rails",
 	"tpope/vim-repeat",
-	-- "tpope/vim-sensible",
-	-- "tpope/vim-sleuth",
+	"tpope/vim-sleuth",
 	"tpope/vim-surround",
-	-- "tpope/vim-unimpaired",
 }

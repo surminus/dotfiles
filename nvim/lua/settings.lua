@@ -39,5 +39,41 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { noremap = true, silent = true })
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Delete without yanking, like P
+-- Delete without yanking
 vim.keymap.set("x", "D", '"_d', { desc = "Delete without yanking" })
+
+-- Toggle numbers
+vim.keymap.set("n", "<leader>n", ":NumbersToggle<CR>", { noremap = true, silent = true })
+
+-- " Custom commands
+vim.api.nvim_create_user_command("Blame", "Git blame", {})
+vim.api.nvim_create_user_command("Reload", "source ~/.vimrc", {})
+vim.api.nvim_create_user_command("Save", "Git save", {})
+vim.api.nvim_create_user_command("Terminal", "term ++close ++rows=10", {})
+
+-- Delete whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		vim.cmd([[%s/\s\+$//e]])
+	end,
+})
+
+-- Other options
+vim.opt.autoindent = true
+vim.opt.backspace = { "indent", "eol", "start" }
+vim.opt.clipboard = "unnamedplus"
+vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+vim.opt.expandtab = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.modeline = true
+vim.opt.modelines = 5
+vim.opt.number = true
+vim.opt.ruler = true
+vim.opt.shiftround = true
+vim.opt.shiftwidth = 4
+vim.opt.signcolumn = "yes"
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
