@@ -12,7 +12,6 @@ local servers = {
 	"solargraph",
 	"taplo",
 	"terraformls",
-	-- "tflint",
 	"ts_ls",
 	"yamlls",
 }

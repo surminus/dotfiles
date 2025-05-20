@@ -128,7 +128,7 @@ return {
 
 	-- Other tools
 	"AndrewRadev/switch.vim",
-	"cohama/lexima.vim", -- Auto close parentheses
+	"RRethy/nvim-treesitter-endwise",
 	"farmergreg/vim-lastplace",
 	"gbprod/substitute.nvim",
 	"godlygeek/tabular",
@@ -136,8 +136,13 @@ return {
 	"myusuf3/numbers.vim",
 	"nvim-tree/nvim-web-devicons",
 	"tpope/vim-commentary",
-	"tpope/vim-endwise",
 	"tpope/vim-repeat",
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
+
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		config = true
+	},
 }
