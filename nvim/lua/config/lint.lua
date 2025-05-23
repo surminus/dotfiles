@@ -1,5 +1,5 @@
 require("lint").linters_by_ft = {
-	-- ruby = { "standardrb" },
+	ruby = { "standardrb" },
 	-- javascript = { "eslint_d" },
 	-- typescript = { "eslint_d" },
 
@@ -7,7 +7,7 @@ require("lint").linters_by_ft = {
 	go = { "golangcilint" },
 	markdown = { "vale" },
 	sh = { "shellcheck" },
-	-- terraform = { "tflint" },
+	terraform = { "tflint" },
 }
 
 require("mason-nvim-lint").setup({})

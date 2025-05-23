@@ -1,13 +1,3 @@
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"delve",
-		"gofumpt",
-		"goimports",
-		"golangci-lint",
-		"golangci-lint-langserver",
-	},
-})
-
 -- https://github.com/ray-x/go.nvim
 require("go").setup()
 

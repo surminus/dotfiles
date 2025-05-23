@@ -9,7 +9,6 @@ return {
 	-- LSP
 	"mason-org/mason.nvim",
 	"mason-org/mason-lspconfig.nvim",
-	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"neovim/nvim-lspconfig",
 	"linrongbin16/lsp-progress.nvim",
 
@@ -123,7 +122,9 @@ return {
 		"m4xshen/hardtime.nvim",
 		lazy = false,
 		dependencies = { "MunifTanjim/nui.nvim" },
-		opts = {},
+		opts = {
+			-- enabled = false
+		},
 	},
 
 	-- Other tools
@@ -141,8 +142,8 @@ return {
 	"tpope/vim-surround",
 
 	{
-		'windwp/nvim-autopairs',
+		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		config = true
+		config = true,
 	},
 }
