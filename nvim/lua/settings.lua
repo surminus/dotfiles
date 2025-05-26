@@ -59,6 +59,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- Search within visual selection
+vim.keymap.set("x", "/", "<Esc>/\\%V")
+
 -- Other options
 vim.opt.autoindent = true
 vim.opt.backspace = { "indent", "eol", "start" }
