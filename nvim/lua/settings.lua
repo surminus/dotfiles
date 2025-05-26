@@ -60,7 +60,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Search within visual selection
-vim.keymap.set("x", "/", "<Esc>/\\%V")
+vim.keymap.set("x", "/", "<C-\\><C-n>`</\\%V", { desc = "Search forward within visual selection" })
+vim.keymap.set("x", "?", "<C-\\><C-n>`>?\\%V", { desc = "Search backward within visual selection" })
 
 -- Other options
 vim.opt.autoindent = true
