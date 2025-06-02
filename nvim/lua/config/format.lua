@@ -29,5 +29,6 @@ require("conform").setup({
 		timeout_ms = 2000,
 		lsp_format = "fallback",
 		lsp_fallback = true,
+		notify_no_formatters = true,
 	},
 })

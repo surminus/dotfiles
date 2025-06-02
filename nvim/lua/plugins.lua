@@ -142,6 +142,12 @@ return {
 	"tpope/vim-surround",
 
 	{
+		"zeioth/garbage-day.nvim",
+		dependencies = "neovim/nvim-lspconfig",
+		event = "VeryLazy",
+	},
+
+	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
