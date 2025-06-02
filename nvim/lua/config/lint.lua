@@ -7,7 +7,6 @@ require("lint").linters_by_ft = {
 	go = { "golangcilint" },
 	markdown = { "vale" },
 	sh = { "shellcheck" },
-	terraform = { "tflint" },
 }
 
 require("mason-nvim-lint").setup({})
