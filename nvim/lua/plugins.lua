@@ -130,6 +130,7 @@ return {
 	-- Other tools
 	"AndrewRadev/switch.vim",
 	"RRethy/nvim-treesitter-endwise",
+	"chrisgrieser/nvim-spider",
 	"farmergreg/vim-lastplace",
 	"gbprod/substitute.nvim",
 	"godlygeek/tabular",
