@@ -129,6 +129,7 @@ return {
 
 	-- Other tools
 	"AndrewRadev/switch.vim",
+	"MagicDuck/grug-far.nvim",
 	"RRethy/nvim-treesitter-endwise",
 	"chrisgrieser/nvim-spider",
 	"farmergreg/vim-lastplace",
