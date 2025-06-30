@@ -5,7 +5,7 @@ require("lint").linters_by_ft = {
 
 	bash = { "shellcheck" },
 	go = { "golangcilint" },
-	markdown = { "vale" },
+	markdown = { "markdownlint" },
 	sh = { "shellcheck" },
 }
 
