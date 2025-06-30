@@ -166,6 +166,11 @@ function tf() {
   fi
 }
 
+# Claude
+function claude() {
+  SHELL=/bin/bash claude $@
+}
+
 ###
 ### End
 ###
