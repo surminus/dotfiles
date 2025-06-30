@@ -137,6 +137,9 @@ if command -v ksshaskpass >/dev/null 2>&1; then
   export SSH_ASKPASS_REQUIRE="prefer"
 fi
 
+# Go
+export GOMAXPROCS=1
+
 # shellenv contains non-sensitive per-device configuration
 test -f ~/.shellenv && source ~/.shellenv
 
