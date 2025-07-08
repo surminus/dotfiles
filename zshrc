@@ -59,13 +59,6 @@ export AWS_PAGER="less -XFR"
 # GitHub CLI
 export GH_PAGER="less -XFR"
 
-# ablyctl
-if command -v ablyctl >/dev/null 2>&1; then
-  mkdir -p ~/.oh-my-zsh/completions
-  ablyctl completion zsh > ~/.oh-my-zsh/completions/_ablyctl
-  export ABLYCTL_PAGER="less -XFR"
-fi
-
 # load oh-my-zsh
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
