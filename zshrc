@@ -131,7 +131,7 @@ if command -v ksshaskpass >/dev/null 2>&1; then
 fi
 
 # Go
-export GOMAXPROCS=1
+export GOMAXPROCS=4
 
 # shellenv contains non-sensitive per-device configuration
 test -f ~/.shellenv && source ~/.shellenv

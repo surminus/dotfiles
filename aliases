@@ -167,8 +167,8 @@ function tf() {
 }
 
 # Claude
-function claude() {
-  SHELL=/bin/bash claude $@
+claude() {
+  SHELL=/bin/bash command claude "$@"
 }
 
 ###

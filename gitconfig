@@ -67,17 +67,16 @@
 [init]
   defaultBranch = main
 
+[rerere]
+  enabled = true
+
+[diff]
+  noprefix = true
+
 # Use delta
 # https://github.com/dandavison/delta
 [include]
   path = ~/.delta/themes.gitconfig
-
-[pager]
-  blame = delta
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
 
 [interactive]
   diffFilter = delta --color-only --features=interactive
@@ -104,9 +103,3 @@
 
 [credential "https://gist.github.com"]
   helper = !/usr/bin/gh auth git-credential
-
-[rerere]
-  enabled = true
-
-[maintenance]
-  repo = /home/laura/ably/infrastructure
