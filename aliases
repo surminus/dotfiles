@@ -171,6 +171,10 @@ claude() {
   SHELL=/bin/bash command claude "$@"
 }
 
+claudechic() {
+  SHELL=/bin/bash command claudechic "$@"
+}
+
 ###
 ### End
 ###

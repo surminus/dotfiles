@@ -14,7 +14,6 @@ plugins=(
   fzf
   github
   golang
-  mise
   node
   opentofu
   pass
@@ -128,6 +127,11 @@ set -o ignoreeof
 if command -v ksshaskpass >/dev/null 2>&1; then
   export SSH_ASKPASS="/usr/bin/ksshaskpass"
   export SSH_ASKPASS_REQUIRE="prefer"
+fi
+
+# Mise
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
 fi
 
 # Go

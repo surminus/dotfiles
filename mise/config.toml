@@ -6,7 +6,7 @@ jq       = "latest"
 node     = "latest"
 opentofu = "latest"
 python   = "latest"
-ruby     = "latest"
+ruby     = "3.4"
 rust     = "latest"
 usage    = "latest"
 
