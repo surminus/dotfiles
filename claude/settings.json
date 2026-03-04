@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk:*)",
+      "Bash(bundle:*)",
+      "Bash(cat:*)",
+      "Bash(curl:*)",
+      "Bash(docker:*)",
+      "Bash(find:*)",
+      "Bash(gh:*)",
+      "Bash(git:*)",
+      "Bash(go:*)",
+      "Bash(gofmt:*)",
+      "Bash(goimports:*)",
+      "Bash(golangci-lint:*)",
+      "Bash(grep:*)",
+      "Bash(hcl2json:*)",
+      "Bash(jq:*)",
+      "Bash(jsonnet:*)",
+      "Bash(ls:*)",
+      "Bash(make:*)",
+      "Bash(mise:*)",
+      "Bash(npm:*)",
+      "Bash(python3:*)",
+      "Bash(rg:*)",
+      "Bash(sed:*)",
+      "Bash(shellcheck:*)",
+      "Bash(wc:*)",
+      "WebFetch(domain:*)",
+      "WebSearch"
+    ]
+  },
+  "model": "opus",
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "autoUpdatesChannel": "latest"
+}
