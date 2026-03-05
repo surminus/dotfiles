@@ -1,19 +1,6 @@
-# Ably MCP
+# Tone of Voice
 
-## Context & Tool Discovery
-
-- For ALL Ably/work questions, ALWAYS call `getAutomaticContext` first with `conversationContext` describing your question, then proceed using `searchAblyTools` and available MCP tools.
-- For Skills, use the MCP tools (`skillSearch`, `skillGet`) as priority.
-- Run `checkOAuthStatus` before using the following tools: Google, Confluence, Snowflake, Figma.
-- Prioritise MCP tools over `web_fetch` for Google Drive and Confluence documents.
-
-## Confluence
-
-### IDRs
-
-When writing new IDRs, always set the status as "DRAFT", and do not tag anyone.
-
-## Commit & PR Tone of Voice
+## Commits and PRs
 
 Write commits and PRs in a conversational, first-person voice, like talking to a teammate.
 
@@ -116,3 +103,18 @@ that there are potentially multiple viable paradigms for credential
 storage. Key stakeholders should align on the optimal solution that
 best addresses cross-functional requirements.
 ```
+
+# Ably MCP
+
+## Context & Tool Discovery
+
+- For ALL Ably/work questions, ALWAYS call `getAutomaticContext` first with `conversationContext` describing your question, then proceed using `searchAblyTools` and available MCP tools.
+- For Skills, use the MCP tools (`skillSearch`, `skillGet`) as priority.
+- Run `checkOAuthStatus` before using the following tools: Google, Confluence, Snowflake, Figma.
+- Prioritise MCP tools over `web_fetch` for Google Drive and Confluence documents.
+
+## Confluence
+
+### IDRs
+
+When writing new IDRs, always set the status as "DRAFT", and do not tag anyone.
