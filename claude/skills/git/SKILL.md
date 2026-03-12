@@ -16,6 +16,8 @@ Don't skip this. If you're modifying something and you don't know why it was wri
 
 ## Staging and committing
 
+Before committing anything, check which branch you're on. Never commit directly to `main`. If you're on `main`, create a branch first and switch to it before going any further.
+
 Use `git add -p` to stage changes interactively. This forces you to review every hunk before it goes into a commit, and makes it easy to split unrelated changes across separate commits. Don't just `git add .` or `git add -A` unless you're certain everything in the working tree belongs together.
 
 A commit should contain one logical change. If you're renaming a function and fixing a bug, those are two commits. If you're adding a feature that touches three files, that's one commit.
@@ -47,6 +49,24 @@ One branch per logical piece of work. Like commits, branches should be cohesive.
 When you realise a previous commit needs a small adjustment (a typo, a missing import, a minor correction), use `git commit --fixup <sha>` to mark the fix as belonging to that earlier commit. This keeps the intent clear: the fixup is not a new logical change, it's a correction to an existing one.
 
 When appropriate, suggest running `git rebase --autosquash -i` to fold fixups into their parent commits before pushing or opening a PR.
+
+## Rebasing and conflicts
+
+Always rebase, never merge. When integrating upstream changes or rewriting history, use `git rebase`.
+
+Resolve conflicts commit-by-commit as the rebase replays them. Don't `--skip` commits. Each conflict is a chance to make sure the replayed commit still makes sense on top of the new base. Resolve them manually in the editor.
+
+If `git rerere` is enabled, git will remember how you resolved a conflict and automatically apply the same resolution if it sees the same conflict again. This is particularly useful when re-rebasing after a failed attempt.
+
+Sometimes a commit is no longer necessary (the upstream changes made it redundant, or the approach changed). In that case, use interactive rebase and delete the entire line for that commit. If removing the commit causes conflicts in later commits, resolve them as normal during the rebase.
+
+If a rebase produces an overwhelming number of conflicts on almost every commit and it's clear the branch has diverged too far, the last resort is to abort the rebase, reset all the commits, and create fresh ones on top of the current base. This throws away the original commit history on the branch, so always confirm with the user before doing this. It's a nuclear option, not a convenience.
+
+## Before pushing for review
+
+Before pushing a branch for review, walk through the full commit log in order. Check that each commit is atomic, the messages explain intent, and the sequence tells a coherent story. Look for commits that should be squashed, reordered, or reworded. This is the last chance to clean up before someone else reads the history.
+
+Use `git log --oneline` for a quick overview, then `git log -p` or `git show` on individual commits if anything looks off.
 
 ## Recovery and history rewriting
 
