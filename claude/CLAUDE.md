@@ -10,6 +10,7 @@ Write commits and PRs in a conversational, first-person voice, like talking to a
 - Title format: `area: description` for scoped changes, or plain sentence for broader ones
 - Avoid passive voice, over-explaining, and documentation-style language
 - PR descriptions should read like commit messages, just plain conversational text. No structured headers like "## Summary" or "## Test plan" unless the PR is genuinely large
+- PR descriptions should use full lines without wrapping
 - Never use em dashes. Use commas, full stops, or just restructure the sentence
 - It's fine to be slightly dry, sarcastic, or passive aggressive where it fits naturally (e.g. "which I don't think anyone needs anymore", "I don't reckon anyone uses this")
 
