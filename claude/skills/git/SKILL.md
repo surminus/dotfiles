@@ -20,6 +20,8 @@ Before committing anything, check which branch you're on. Never commit directly 
 
 Use `git add -p` to stage changes interactively. This forces you to review every hunk before it goes into a commit, and makes it easy to split unrelated changes across separate commits. Don't just `git add .` or `git add -A` unless you're certain everything in the working tree belongs together.
 
+Before creating a new commit, always check whether the staged changes logically belong to an existing commit on the branch. Run `git log --oneline main..HEAD` to see what's already been committed on this branch, and consider whether the new changes are really a continuation of one of those commits rather than a distinct piece of work. If they are, ask the user whether they'd prefer to amend (if it's the latest commit) or use `--fixup` (if it's an earlier one) rather than creating a new commit. Don't silently amend or fixup, always confirm first.
+
 A commit should contain one logical change. If you're renaming a function and fixing a bug, those are two commits. If you're adding a feature that touches three files, that's one commit.
 
 Commit as you go. Don't accumulate a pile of unrelated changes and try to sort them out later. Small, frequent commits make the history easier to read and easier to revert if something goes wrong. Each commit should tell a self-contained story.
