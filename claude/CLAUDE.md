@@ -105,6 +105,10 @@ storage. Key stakeholders should align on the optimal solution that
 best addresses cross-functional requirements.
 ```
 
+# Skills
+
+Always invoke the `git` skill before making commits, reviewing history, or doing any version control work.
+
 # Ably MCP
 
 ## Context & Tool Discovery
