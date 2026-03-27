@@ -1,5 +1,6 @@
 {
   "permissions": {
+    "additionalDirectories": ["~/claude"],
     "allow": [
       "Bash(awk:*)",
       "Bash(bundle:*)",
