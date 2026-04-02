@@ -117,6 +117,12 @@ storage. Key stakeholders should align on the optimal solution that
 best addresses cross-functional requirements.
 ```
 
+# Shell commands
+
+- Never chain commands with `&&`, `||`, or `;`
+- Use separate tool calls instead of compound commands
+- Use absolute paths rather than `cd foo && ...` where possible
+
 # Skills
 
 Always invoke the `git` skill before making commits, reviewing history, or doing any version control work.

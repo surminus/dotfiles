@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "additionalDirectories": ["~/claude"],
     "allow": [
       "Bash(awk:*)",
       "Bash(bundle:*)",
@@ -29,9 +28,12 @@
       "Bash(wc:*)",
       "WebFetch(domain:*)",
       "WebSearch"
+    ],
+    "additionalDirectories": [
+      "~/claude"
     ]
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
   },
