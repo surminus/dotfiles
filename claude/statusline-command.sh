@@ -7,6 +7,7 @@ remaining_pct=$(echo "$input" | jq -r '.context_window.remaining_percentage // e
 duration_ms=$(echo "$input" | jq -r '.cost.total_duration_ms // empty')
 cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 model=$(echo "$input" | jq -r '.model.display_name // empty')
+total_input=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
 
 # Colours
 reset="\033[0m"
@@ -97,6 +98,19 @@ if [ -n "$mem_info" ]; then
   mem_part="${mem_colour}mem ${mem_info}%${reset}"
 fi
 
+# Tokens sent
+tokens_part=""
+if [ -n "$total_input" ] && [ "$total_input" != "null" ] && [ "$total_input" != "0" ]; then
+  if [ "$total_input" -ge 1000000 ]; then
+    tokens_fmt="$(awk "BEGIN {printf \"%.1f\", $total_input/1000000}")M"
+  elif [ "$total_input" -ge 1000 ]; then
+    tokens_fmt="$(awk "BEGIN {printf \"%.0f\", $total_input/1000}")k"
+  else
+    tokens_fmt="$total_input"
+  fi
+  tokens_part="${dim}${tokens_fmt} tokens${reset}"
+fi
+
 # Current time
 time_part="${dim}$(date +%H:%M)${reset}"
 
@@ -114,6 +128,7 @@ parts=()
 [ -n "$ctx_part" ] && parts+=("$ctx_part")
 [ -n "$cost_part" ] && parts+=("$cost_part")
 [ -n "$model_part" ] && parts+=("$model_part")
+[ -n "$tokens_part" ] && parts+=("$tokens_part")
 [ -n "$cpu_part" ] && parts+=("$cpu_part")
 [ -n "$mem_part" ] && parts+=("$mem_part")
 parts+=("$time_part")
