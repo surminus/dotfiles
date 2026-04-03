@@ -67,7 +67,7 @@ fi
 # Cost
 cost_part=""
 if [ -n "$cost_usd" ] && [ "$cost_usd" != "null" ] && [ "$cost_usd" != "0" ]; then
-  cost_part="${bold_magenta}\$${cost_usd}${reset}"
+  cost_part="${bold_magenta}\$$(printf '%.2f' "$cost_usd")${reset}"
 fi
 
 # Model
