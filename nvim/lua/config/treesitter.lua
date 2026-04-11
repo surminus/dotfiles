@@ -1,37 +1,28 @@
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		-- Required
-		"c",
-		"lua",
-		"markdown",
-		"markdown_inline",
-		"query",
-		"vim",
-		"vimdoc",
+local languages = {
+	"bash",
+	"go",
+	"gomod",
+	"hcl",
+	"html",
+	"json",
+	"jsonnet",
+	"lua",
+	"markdown",
+	"markdown_inline",
+	"query",
+	"ruby",
+	"terraform",
+	"vim",
+	"vimdoc",
+	"yaml",
+}
 
-		-- Optional
-		"bash",
-		"go",
-		"gomod",
-		"hcl",
-		"html",
-		"json",
-		"jsonnet",
-		"ruby",
-		"terraform",
-		"yaml",
+require("nvim-treesitter").install(languages)
 
-		-- "cue",
-	},
-
-	sync_install = false,
-	auto_install = true,
-	highlight = {
-		enable = true,
-		disable = { "gitcommit" },
-		additional_vim_regex_highlighting = false,
-	},
-	endwise = { enable = true },
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = languages,
+	callback = function()
+		vim.treesitter.start()
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
 })
-
-require("nvim-ts-autotag").setup()

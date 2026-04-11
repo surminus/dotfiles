@@ -21,6 +21,7 @@ require("config.lsp")
 require("config.treesitter")
 
 -- More
+require("config.ai")
 require("config.gitsigns")
 require("config.go")
 require("config.goto-preview")
@@ -32,7 +33,3 @@ require("config.substitute")
 require("config.tabular")
 require("config.telescope")
 require("config.terraform")
-require("config.toggleterm")
-
--- AI
-require("config.ai")

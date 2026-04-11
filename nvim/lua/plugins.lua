@@ -30,9 +30,6 @@ return {
 	},
 	"saadparwaiz1/cmp_luasnip",
 
-	-- Theme
-	"bluz71/vim-moonfly-colors",
-
 	-- Formatting
 	"rshkarin/mason-nvim-lint",
 	"stevearc/conform.nvim",
@@ -70,20 +67,6 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-	-- Terminal
-	{
-		"akinsho/toggleterm.nvim",
-		version = "*",
-		config = true,
-	},
-
-	-- AI
-	{
-		"greggh/claude-code.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -94,9 +77,10 @@ return {
 	-- Syntax
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
 		build = ":TSUpdate",
+		branch = "main",
 	},
-	"windwp/nvim-ts-autotag",
 
 	"fladson/vim-kitty",
 	"hashivim/vim-terraform",
@@ -107,30 +91,9 @@ return {
 		dependencies = { "ray-x/guihua.lua" },
 		ft = { "go", "gomod" },
 	},
-	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"nvim-neotest/nvim-nio",
-			"theHamsta/nvim-dap-virtual-text",
-		},
-	},
-
-	-- Practice
-	-- Use :Hardtime to toggle
-	{
-		"m4xshen/hardtime.nvim",
-		lazy = false,
-		dependencies = { "MunifTanjim/nui.nvim" },
-		opts = {
-			enabled = false,
-		},
-	},
 
 	-- Other tools
 	"AndrewRadev/switch.vim",
-	"MagicDuck/grug-far.nvim",
-	"RRethy/nvim-treesitter-endwise",
 	"chrisgrieser/nvim-spider",
 	"farmergreg/vim-lastplace",
 	"gbprod/substitute.nvim",
