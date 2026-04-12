@@ -23,8 +23,8 @@ vim.opt.swapfile = false
 vim.keymap.set("n", "H", ":bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "L", ":bnext<CR>", { noremap = true, silent = true })
 
--- Close buffer
-vim.keymap.set("n", "<leader>c", ":bdelete<CR>", { noremap = true, silent = true })
+-- Delete buffer shortcut
+vim.keymap.set("n", "bd", ":bdelete<CR>", { noremap = true, silent = true })
 
 -- Move between windows
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { noremap = true, silent = true })
