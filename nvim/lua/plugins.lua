@@ -30,6 +30,57 @@ return {
 	},
 	"saadparwaiz1/cmp_luasnip",
 
+	-- Snacks
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		---@type snacks.Config
+		opts = {
+			bigfile = { enabled = true },
+			gh = { enabled = true },
+			indent = { enabled = true },
+			picker = { enabled = true },
+			quickfile = { enabled = true },
+			scope = { enabled = true },
+			scroll = { enabled = true },
+			words = { enabled = true },
+		},
+		keys = {
+			{
+				"<leader>b",
+				function()
+					Snacks.picker.buffers()
+				end,
+			},
+			{
+				"<leader>f",
+				function()
+					Snacks.picker.files()
+				end,
+			},
+			{
+				"<leader>f",
+				function()
+					Snacks.picker.files()
+				end,
+			},
+			{
+				"<leader>w",
+				function()
+					Snacks.picker.grep_word()
+				end,
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>s",
+				function()
+					Snacks.picker.grep()
+				end,
+			},
+		},
+	},
+
 	-- Formatting
 	"rshkarin/mason-nvim-lint",
 	"stevearc/conform.nvim",
@@ -47,13 +98,6 @@ return {
 	-- Git
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
-
-	-- Search
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
 
 	-- Filesystem
 	{
