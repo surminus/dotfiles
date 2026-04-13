@@ -14,6 +14,10 @@ Use British English throughout, specifically the natural language and dialect of
 
 ## Commits and PRs
 
+Do not write commits unless instructed. Prompt the user to write commits at appropriate breaks in work.
+
+### Writing Commits
+
 Write commits and PRs in a conversational, first-person voice, like talking to a teammate.
 
 - Lead with the motivation/problem, then explain what was done
@@ -122,10 +126,6 @@ best addresses cross-functional requirements.
 - Never chain commands with `&&`, `||`, or `;`
 - Use separate tool calls instead of compound commands
 - Use absolute paths rather than `cd foo && ...` where possible
-
-# Skills
-
-Always invoke the `git` skill before making commits, reviewing history, or doing any version control work.
 
 # Ably MCP
 
