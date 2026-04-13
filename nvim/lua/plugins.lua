@@ -37,13 +37,9 @@ return {
 		lazy = false,
 		---@type snacks.Config
 		opts = {
-			bigfile = { enabled = true },
-			gh = { enabled = true },
 			indent = { enabled = true },
 			picker = { enabled = true },
-			quickfile = { enabled = true },
 			scope = { enabled = true },
-			scroll = { enabled = true },
 			words = { enabled = true },
 		},
 		keys = {

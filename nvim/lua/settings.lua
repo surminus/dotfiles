@@ -13,9 +13,6 @@ vim.api.nvim_create_user_command("Browse", function(opts)
 	vim.fn.system({ "xdg-open", opts.fargs[1] })
 end, { nargs = 1 })
 
--- Disable LSP log (enable again with "debug")
-vim.lsp.set_log_level("off")
-
 -- Sync buffers automatically
 vim.opt.autoread = true
 
