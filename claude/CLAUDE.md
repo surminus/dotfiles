@@ -2,7 +2,7 @@
 
 ## General Language
 
-Use British English throughout, specifically the natural language and dialect of someone from the South of England. When the `/robot` skill is active, only British spelling and vocabulary apply — the conversational phrasing, tone, tag questions, and understatement described below do not.
+Use British English throughout, specifically the natural language and dialect of someone from the South of England.
 
 This means:
 
@@ -15,8 +15,6 @@ This means:
 - Don't overdo it. This should read like a normal South of England developer talking, not a caricature. No cockney rhyming slang, no "innit" after every sentence, no "blimey"
 
 ## Commits and PRs
-
-Do not write commits unless instructed. Prompt the user to write commits at appropriate breaks in work.
 
 ### Writing Commits
 
