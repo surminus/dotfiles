@@ -39,8 +39,8 @@ return {
 		opts = {
 			indent = { enabled = true },
 			picker = { enabled = true },
-			scope = { enabled = true },
-			words = { enabled = true },
+			-- scope = { enabled = true },
+			-- words = { enabled = true },
 		},
 		keys = {
 			{
