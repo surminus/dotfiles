@@ -22,6 +22,19 @@ If empty, ask the user what they'd like the team to work on.
 
 Before starting, explore the project (CLAUDE.md, README, structure) to gather context for Elena.
 
+## Mode
+
+Parse `$ARGUMENTS` for an `[auto]` prefix (e.g. `/engineering-team [auto] add export endpoint`). If present, run in **autonomous mode**. Otherwise, **interactive mode** (default).
+
+**Autonomous mode** changes:
+- Elena and Marcus proceed without user approval if they agree
+- Elena makes reasonable assumptions instead of asking clarifying questions (notes them in the plan)
+- Disagreements → write DR, commit current state, push branch, open a **draft** PR linking the DR, and **stop**. The user reviews the DR and PR asynchronously
+- Phase 5 pushes the branch and opens a PR instead of waiting for the user
+- The orchestrator may push to the `team/{project-name}` branch (never to main/master)
+
+Phase-specific differences are marked **[auto]** inline below.
+
 ## Project Name & Structure
 
 Elena assigns a project name in her plan — a lowercase hyphenated slug (e.g. `api-auth-refactor`). Used for:
@@ -67,7 +80,7 @@ For autonomy, auto-allow file read/write in your session. Worktree isolation lim
 **Can:** read, edit, create files; run tests/linters/builds; spawn sub-agents.
 **Must not:** commit, push, interact with external services, modify files outside the project, run destructive commands, modify git config.
 
-The orchestrator commits during delivery. Only the user pushes.
+The orchestrator commits during delivery. Only the user pushes (unless autonomous mode — see below).
 
 **Standard permission line** (include in every agent prompt as `{permissions}`):
 > Permissions: read, edit, create files and run tests/builds. Do not commit, push, run destructive commands, or interact with external services.
@@ -139,6 +152,8 @@ Project context: {context}
 4. If clarifying questions, ask the user; re-run Elena if needed
 5. **Log** planning discussion
 
+**[auto]:** Skip step 3-4. Elena's assumptions are noted in her plan. Proceed directly to Phase 2.
+
 ### Phase 2 — Review
 
 Spawn Marcus as **foreground** `general-purpose` agent (`model: "opus"`).
@@ -165,6 +180,27 @@ Decision Record.
 - User feedback → re-run Elena/Marcus if significant
 - **Log** the review
 - Once approved → proceed
+
+**[auto]:** If Elena and Marcus agree, proceed to Phase 3 without presenting to the user. If they disagree or Marcus raises significant concerns:
+1. Write the DR
+2. Commit the team log and DR
+3. Push `team/{project-name}` and open a **draft** PR:
+   ```
+   gh pr create --draft --title "team/{project-name}: DR needs review" --body "$(cat <<'EOF'
+   ## Paused — Decision Record needs review
+
+   Elena and Marcus disagree on the approach. See the DR for both positions.
+
+   - **DR:** `.team/{project-name}/decisions/DR-NNN-title.md`
+   - **Team log:** `.team/{project-name}/log.md`
+   - **Elena's plan:** [summarised in the log]
+   - **Marcus's concerns:** [summarised in the log]
+
+   Please review the DR, comment with your decision, and the team will resume.
+   EOF
+   )"
+   ```
+4. **Stop.** Do not proceed to implementation.
 
 ### Phase 3 — Implementation
 
@@ -231,13 +267,34 @@ Issues → route to stream lead, re-review. **Log** stream logs under `## Implem
 Co-Authored-By: Priya (AI Agent, Senior Engineer) <noreply@anthropic.com>
 ```
 
-**Do not push.** The user pushes when ready.
-
-**Report** to the user:
+**Interactive mode:** Do not push. The user pushes when ready. Report to the user:
 1. Elena's summary of what was built (spawn her with a summary prompt)
 2. Priya and James's stream summaries
 3. Marcus's verdict
 4. Commit hashes, log at `.team/{project-name}/log.md`, decisions at `.team/{project-name}/decisions/`
+
+**[auto]:** Push `team/{project-name}` and open a PR:
+```
+gh pr create --title "{project-name}: {brief one-liner}" --body "$(cat <<'EOF'
+## Summary
+{Elena's summary of what was built}
+
+## Stream summaries
+**Priya:** {stream summary}
+**James:** {stream summary}
+
+## Review
+**Marcus:** {verdict}
+
+## Artefacts
+- Team log: `.team/{project-name}/log.md`
+- Decision Records: `.team/{project-name}/decisions/`
+
+## Assumptions
+{Any assumptions Elena made in lieu of asking clarifying questions}
+EOF
+)"
+```
 
 **Log** Elena's summary under `## Delivery`.
 
@@ -248,6 +305,8 @@ Co-Authored-By: Priya (AI Agent, Senior Engineer) <noreply@anthropic.com>
 Write a DR when Elena and Marcus disagree, a stream lead hits a real fork, or a decision is hard to reverse and meaningfully affects architecture/UX. Minor choices don't need DRs.
 
 **Process:** engineer writes DR → `.team/{project-name}/decisions/DR-NNN-title.md` → present to user → pause affected work → user decides → update status → continue.
+
+**[auto]:** Same process, but instead of presenting to the user interactively: commit, push, and open a draft PR linking the DR. Stop and wait. The user reviews the PR/DR asynchronously.
 
 **Format** — first person, conversational, honest about trade-offs:
 
