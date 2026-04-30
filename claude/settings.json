@@ -41,6 +41,7 @@
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
   },
+  "effortLevel": "high",
   "autoUpdatesChannel": "latest",
-  "effortLevel": "high"
+  "skipAutoPermissionPrompt": true
 }

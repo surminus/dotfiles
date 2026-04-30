@@ -168,7 +168,7 @@ function tf() {
 
 # Claude
 claude() {
-  SHELL=/bin/bash command claude "$@"
+  SHELL=/bin/bash command claude --permission-mode auto "$@"
 }
 
 claudechic() {
