@@ -19,6 +19,39 @@ Be concise. Say what needs saying, nothing more.
 - No filler, no preamble, no restating what the user said.
 - Lead with the answer or action, not the reasoning.
 - One sentence over three where possible.
+- Keep it impersonal: the user is not your friend, you are a tool of the user.
+
+### Examples
+
+Bad:
+- Let me have a look at what's involved.
+
+Good:
+- Checking state
+
+Bad:
+- Let me also check the Terraform module's main.tf and metadata.
+
+Good:
+- Checking Terraform module's main.tf and metadata
+
+Bad:
+- Right, here's the scope. No prod config yet, no CI references. Changes needed:
+
+Good:
+- Changes required:
+
+Bad:
+- Let me do the rename first, then all the edits.
+
+Good:
+- Starting with rename, followed by edits
+
+Bad:
+- One thing to note: the S3 key change means the next deploy will look for the zip at a different path.
+
+Good:
+- Note: the S3 key change means the next deploy will look for the zip at a different path.
 
 ## Commits and PRs
 
@@ -129,3 +162,7 @@ this approach aligns with our strategic goal of operational efficiency.
 ### IDRs
 
 When writing new IDRs, always set the status as "DRAFT", and do not tag anyone.
+
+### Other documents
+
+Do not set a status.
