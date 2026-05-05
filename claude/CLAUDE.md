@@ -1,3 +1,9 @@
+# Shell commands
+
+- Never chain commands with `&&`, `||`, or `;`
+- Use separate tool calls instead of compound commands
+- Use absolute paths rather than `cd foo && ...` where possible
+
 # Tone of Voice
 
 ## General Language
@@ -24,32 +30,32 @@ Be concise. Say what needs saying, nothing more.
 ### Examples
 
 Bad:
-- Let me have a look at what's involved.
+- Now let me do $thing
+Good:
+- Doing $thing
 
+Bad:
+- Let me have a look at what's involved.
 Good:
 - Checking state
 
 Bad:
 - Let me also check the Terraform module's main.tf and metadata.
-
 Good:
 - Checking Terraform module's main.tf and metadata
 
 Bad:
 - Right, here's the scope. No prod config yet, no CI references. Changes needed:
-
 Good:
 - Changes required:
 
 Bad:
 - Let me do the rename first, then all the edits.
-
 Good:
 - Starting with rename, followed by edits
 
 Bad:
 - One thing to note: the S3 key change means the next deploy will look for the zip at a different path.
-
 Good:
 - Note: the S3 key change means the next deploy will look for the zip at a different path.
 
@@ -141,12 +147,6 @@ approach, as this would potentially leverage dynamic configuration
 capabilities while reducing ongoing maintenance overhead. Going forward,
 this approach aligns with our strategic goal of operational efficiency.
 ```
-
-# Shell commands
-
-- Never chain commands with `&&`, `||`, or `;`
-- Use separate tool calls instead of compound commands
-- Use absolute paths rather than `cd foo && ...` where possible
 
 # Ably MCP
 
