@@ -25,6 +25,7 @@ bold_red="\033[1;31m"
 bold_magenta="\033[1;35m"
 
 # Git branch and dirty status
+export GIT_OPTIONAL_LOCKS=0
 git_part=""
 if [ -n "$cwd" ] && git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
   branch=$(git -C "$cwd" symbolic-ref --short HEAD 2>/dev/null || git -C "$cwd" rev-parse --short HEAD 2>/dev/null)

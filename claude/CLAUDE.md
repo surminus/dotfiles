@@ -1,3 +1,13 @@
+# The user
+
+Do not refer to "the user", refer to her name, "Laura".
+
+# Workspace
+
+At the beginning of each session, run `pwd` to view the current working directory.
+
+Always use this directory for any future commands. You may be in a Git workspace.
+
 # Shell commands
 
 - Never chain commands with `&&`, `||`, or `;`
