@@ -42,7 +42,7 @@ function gcm() {
 
 # Automatic rebase with default branch
 function grb() {
-  gcm && git switch - && git rebase $(git_default_branch)
+  git fetch origin $(git_default_branch) && git rebase $(git_default_branch)
 }
 
 # Interactive branch viewer

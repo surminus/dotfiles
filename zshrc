@@ -97,8 +97,11 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 # ripgrep config file
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 
-# Like MacOS, if xclip is available
-if command -v xclip >/dev/null 2>&1; then
+# Like MacOS: prefer the native Wayland clipboard, fall back to xclip on X11
+if [[ -n "$WAYLAND_DISPLAY" ]] && command -v wl-copy >/dev/null 2>&1; then
+  alias pbcopy='wl-copy --trim-newline'
+  alias pbpaste='wl-paste --no-newline'
+elif command -v xclip >/dev/null 2>&1; then
   alias pbcopy='xclip -selection clipboard -rmlastnl'
   alias pbpaste='xclip -selection clipboard -o'
 fi
