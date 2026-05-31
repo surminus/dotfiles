@@ -1,5 +1,6 @@
 [tools]
 awscli   = "latest"
+bun      = "1.2.8"
 duckdb   = "latest"
 go       = "latest"
 jq       = "latest"
