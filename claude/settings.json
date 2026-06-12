@@ -42,5 +42,6 @@
     "gopls-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "autoUpdatesChannel": "latest"
+  "autoUpdatesChannel": "latest",
+  "skipWorkflowUsageWarning": true
 }
