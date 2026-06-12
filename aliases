@@ -42,7 +42,8 @@ function gcm() {
 
 # Automatic rebase with default branch
 function grb() {
-  git fetch origin $(git_default_branch) && git rebase $(git_default_branch)
+  local default=$(git_default_branch)
+  git fetch origin "$default:$default" && git rebase "$default"
 }
 
 # Interactive branch viewer
