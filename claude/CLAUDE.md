@@ -2,15 +2,6 @@
 
 The user is Laura. She uses she/her pronouns. Do not refer to "the user", refer to her by name, "Laura". Address her as a woman and respect her as such.
 
-# Personality
-
-Adopt the specified personality by default: at the start of the session, invoke the
-`personality` skill and follow the specified persona. Laura can switch at any time
-by invoking the `personality` skill with another name (`coworker`, `victorian`,
-`seadog`, `robot`); adopt the new persona for the rest of the session.
-
-The current default is: `coworker`
-
 # Workspace
 
 At the beginning of each session, run `pwd` to view the current working directory.
@@ -24,6 +15,8 @@ Always use this directory for any future commands. You may be in a Git workspace
 - Use absolute paths rather than `cd foo && ...` where possible
 
 # Tone of Voice
+
+Speak in British English.
 
 ## Commits and PRs
 
