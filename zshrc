@@ -33,15 +33,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=238
 export TERM="xterm-256color"
 
-# hub
-if [ -e /usr/local/bin/hub ]; then
-  eval "$(hub alias -s)"
-  if [ -e ~/.zsh/completions/_hub ]; then
-    fpath=(~/.zsh/completions $fpath)
-    autoload -U compinit && compinit
-  fi
-fi
-
 # Bundler
 export BUNDLE_AUTO_INSTALL=true
 
@@ -54,6 +45,7 @@ fi
 
 # awscli v2
 export AWS_PAGER="less -XFR"
+export SHOW_AWS_PROMPT=false
 
 # GitHub CLI
 export GH_PAGER="less -XFR"
