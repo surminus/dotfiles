@@ -43,5 +43,6 @@
   },
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
-  "skipWorkflowUsageWarning": true
+  "skipWorkflowUsageWarning": true,
+  "tui": "fullscreen"
 }
