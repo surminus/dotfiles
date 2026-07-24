@@ -178,13 +178,8 @@ function tf() {
 }
 
 # Claude
-claude() {
-  SHELL=/bin/bash command claude --permission-mode auto "$@"
-}
-
-claudechic() {
-  SHELL=/bin/bash command claudechic "$@"
-}
+alias claude="claude --permission-mode auto"
+alias fable="claude --model fable"
 
 ###
 ### End
