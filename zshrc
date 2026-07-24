@@ -127,6 +127,7 @@ fi
 # Mise
 if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate zsh)"
+  mise completion zsh > ~/.oh-my-zsh/cache/completions/_mise
 fi
 
 # Go
