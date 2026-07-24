@@ -8,6 +8,13 @@ duration_ms=$(echo "$input" | jq -r '.cost.total_duration_ms // empty')
 cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 model=$(echo "$input" | jq -r '.model.display_name // empty')
 total_input=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
+limit_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+limit_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+reset_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
+reset_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
+api_ms=$(echo "$input" | jq -r '.cost.total_api_duration_ms // empty')
+lines_added=$(echo "$input" | jq -r '.cost.total_lines_added // empty')
+lines_removed=$(echo "$input" | jq -r '.cost.total_lines_removed // empty')
 
 # Colours
 reset="\033[0m"
@@ -52,18 +59,19 @@ if [ -n "$duration_ms" ] && [ "$duration_ms" != "null" ] && [ "$duration_ms" != 
   fi
 fi
 
-# Context remaining with colour coding
+# Context used with colour coding (higher = more consumed = worse)
 ctx_part=""
 if [ -n "$remaining_pct" ] && [ "$remaining_pct" != "null" ]; then
   remaining_int=$(printf '%.0f' "$remaining_pct")
-  if [ "$remaining_int" -gt 50 ]; then
+  used_int=$((100 - remaining_int))
+  if [ "$used_int" -lt 50 ]; then
     ctx_colour="$bold_green"
-  elif [ "$remaining_int" -gt 25 ]; then
+  elif [ "$used_int" -lt 75 ]; then
     ctx_colour="$bold_yellow"
   else
     ctx_colour="$bold_red"
   fi
-  ctx_part="${ctx_colour}ctx ${remaining_int}%${reset}"
+  ctx_part="${ctx_colour}ctx ${used_int}%${reset}"
 fi
 
 # Cost
@@ -76,27 +84,6 @@ fi
 model_part=""
 if [ -n "$model" ] && [ "$model" != "null" ]; then
   model_part="${dim}${model}${reset}"
-fi
-
-# CPU load (1-min average)
-load_avg=$(cut -d' ' -f1 /proc/loadavg 2>/dev/null)
-cpu_part=""
-if [ -n "$load_avg" ]; then
-  cpu_part="${dim}cpu ${load_avg}${reset}"
-fi
-
-# Memory usage
-mem_part=""
-mem_info=$(free -m 2>/dev/null | awk '/^Mem:/ {printf "%.0f", ($3/$2)*100}')
-if [ -n "$mem_info" ]; then
-  if [ "$mem_info" -gt 80 ]; then
-    mem_colour="$bold_red"
-  elif [ "$mem_info" -gt 60 ]; then
-    mem_colour="$bold_yellow"
-  else
-    mem_colour="$dim"
-  fi
-  mem_part="${mem_colour}mem ${mem_info}%${reset}"
 fi
 
 # Tokens sent
@@ -112,8 +99,75 @@ if [ -n "$total_input" ] && [ "$total_input" != "null" ] && [ "$total_input" != 
   tokens_part="${dim}${tokens_fmt} tokens${reset}"
 fi
 
-# Current time
-time_part="${dim}$(date +%H:%M)${reset}"
+# Claude usage limits (5-hour and 7-day windows, % consumed)
+# Colour by how much is used: higher = worse
+usage_colour() {
+  local used_int="$1"
+  if [ "$used_int" -ge 80 ]; then
+    printf '%s' "$bold_red"
+  elif [ "$used_int" -ge 60 ]; then
+    printf '%s' "$bold_yellow"
+  else
+    printf '%s' "$bold_green"
+  fi
+}
+# Compact "time until" from a Unix epoch (seconds), e.g. 2d / 3h / 45m
+fmt_until() {
+  local target="$1" now diff
+  now=$(date +%s)
+  diff=$((target - now))
+  [ "$diff" -le 0 ] && return
+  if [ "$diff" -ge 86400 ]; then
+    printf '%dd' "$((diff / 86400))"
+  elif [ "$diff" -ge 3600 ]; then
+    printf '%dh' "$((diff / 3600))"
+  else
+    printf '%dm' "$((diff / 60))"
+  fi
+}
+limit_5h_part=""
+if [ -n "$limit_5h" ] && [ "$limit_5h" != "null" ]; then
+  l5=$(printf '%.0f' "$limit_5h")
+  limit_5h_part="$(usage_colour "$l5")limit:5h ${l5}%${reset}"
+  if [ -n "$reset_5h" ] && [ "$reset_5h" != "null" ]; then
+    until_5h=$(fmt_until "$reset_5h")
+    [ -n "$until_5h" ] && limit_5h_part="${limit_5h_part}${dim} →${until_5h}${reset}"
+  fi
+fi
+limit_7d_part=""
+if [ -n "$limit_7d" ] && [ "$limit_7d" != "null" ]; then
+  l7=$(printf '%.0f' "$limit_7d")
+  limit_7d_part="$(usage_colour "$l7")limit:7d ${l7}%${reset}"
+  if [ -n "$reset_7d" ] && [ "$reset_7d" != "null" ]; then
+    until_7d=$(fmt_until "$reset_7d")
+    [ -n "$until_7d" ] && limit_7d_part="${limit_7d_part}${dim} →${until_7d}${reset}"
+  fi
+fi
+
+# Lines changed this session (+added / -removed)
+lines_part=""
+la=0; lr=0
+[ -n "$lines_added" ] && [ "$lines_added" != "null" ] && la="$lines_added"
+[ -n "$lines_removed" ] && [ "$lines_removed" != "null" ] && lr="$lines_removed"
+if [ "$la" -gt 0 ] || [ "$lr" -gt 0 ]; then
+  lines_part="${bold_green}+${la}${reset} ${bold_red}-${lr}${reset}"
+fi
+
+# Cost burn rate ($/hour), derived from cost and wall-clock duration
+burn_part=""
+if [ -n "$cost_usd" ] && [ "$cost_usd" != "null" ] && [ "$cost_usd" != "0" ] \
+   && [ -n "$duration_ms" ] && [ "$duration_ms" != "null" ] && [ "$duration_ms" -gt 0 ]; then
+  burn=$(awk "BEGIN {printf \"%.2f\", $cost_usd / ($duration_ms / 3600000)}")
+  burn_part="${dim}\$${burn}/h${reset}"
+fi
+
+# Share of wall-clock time spent waiting on the API
+api_part=""
+if [ -n "$api_ms" ] && [ "$api_ms" != "null" ] && [ "$api_ms" != "0" ] \
+   && [ -n "$duration_ms" ] && [ "$duration_ms" != "null" ] && [ "$duration_ms" -gt 0 ]; then
+  api_pct=$(awk "BEGIN {printf \"%.0f\", ($api_ms / $duration_ms) * 100}")
+  api_part="${dim}wait ${api_pct}%${reset}"
+fi
 
 # Current directory (basename only)
 dir_part=""
@@ -128,11 +182,13 @@ parts=()
 [ -n "$duration_part" ] && parts+=("$duration_part")
 [ -n "$ctx_part" ] && parts+=("$ctx_part")
 [ -n "$cost_part" ] && parts+=("$cost_part")
+[ -n "$burn_part" ] && parts+=("$burn_part")
+[ -n "$api_part" ] && parts+=("$api_part")
+[ -n "$limit_5h_part" ] && parts+=("$limit_5h_part")
+[ -n "$limit_7d_part" ] && parts+=("$limit_7d_part")
 [ -n "$model_part" ] && parts+=("$model_part")
 [ -n "$tokens_part" ] && parts+=("$tokens_part")
-[ -n "$cpu_part" ] && parts+=("$cpu_part")
-[ -n "$mem_part" ] && parts+=("$mem_part")
-parts+=("$time_part")
+[ -n "$lines_part" ] && parts+=("$lines_part")
 
 sep="${dim} │ ${reset}"
 output=""
