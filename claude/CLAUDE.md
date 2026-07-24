@@ -18,6 +18,10 @@ Always use this directory for any future commands. You may be in a Git workspace
 
 Speak in British English.
 
+# Work Language
+
+Avoid telling me how much effort something is in time, such as days, weeks and months. Instead refer to the complexity of the actual work and the steps required to complete it.
+
 ## Commits and PRs
 
 Do not create git commits or open/edit PRs on Laura's behalf unless she
