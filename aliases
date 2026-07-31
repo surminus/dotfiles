@@ -37,6 +37,14 @@ function git_default_branch() {
     | sed 's@^refs/remotes/origin/@@' | head -n1
 }
 
+function main_worktree_path() {
+  git worktree list | head -n1 | awk '{print $1}'
+}
+
+function within_worktree() {
+  [ "$(pwd)" != "$(main_worktree_path)" ]
+}
+
 # git checkout and pull
 function gcm() {
   git switch $(git_default_branch) && git pull
@@ -44,15 +52,11 @@ function gcm() {
 
 # Automatic rebase with default branch
 function grb() {
-  local default=$(git_default_branch)
-  if [ -z "$default" ]; then
-    echo "grb: could not determine default branch" >&2
-    return 1
-  fi
-  if [ "$(git branch --show-current)" = "$default" ]; then
-    git pull
+  if within_worktree; then
+    local default=$(git_default_branch)
+    git fetch origin "${default}" && git rebase origin/"${default}"
   else
-    git fetch origin "$default:$default" && git rebase "$default"
+    gcm && git switch - && git rebase origin/main
   fi
 }
 
