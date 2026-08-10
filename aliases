@@ -1,4 +1,4 @@
-# vi: ft=bash
+#! vi: ft=bash
 
 ###
 ### Vim
@@ -65,9 +65,20 @@ function gbr() {
   git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' $@ | sed 's/refs\/heads\///g' | tac | fzf --preview='git log --color=always --oneline {} |head -20' | head -n1 || true
 }
 
+# Git switch that recognises worktrees
+function gsw() {
+  local branch=$1
+
+  if git worktree list | grep -q "${branch}";  then
+    cd "$(git worktree list | grep "${branch}" | awk '{print $1}')" || exit 1
+  else
+    git switch "$@"
+  fi
+}
+
 # Interactive branch selector
 function gsl() {
-  git switch $(gbr) $@ || true
+  gsw $(gbr) $@ || true
 }
 
 # Interactive commit sha selector, automatically copies into paste buffer
@@ -95,7 +106,6 @@ function grt() {
 }
 
 alias gco="git checkout"
-alias gsw="git switch"
 
 alias commit="git rev-parse HEAD"
 alias branch="git rev-parse --abbrev-ref HEAD"
