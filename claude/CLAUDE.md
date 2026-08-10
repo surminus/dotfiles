@@ -8,6 +8,13 @@ At the beginning of each session, run `pwd` to view the current working director
 
 Always use this directory for any future commands. You may be in a Git workspace.
 
+# Worktrees
+
+Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, keeping the forward slashes in the branch name so they nest as subdirectories. Branch `laura/inf-7491/website-dev-stack` in `~/ably/infrastructure` therefore belongs at `~/ably/infrastructure@laura/inf-7491/website-dev-stack`.
+
+- Create them with `git worktree add <path> <branch>`, then switch in with the `EnterWorktree` tool's `path` parameter
+- Do not create them with `EnterWorktree`'s `name` parameter, which puts them under `.claude/worktrees/` and rewrites the slashes as `+`
+
 # Shell commands
 
 - Never chain commands with `&&`, `||`, or `;`
