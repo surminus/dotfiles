@@ -19,10 +19,6 @@ fi
 
 alias v=vim
 alias bim=vim
-
-function vimi() {
-  vim $(fzf)
-}
 ###
 ### End
 ###
@@ -38,11 +34,22 @@ function git_default_branch() {
 }
 
 function main_worktree_path() {
-  git worktree list | head -n1 | awk '{print $1}'
+  git worktree list --porcelain | head -n1 | sed 's/^worktree //'
 }
 
 function within_worktree() {
-  [ "$(pwd)" != "$(main_worktree_path)" ]
+  [ "$(git rev-parse --show-toplevel)" != "$(main_worktree_path)" ]
+}
+
+# Path of the worktree holding a given branch, if there is one
+function worktree_path_for_branch() {
+  local branch=$1
+  test -n "${branch}" || return 1
+
+  git worktree list --porcelain | awk -v want="branch refs/heads/${branch}" '
+    /^worktree / { path = substr($0, 10) }
+    $0 == want   { print path; exit }
+  '
 }
 
 # git checkout and pull
@@ -52,25 +59,30 @@ function gcm() {
 
 # Automatic rebase with default branch
 function grb() {
+  local default=$(git_default_branch)
+
   if within_worktree; then
-    local default=$(git_default_branch)
     git fetch origin "${default}" && git rebase origin/"${default}"
   else
-    gcm && git switch - && git rebase origin/main
+    gcm && git switch - && git rebase origin/"${default}"
   fi
 }
 
 # Interactive branch viewer
 function gbr() {
-  git for-each-ref refs/heads --format='%(refname)' --sort='committerdate' $@ | sed 's/refs\/heads\///g' | tac | fzf --preview='git log --color=always --oneline {} |head -20' | head -n1 || true
+  git for-each-ref refs/heads --format='%(refname)' --sort='-committerdate' $@ | sed 's/refs\/heads\///g' | fzf --preview='git log --color=always --oneline {} |head -20' || true
 }
 
 # Git switch that recognises worktrees
 function gsw() {
-  local branch=$1
+  # Not named "path": zsh binds that to $PATH
+  local worktree=$(worktree_path_for_branch "$1")
 
-  if git worktree list | grep -q "${branch}";  then
-    cd "$(git worktree list | grep "${branch}" | awk '{print $1}')" || exit 1
+  if test -n "${worktree}"; then
+    cd "${worktree}" || return 1
+  elif test "$1" = "-"; then
+    # @{-1} is per-worktree, so it is empty if we arrived here by changing directory
+    git switch - 2>/dev/null || cd -
   else
     git switch "$@"
   fi
@@ -78,17 +90,36 @@ function gsw() {
 
 # Interactive branch selector
 function gsl() {
-  gsw $(gbr) $@ || true
+  local branch=$(gbr)
+  test -n "${branch}" || return
+
+  gsw "${branch}" $@
 }
 
-# Interactive commit sha selector, automatically copies into paste buffer
+# Interactive worktree selector
+function gwt() {
+  local selected
+  selected=$(git worktree list | fzf --preview='git -C {1} log --color=always --oneline -20' | awk '{print $1}') || return
+  test -n "${selected}" || return
+
+  if command -v z >/dev/null 2>&1; then
+    z "${selected}"
+  else
+    cd "${selected}" || return 1
+  fi
+}
+
+# Interactive commit sha selector, prints the chosen sha
 function glo() {
   git log --oneline --format=format:%H $@ | fzf --preview='git show --color=always {}' || true
 }
 
 # Interactive fixup selector
 function gfu() {
-  git fixup $(glo) $@
+  local sha=$(glo)
+  test -n "${sha}" || return
+
+  git fixup "${sha}" $@
 }
 
 # Cherry pick
@@ -98,10 +129,13 @@ function gcp() {
 
 # Move to root of repo
 function grt() {
+  local root=$(git rev-parse --show-toplevel 2>/dev/null)
+  test -n "${root}" || return 1
+
   if command -v z >/dev/null 2>&1; then
-    z $(git rev-parse --show-toplevel)
+    z "${root}"
   else
-    cd $(git rev-parse --show-toplevel)
+    cd "${root}" || return 1
   fi
 }
 
@@ -118,21 +152,17 @@ alias branch="git rev-parse --abbrev-ref HEAD"
 ###
 ### Bat
 ###
-if which batcat >/dev/null 2>&1; then
-  alias cat='batcat'
+# bat is packaged as batcat on Debian, so prefer a real bat where both exist
+for _bat in batcat bat; do
+  if command -v "${_bat}" >/dev/null 2>&1; then
+    alias cat="${_bat}"
 
-  if which fzf >/dev/null 2>&1; then
-    alias fzf="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
+    if command -v fzf >/dev/null 2>&1; then
+      alias fzf="fzf --preview '${_bat} --style=numbers --color=always --line-range :500 {}'"
+    fi
   fi
-fi
-
-if which bat >/dev/null 2>&1; then
-  alias cat='bat'
-
-  if which fzf >/dev/null 2>&1; then
-    alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
-  fi
-fi
+done
+unset _bat
 ###
 ### End
 ###
