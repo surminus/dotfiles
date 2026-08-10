@@ -118,18 +118,18 @@ alias branch="git rev-parse --abbrev-ref HEAD"
 ###
 ### Bat
 ###
-if $(which batcat >/dev/null 2>&1); then
+if which batcat >/dev/null 2>&1; then
   alias cat='batcat'
 
-  if $(which fzf >/dev/null 2>&1); then
+  if which fzf >/dev/null 2>&1; then
     alias fzf="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
   fi
 fi
 
-if $(which bat >/dev/null 2>&1); then
+if which bat >/dev/null 2>&1; then
   alias cat='bat'
 
-  if $(which fzf >/dev/null 2>&1); then
+  if which fzf >/dev/null 2>&1; then
     alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
   fi
 fi
