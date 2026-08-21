@@ -76,6 +76,8 @@ Changes:
 
 Plain, clear English. Structure and detail, but not corporate strategy decks. Engineer explaining to engineers.
 
+When creating any new document, you *must* add "This document was AI generated" as a note at the top of the page.
+
 ### Voice and tone
 - First person throughout: "I am calling this ConfigDBv2", "My concern is..."
 - "We" for team context: "we currently interact with", "we should use"
