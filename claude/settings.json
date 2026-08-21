@@ -33,13 +33,35 @@
       "~/claude"
     ]
   },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "EnterWorktree",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/allow-sibling-worktree.sh"
+          }
+        ]
+      }
+    ]
+  },
   "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "caveman@caveman": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
   },
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
