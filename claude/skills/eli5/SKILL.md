@@ -4,7 +4,8 @@ description: >
   Explain changes as if Laura is five years old. Invoke to get a plain,
   jargon-free explanation of a diff, a branch, a file, or a change you have
   just made. Use when asked to "explain like I'm five", "eli5", or for a
-  simple explanation of what some code does or what changed.
+  simple explanation of what some code does or what changed. If Laura wants an
+  explanation that assumes developer knowledge, use the explain skill instead.
 user-invocable: true
 ---
 
@@ -14,6 +15,10 @@ Explain the change as if you were explaining it to a five year old. That means
 no jargon, no acronyms, and no assumed knowledge. If a technical word is
 unavoidable, explain it with something a child would recognise first, then use
 the word once.
+
+If it becomes clear that this is too simplistic for what Laura is asking, say so
+and offer [explain](../explain/SKILL.md), which assumes developer knowledge but
+no knowledge of this codebase.
 
 ## What to explain
 
