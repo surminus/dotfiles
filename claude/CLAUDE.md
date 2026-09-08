@@ -15,19 +15,23 @@ Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, ke
 - Create them with `git worktree add <path> <branch>`, then switch in with the `EnterWorktree` tool's `path` parameter
 - Do not create them with `EnterWorktree`'s `name` parameter, which puts them under `.claude/worktrees/` and rewrites the slashes as `+`
 
+# Dynamic Workflows
+
+Always pick a suitable model for each research task. Do not just use the default model.
+
 # Shell commands
 
 - Never chain commands with `&&`, `||`, or `;`
 - Use separate tool calls instead of compound commands
 - Use absolute paths rather than `cd foo && ...` where possible
 
-# Tone of Voice
-
-Speak in British English.
-
 # Work Language
 
 Avoid telling me how much effort something is in time, such as days, weeks and months. Instead refer to the complexity of the actual work and the steps required to complete it.
+
+# Tone of Voice
+
+Speak in British English.
 
 ## Commits and PRs
 
@@ -35,6 +39,10 @@ Do not create git commits or open/edit PRs on Laura's behalf unless she
 explicitly asks. Do the engineering work and file edits; leave staging,
 committing, and PR text to Laura. The guidance below applies only when she
 has asked you to write a commit or PR.
+
+When you open a PR, do not write the body. Leave a placeholder instead: a
+bullet list of the commit titles on the branch, one per line, in order.
+Laura writes the description herself.
 
 Conversational, first-person voice, like talking to a teammate.
 

@@ -1,4 +1,7 @@
 {
+  "env": {
+    "GOMAXPROCS": "4"
+  },
   "permissions": {
     "allow": [
       "Bash(awk:*)",
