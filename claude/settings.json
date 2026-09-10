@@ -1,6 +1,6 @@
 {
   "env": {
-    "GOMAXPROCS": "4"
+    "CLAUDE_CODE_SUBAGENT_MODEL": "inherit"
   },
   "permissions": {
     "allow": [
@@ -49,7 +49,7 @@
       }
     ]
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
