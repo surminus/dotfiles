@@ -15,38 +15,6 @@ Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, ke
 - Create them with `git worktree add <path> <branch>`, then switch in with the `EnterWorktree` tool's `path` parameter
 - Do not create them with `EnterWorktree`'s `name` parameter, which puts them under `.claude/worktrees/` and rewrites the slashes as `+`
 
-# Models
-
-The main session runs on Sonnet, and it should stay there. Routine work, file
-edits, shell commands, searches, reading code and short questions all belong on
-the default model.
-
-Delegate work that genuinely needs a stronger model to a subagent with an
-explicit model rather than switching the whole session. Doing this is
-authorised: spawning subagents for model selection does not need to be asked
-about first. Pick the model from the complexity of the work:
-
-- Haiku: trivial lookups fanned out wide, so "which of these files mentions X",
-  single-fact greps, reading one value out of a config. No judgement required
-- Sonnet: mechanical edits, applying fixes someone else has already decided on,
-  searching, locating code, summarising, running commands, anything already
-  scoped
-- Fable: prose where the voice matters, so ADRs, IDRs, RFCs, design documents,
-  PR bodies and docs
-- Opus: architecture and design decisions, debugging where the cause is
-  unknown, security review, code review, large multi-file refactors, anything
-  needing a plan before the first edit
-
-Set the model with the Agent tool's `model` parameter when spawning, or with
-`model:` in the frontmatter of an agent definition in `~/.claude/agents/` when
-that agent should always use a particular model. Precedence is: per-spawn
-`model`, then the agent definition's `model:`, then the
-`CLAUDE_CODE_SUBAGENT_MODEL` environment variable, then inheriting the main
-session's model.
-
-Do not switch the main session to Opus without asking Laura first. If a task
-needs it, say so and let her run `/model`.
-
 # Dynamic Workflows
 
 Always pick a suitable model for each research task. Do not just use the default model.
