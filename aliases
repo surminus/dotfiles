@@ -238,8 +238,8 @@ function tf() {
 }
 
 # Claude
-alias claude="claude --permission-mode auto"
-alias fable="claude --model fable"
+alias claude="claude --permission-mode auto $@"
+alias fable="claude --model fable $@"
 
 ###
 ### End

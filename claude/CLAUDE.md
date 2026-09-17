@@ -15,6 +15,10 @@ Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, ke
 - Create them with `git worktree add <path> <branch>`, then switch in with the `EnterWorktree` tool's `path` parameter
 - Do not create them with `EnterWorktree`'s `name` parameter, which puts them under `.claude/worktrees/` and rewrites the slashes as `+`
 
+# GitHub
+
+When making fixes based off review comments in GitHub, particularly if by Copilot or another bot, always reply and resolve the comment if it's outdated or fixed.
+
 # Dynamic Workflows
 
 Always pick a suitable model for each research task. Do not just use the default model.
