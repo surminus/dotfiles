@@ -10,6 +10,8 @@ Always use this directory for any future commands. You may be in a Git workspace
 
 # Worktrees
 
+The user will always start the conversation in the default branch, but you should always make code changes in a worktree. You can do research within the default branch, but as soon as you want to write code, switch to a worktree.
+
 Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, keeping the forward slashes in the branch name so they nest as subdirectories. Branch `laura/inf-7491/website-dev-stack` in `~/ably/infrastructure` therefore belongs at `~/ably/infrastructure@laura/inf-7491/website-dev-stack`.
 
 - Create them with `git worktree add <path> <branch>`, then switch in with the `EnterWorktree` tool's `path` parameter
@@ -18,6 +20,8 @@ Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, ke
 # GitHub
 
 When making fixes based off review comments in GitHub, particularly if by Copilot or another bot, always reply and resolve the comment if it's outdated or fixed.
+
+Avoid making comments in the main conversation view where possible.
 
 # Dynamic Workflows
 
