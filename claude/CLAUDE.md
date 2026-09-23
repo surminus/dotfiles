@@ -23,6 +23,15 @@ When making fixes based off review comments in GitHub, particularly if by Copilo
 
 Avoid making comments in the main conversation view where possible.
 
+# Reporting state
+
+Do not describe the current state of something from what you last did to it.
+Anything you touched earlier may have been changed since, by Laura or by
+someone else: a PR body, a ticket, a branch, a file, a config value.
+
+Before saying what state something is in, read it. If you are not going to
+check, say nothing about it rather than asserting a stale answer.
+
 # Dynamic Workflows
 
 Always pick a suitable model for each research task. Do not just use the default model.
