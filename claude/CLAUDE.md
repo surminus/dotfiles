@@ -15,6 +15,7 @@ The user will always start the conversation in the default branch, but you shoul
 Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, keeping the forward slashes in the branch name so they nest as subdirectories. Branch `laura/inf-7491/website-dev-stack` in `~/ably/infrastructure` therefore belongs at `~/ably/infrastructure@laura/inf-7491/website-dev-stack`.
 
 - Create them with `git worktree add <path> <branch>`, then switch in with the `EnterWorktree` tool's `path` parameter
+- If the session is already in a worktree, call `ExitWorktree` with `action: "keep"` first. Switching straight from one worktree to another only accepts paths under `.claude/worktrees/`, so a custom path is refused unless entered from the repo's main checkout
 - Do not create them with `EnterWorktree`'s `name` parameter, which puts them under `.claude/worktrees/` and rewrites the slashes as `+`
 
 # GitHub
