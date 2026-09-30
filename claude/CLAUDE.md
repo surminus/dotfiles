@@ -153,19 +153,26 @@ this approach aligns with our strategic goal of operational efficiency.
 
 # Ably MCP
 
-## Context & Tool Discovery
+- If searchAblyTools, skillSearch and skillGet cannot be found, tell the user to connect the Ably MCP @ https://claude.ai/customize/connectors. If connected but tools aren't visible, set tool access to "tools already loaded".
+- Before stating a tool doesn't exist, verify with searchAblyTools first.
+- CODING TASKS ARE EXEMPT FROM THE CONTEXT/SKILL PREAMBLE BELOW. When writing, editing, reviewing, debugging, or planning code in a repository, do NOT call getAutomaticContext or skillSearch first - work directly with the codebase. Use Ably MCP tools/skills during coding only when: (a) the user names a skill (e.g. code-plan-pr, code-review-*, git-commit), (b) the task needs live data from an Ably system (Jira, Snowflake, Sentry), or (c) verified Ably product/SDK facts are needed - then load only the specific context or tool required.
+- For Ably business, data, research, and product knowledge questions - anything answered from company systems or knowledge (HubSpot, Snowflake, Jira, Confluence, Slack, Gong, finance, metrics, customers, internal processes, Ably products/SDKs): (1) call getAutomaticContext first, (2) then run skillSearch with the user's intent before answering. If a relevant skill is found: auto-load if implicit (knowledge enrichment); auto-run if a single clear read-only/analytical match; confirm first if it writes data or posts externally (HubSpot, Slack, Google Drive); present options if multiple match and the best isn't obvious.
+- When a skill is loaded, follow all steps in full without exception. Load every knowledge, profile, or context file the skill instructs before generating output.
+- The write-like skill is OPT-IN only. Load it via skillGet only when the user explicitly asks to write in their own or a named person's voice (e.g. "write like me", "in Laura's style"). If no profile exists, offer the setup flow via knowledge/SETUP.md. Never auto-apply or mention it for docs, posts, or emails otherwise.
+- Run checkOAuthStatus before using Google, Confluence, Snowflake, or Figma tools.
+- For questions about internal processes, design docs, RFCs, or policies with no source specified, search Confluence via searchAblyTools first, then fall back to other tools.
+- Prioritise MCP tools over web_fetch for Google Drive and Confluence documents.
+- If native web-fetch fails, use searchAblyTools to find web fetch tools and retry the same URL; try web_parse first.
+- For Snowflake/data warehouse queries, always load the data-warehouse-genie skill via skillGet before any Snowflake tool calls.
+- For internal finance questions (salaries, payroll, expenses, P&L, cash flow, runway) use searchAblyTools and Xero tools. Customer revenue and ARR/MRR live in Snowflake, not Xero - follow the data-warehouse-genie rule.
+- To create or migrate a dashboard, YOU MUST load the create-dashboards-report skill via skillGet first.
 
-- For ALL Ably/work questions, ALWAYS call `getAutomaticContext` first with `conversationContext` describing your question, then proceed using `searchAblyTools` and available MCP tools.
-- For Skills, use the MCP tools (`skillSearch`, `skillGet`) as priority.
-- Run `checkOAuthStatus` before using the following tools: Google, Confluence, Snowflake, Figma.
-- Prioritise MCP tools over `web_fetch` for Google Drive and Confluence documents.
+# Confluence
 
-## Confluence
-
-### IDRs
+## IDRs
 
 When writing new IDRs, always set the status as "DRAFT", and do not tag anyone.
 
-### Other documents
+## Other documents
 
 Do not set a status.
