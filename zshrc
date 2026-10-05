@@ -12,7 +12,6 @@ plugins=(
   docker
   emoji
   fzf
-  github
   golang
   node
   opentofu
