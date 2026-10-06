@@ -33,36 +33,31 @@
       "WebSearch"
     ],
     "additionalDirectories": [
-      "~/claude"
+      "~/claude",
+      "~/ably"
     ]
   },
   "model": "opus[1m]",
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "EnterWorktree",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.claude/hooks/allow-sibling-worktree.sh"
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "ably-skills@ably-os": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "ably-os": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/ably/ably-os.git"
       }
     }
   },
