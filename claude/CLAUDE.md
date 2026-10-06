@@ -14,9 +14,11 @@ The user will always start the conversation in the default branch, but you shoul
 
 Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, keeping the forward slashes in the branch name so they nest as subdirectories. Branch `laura/inf-7491/website-dev-stack` in `~/ably/infrastructure` therefore belongs at `~/ably/infrastructure@laura/inf-7491/website-dev-stack`.
 
-- Create them with `git worktree add <path> <branch>`, then switch in with the `EnterWorktree` tool's `path` parameter
-- If the session is already in a worktree, call `ExitWorktree` with `action: "keep"` first. Switching straight from one worktree to another only accepts paths under `.claude/worktrees/`, so a custom path is refused unless entered from the repo's main checkout
-- Do not create them with `EnterWorktree`'s `name` parameter, which puts them under `.claude/worktrees/` and rewrites the slashes as `+`
+- Create them with `git -C <repo path> worktree add <path> <branch>`
+- Never call `EnterWorktree` or `ExitWorktree`. Any `path` outside `.claude/worktrees/` triggers a permission prompt that no hook or allow rule can skip, and the `name` parameter puts worktrees under `.claude/worktrees/` with the slashes rewritten as `+`
+- Stay in the session's starting directory and work in the worktree by absolute path: Read, Edit and Write with the worktree's paths, `git -C <worktree path>` for git, and `env -C <worktree path>` or tool flags such as `make -C` for anything else
+- Read the worktree's own `CLAUDE.md` if its branch changes it, since the session only loads the one from the starting directory
+- Leave worktrees in place once the work is merged. Don't remove them or offer to clean them up; Laura handles that herself
 
 # GitHub
 
