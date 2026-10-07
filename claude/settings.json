@@ -33,8 +33,9 @@
       "WebSearch"
     ],
     "additionalDirectories": [
+      "~/ably",
       "~/claude",
-      "~/ably"
+      "~/surminus"
     ]
   },
   "model": "opus[1m]",
