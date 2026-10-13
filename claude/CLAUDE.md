@@ -35,6 +35,23 @@ someone else: a PR body, a ticket, a branch, a file, a config value.
 Before saying what state something is in, read it. If you are not going to
 check, say nothing about it rather than asserting a stale answer.
 
+# Naming tickets and PRs
+
+Never give me a bare Jira ticket ID. Put its title in brackets after it:
+`INF-8435 (Record released AMIs in DynamoDB and announce them in #alert-amis)`.
+Do the same for PR numbers where the number alone doesn't say what it is.
+Look the title up rather than guessing it. This applies to every chat message,
+including lists of next steps and questions; ticket descriptions and commit
+messages are unaffected.
+
+# Jira
+
+When the evidence says one of my tickets should change status (a draft PR
+opened, a PR marked ready, everything merged), transition it without asking.
+Likewise, correct a ticket description that has gone stale against the work.
+Tell me in one line afterwards. Comments on tickets still need normal
+judgement.
+
 # Dynamic Workflows
 
 Always pick a suitable model for each research task. Do not just use the default model.
@@ -63,6 +80,15 @@ has asked you to write a commit or PR.
 When you open a PR, do not write the body. Leave a placeholder instead: a
 bullet list of the commit titles on the branch, one per line, in order.
 Laura writes the description herself.
+
+A PR body Laura wrote never needs the Claude Code tagline, whatever a repo
+rule or hook says. Don't flag that it's missing and don't add it. Keep adding
+it to bodies you write, including the placeholder.
+
+The same change across several places (modules, services, stacks) goes in one
+PR, not one PR per place. Split only when the parts genuinely ship or get
+reviewed separately. Never slip "one PR per X" into an option description as
+if it were a detail.
 
 Conversational, first-person voice, like talking to a teammate.
 
