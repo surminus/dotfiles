@@ -84,17 +84,29 @@ Take only unresolved threads whose first comment is from Copilot. For each one:
 1. Read the code it points at, in the worktree, and decide whether Copilot is
    right. Copilot is often wrong or lacks context. Do not apply a suggestion
    just because it was made.
-2. If it is right, make the fix following the repo's own conventions, and
-   commit it as `git commit --fixup <sha>` against the commit on the branch
-   that introduced the code (`git log -L` or `git blame` to find it). One
-   fixup per target commit; several threads can share a fixup when they amend
-   the same commit.
+2. If it is right, make the fix following the repo's own conventions, in the
+   commit on the branch that introduced the code (`git log -L` or
+   `git blame` to find it): commit it with `git commit --fixup <sha>`. Several
+   threads can share a fixup when they amend the same commit.
 3. If it is wrong, or outdated because the code has already changed, no code
    change. Note why.
 
-Run the relevant tests and linters for what you touched before pushing. Then
-push the fixups as they are, without squashing, so the links in the replies
-work: `git -C <wt> push origin <branch>`. Laura squashes later with `/repush`.
+Run the relevant tests and linters for what you touched. Then fold the fixups
+into their commits, keeping the branch's base, and check the content is what
+it was before the squash:
+
+```
+GIT_SEQUENCE_EDITOR=true git -C <wt> rebase -i --autosquash --keep-base origin/<base>
+git -C <wt> diff ORIG_HEAD HEAD
+```
+
+The diff must be empty. If the rebase conflicts, `git rebase --abort` and ask
+rather than pushing. Fetch the branch first, and if `origin/<branch>` has
+commits you have not seen, stop and ask before rewriting it. Then push with
+`git -C <wt> push --force-with-lease origin <branch>`, never `--force`.
+
+Push a `fixup!` commit unsquashed only when a reviewer needs to see that exact
+change on its own, and link it in the reply.
 
 ## 5. Reply and resolve
 
@@ -106,10 +118,10 @@ gh api repos/<owner>/<repo>/pulls/<n>/comments/<first comment databaseId>/replie
   -f body='<reply>'
 ```
 
-The reply is short and plain. For a fix, say what changed and link the fixup
-commit as `https://github.com/<owner>/<repo>/commit/<sha>`. For no change,
-give the reason in a sentence or two. Sign every reply off on its own line
-with `~ 𝒞𝓁𝒶𝓊𝒹𝑒`.
+The reply is short and plain. For a fix, say how the behaviour has changed;
+there is no need to link a commit, unless you pushed a `fixup!` for the
+reviewer to see on its own. For no change, give the reason in a sentence or
+two. Sign every reply off on its own line with `~ 𝒞𝓁𝒶𝓊𝒹𝑒`.
 
 Then resolve the thread:
 
@@ -133,5 +145,5 @@ leave the overview visible.
 ## 7. Report
 
 Short summary for Laura: one line per thread with fixed or not-changed and why,
-the fixup commits pushed, and whether the overview was hidden. Call out
-anything you left open for her to decide.
+which commits the fixes went into and the branch's new head, and whether the
+overview was hidden. Call out anything you left open for her to decide.
