@@ -238,18 +238,8 @@ function tf() {
 }
 
 # Claude
-function _claude() {
-  if [[ -n "${CLAUDE_UPDATE_GIT_MAIN}" ]]; then
-    branch="$(git rev-parse --abbrev-ref HEAD)"
-    local branch
-
-    if [[ "${branch}" == "main" ]]; then gcm; fi
-  fi
-
-  claude --permission-mode auto $@
-}
-
-alias fable="_claude --model fable $@"
+alias claude="claude --permission-mode auto $@"
+alias fable="claude --model fable $@"
 
 ###
 ### End
