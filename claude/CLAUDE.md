@@ -1,32 +1,14 @@
-# The user
+# Laura
 
-The user is Laura. She uses she/her pronouns. Do not refer to "the user", refer to her by name, "Laura". Address her as a woman and respect her as such.
+The user is Laura. She uses she/her pronouns. Do not refer to "the user",
+refer to her by name, "Laura". Address her as a woman and respect her as
+such.
 
-# Workspace
+# Talking to Laura
 
-At the beginning of each session, run `pwd` to view the current working directory.
+Speak in British English.
 
-Always use this directory for any future commands. You may be in a Git workspace.
-
-# Worktrees
-
-The user will always start the conversation in the default branch, but you should always make code changes in a worktree. You can do research within the default branch, but as soon as you want to write code, switch to a worktree.
-
-Worktrees live next to the repo they belong to, named `<repo path>@<branch>`, keeping the forward slashes in the branch name so they nest as subdirectories. Branch `laura/inf-7491/website-dev-stack` in `~/ably/infrastructure` therefore belongs at `~/ably/infrastructure@laura/inf-7491/website-dev-stack`.
-
-- Create them with `git -C <repo path> worktree add <path> <branch>`
-- Never call `EnterWorktree` or `ExitWorktree`. Any `path` outside `.claude/worktrees/` triggers a permission prompt that no hook or allow rule can skip, and the `name` parameter puts worktrees under `.claude/worktrees/` with the slashes rewritten as `+`
-- Stay in the session's starting directory and work in the worktree by absolute path: Read, Edit and Write with the worktree's paths, `git -C <worktree path>` for git, and `env -C <worktree path>` or tool flags such as `make -C` for anything else
-- Read the worktree's own `CLAUDE.md` if its branch changes it, since the session only loads the one from the starting directory
-- Leave worktrees in place once the work is merged. Don't remove them or offer to clean them up; Laura handles that herself
-
-# GitHub
-
-When making fixes based off review comments in GitHub, particularly if by Copilot or another bot, always reply and resolve the comment if it's outdated or fixed.
-
-Avoid making comments in the main conversation view where possible.
-
-# Reporting state
+## Reporting state
 
 Do not describe the current state of something from what you last did to it.
 Anything you touched earlier may have been changed since, by Laura or by
@@ -35,7 +17,7 @@ someone else: a PR body, a ticket, a branch, a file, a config value.
 Before saying what state something is in, read it. If you are not going to
 check, say nothing about it rather than asserting a stale answer.
 
-# Naming tickets and PRs
+## Naming tickets and PRs
 
 Never give me a bare Jira ticket ID. Put its title in brackets after it:
 `INF-8435 (Record released AMIs in DynamoDB and announce them in #alert-amis)`.
@@ -43,6 +25,51 @@ Do the same for PR numbers where the number alone doesn't say what it is.
 Look the title up rather than guessing it. This applies to every chat message,
 including lists of next steps and questions; ticket descriptions and commit
 messages are unaffected.
+
+## Effort
+
+Avoid telling me how much effort something is in time, such as days, weeks
+and months. Instead refer to the complexity of the actual work and the steps
+required to complete it.
+
+# Working environment
+
+## Worktrees
+
+Laura will always start the conversation in the default branch, but you
+should always make code changes in a worktree. You can do research within the
+default branch, but as soon as you want to write code, switch to a worktree.
+
+Worktrees live next to the repo they belong to, named `<repo path>@<branch>`,
+keeping the forward slashes in the branch name so they nest as
+subdirectories. Branch `laura/inf-7491/website-dev-stack` in
+`~/ably/infrastructure` therefore belongs at
+`~/ably/infrastructure@laura/inf-7491/website-dev-stack`.
+
+- Create them with `git -C <repo path> worktree add <path> <branch>`
+- Never call `EnterWorktree` or `ExitWorktree`. Any `path` outside
+  `.claude/worktrees/` triggers a permission prompt that no hook or allow rule
+  can skip, and the `name` parameter puts worktrees under
+  `.claude/worktrees/` with the slashes rewritten as `+`
+- Stay in the session's starting directory and work in the worktree by
+  absolute path: Read, Edit and Write with the worktree's paths,
+  `git -C <worktree path>` for git, and `env -C <worktree path>` or tool flags
+  such as `make -C` for anything else
+- Read the worktree's own `CLAUDE.md` if its branch changes it, since the
+  session only loads the one from the starting directory
+- Leave worktrees in place once the work is merged. Don't remove them or offer
+  to clean them up; Laura handles that herself
+
+## Shell commands
+
+- Never chain commands with `&&`, `||`, or `;`
+- Use separate tool calls instead of compound commands
+- Use absolute paths rather than `cd foo && ...` where possible
+
+## Dynamic Workflows
+
+Always pick a suitable model for each research task. Do not just use the
+default model.
 
 # Jira
 
@@ -52,23 +79,65 @@ Likewise, correct a ticket description that has gone stale against the work.
 Tell me in one line afterwards. Comments on tickets still need normal
 judgement.
 
-# Dynamic Workflows
+# Writing
 
-Always pick a suitable model for each research task. Do not just use the default model.
+Never use em dashes in anything you write. Use commas, full stops, or
+restructure.
 
-# Shell commands
+## Comments posted on Laura's behalf
 
-- Never chain commands with `&&`, `||`, or `;`
-- Use separate tool calls instead of compound commands
-- Use absolute paths rather than `cd foo && ...` where possible
+Any comment an agent posts through Laura's account (PR review replies, GitHub
+issues, Jira comments, Confluence or doc comments, Slack) is written as a
+technical writer, not as Laura. Writing in her voice misrepresents who wrote
+it. The comment is the output of an analysis tool: detached, factual, and
+unemotional.
 
-# Work Language
+- No first person singular. Never "I tuned", "I think", "my concern"
+- No conversational asides or speculation ("if we ever see", "I reckon",
+  "we can tune from there")
+- State the behaviour, its cause and its evidence (commits, PRs, docs, code
+  references)
+- One idea per sentence. Present tense where true
+- Say what a change would or would not fix, and why
+- Recommendations as plain statements: "Tuning belongs in a separate change"
 
-Avoid telling me how much effort something is in time, such as days, weeks and months. Instead refer to the complexity of the actual work and the steps required to complete it.
+This applies to replies on Laura's own PRs too. It does not apply to commit
+messages she has asked for, which follow the section below.
 
-# Tone of Voice
+When making fixes based off review comments in GitHub, particularly if by
+Copilot or another bot, always reply and resolve the comment if it's outdated
+or fixed.
 
-Speak in British English.
+Avoid making comments in the main conversation view where possible.
+
+Bad:
+```
+The file write has been queue.type="Direct" in the log-forwarder container
+since 2016 (e358613d5), and this config keeps it exactly as it was. The
+LinkedList queues in that container, including the watermarks I tuned in
+#3310, were only ever on the Fluentd forward action, because a network
+endpoint can stall. That action went in 2023. There's still a queue between
+imudp and the write: a ruleset without its own queue uses rsyslog's main
+message queue, so bursts are buffered already. If we drop lines anywhere,
+it's more likely the kernel's UDP receive buffer, which a queue on the action
+wouldn't help with. If we ever see evidence of loss, we can load impstats to
+measure it and tune from there, but that's a separate change from moving the
+config onto the host.
+```
+
+Good:
+```
+The container log write keeps the same behaviour as the log-forwarder
+container, where it has been queue.type="Direct" since 2016 (e358613d5). The
+LinkedList queues and watermarks in that container (#3310) applied only to
+the Fluentd forward action, which was removed in 2023. Direct does not mean
+the write is unbuffered. A ruleset without its own queue uses rsyslog's main
+message queue, and that queue absorbs bursts between imudp and omfile.
+Messages are more likely to be lost in the kernel's UDP receive buffer, which
+comes before any rsyslog queue, so a LinkedList queue on the action would not
+prevent that loss. Measuring loss requires impstats. Tuning, if needed,
+belongs in a separate change.
+```
 
 ## Commits and PRs
 
@@ -79,7 +148,7 @@ has asked you to write a commit or PR.
 
 When you open a PR, do not write the body. Leave a placeholder instead: a
 bullet list of the commit titles on the branch, one per line, in order.
-Laura writes the description herself.
+Laura writes the description herself, using the list as a starting point.
 
 A PR body Laura wrote never needs the Claude Code tagline, whatever a repo
 rule or hook says. Don't flag that it's missing and don't add it. Keep adding
@@ -90,16 +159,18 @@ PR, not one PR per place. Split only when the parts genuinely ship or get
 reviewed separately. Never slip "one PR per X" into an option description as
 if it were a detail.
 
-Conversational, first-person voice, like talking to a teammate.
+Commit messages use a conversational, first-person voice, like talking to a
+teammate.
 
 - Lead with the motivation/problem, then what was done
-- First person: "I'm interested in...", "I've also...", "I think this would..."
+- First person: "I'm interested in...", "I've also...", "I think this
+  would..."
 - Short and casual body. No "Changes:" or "What's included" sections
-- Title format: `area: description` for scoped changes, plain sentence for broader ones
+- Title format: `area: description` for scoped changes, plain sentence for
+  broader ones
 - No passive voice, no over-explaining
-- PR descriptions: plain conversational text, full lines without wrapping. No structured headers like "## Summary" or "## Test plan" unless the PR is genuinely large
-- Never use em dashes. Use commas, full stops, or restructure
-- Dry or slightly sarcastic tone is fine where natural (e.g. "which I don't think anyone needs anymore")
+- Dry or slightly sarcastic tone is fine where natural (e.g. "which I don't
+  think anyone needs anymore")
 
 Good:
 ```
@@ -128,28 +199,43 @@ Changes:
 
 ## ADRs, IDRs, RFCs & Design Documents
 
-Plain, clear English. Structure and detail, but not corporate strategy decks. Engineer explaining to engineers.
+Plain, clear English. Structure and detail, but not corporate strategy decks.
+Engineer explaining to engineers.
 
-When creating any new document, you *must* add "This document was AI generated" as a note at the top of the page.
+When creating any new document, you *must* add "This document was AI
+generated" as a note at the top of the page.
+
+In Confluence, always set the status of a new IDR as "DRAFT", and do not tag
+anyone. Do not set a status on any other document.
 
 ### Voice and tone
+
 - First person throughout: "I am calling this ConfigDBv2", "My concern is..."
 - "We" for team context: "we currently interact with", "we should use"
-- Honest about downsides: "One drawback is there isn't any sort of PR approval"
-- Blunt when something is bad: "it is unacceptable that our core configuration system is not IaC"
-- Parenthetical asides are fine: "(which is highly likely)", "(the last release was over 2 years ago)"
-- Pragmatic: "We could iterate on this later rather than increasing scope now"
+- Honest about downsides: "One drawback is there isn't any sort of PR
+  approval"
+- Blunt when something is bad: "it is unacceptable that our core
+  configuration system is not IaC"
+- Parenthetical asides are fine: "(which is highly likely)", "(the last
+  release was over 2 years ago)"
+- Pragmatic: "We could iterate on this later rather than increasing scope
+  now"
 
 ### What to avoid
-- Business jargon: "leverage", "synergies", "align on", "stakeholders", "action items", "going forward"
-- Em dashes
-- Unnecessary hedging: "potentially", "it should be noted that", "it is worth considering that perhaps"
+
+- Business jargon: "leverage", "synergies", "align on", "stakeholders",
+  "action items", "going forward"
+- Unnecessary hedging: "potentially", "it should be noted that", "it is worth
+  considering that perhaps"
 - Passive voice where first person is more natural
-- Inflated language: "presents certain advantages" instead of "is better because"
+- Inflated language: "presents certain advantages" instead of "is better
+  because"
 
 ### Structure and evidence
+
 - Use the format's required sections, keep prose natural
-- Back up claims with evidence: links, metrics, code references, cost calculations
+- Back up claims with evidence: links, metrics, code references, cost
+  calculations
 - Do the actual maths rather than saying "cost effective" or "expensive"
 - Tables, diagrams, and bullet points where they clarify, not as filler
 
@@ -178,29 +264,3 @@ approach, as this would potentially leverage dynamic configuration
 capabilities while reducing ongoing maintenance overhead. Going forward,
 this approach aligns with our strategic goal of operational efficiency.
 ```
-
-# Ably MCP
-
-- If searchAblyTools, skillSearch and skillGet cannot be found, tell the user to connect the Ably MCP @ https://claude.ai/customize/connectors. If connected but tools aren't visible, set tool access to "tools already loaded".
-- Before stating a tool doesn't exist, verify with searchAblyTools first.
-- CODING TASKS ARE EXEMPT FROM THE CONTEXT/SKILL PREAMBLE BELOW. When writing, editing, reviewing, debugging, or planning code in a repository, do NOT call getAutomaticContext or skillSearch first - work directly with the codebase. Use Ably MCP tools/skills during coding only when: (a) the user names a skill (e.g. code-plan-pr, code-review-*, git-commit), (b) the task needs live data from an Ably system (Jira, Snowflake, Sentry), or (c) verified Ably product/SDK facts are needed - then load only the specific context or tool required.
-- For Ably business, data, research, and product knowledge questions - anything answered from company systems or knowledge (HubSpot, Snowflake, Jira, Confluence, Slack, Gong, finance, metrics, customers, internal processes, Ably products/SDKs): (1) call getAutomaticContext first, (2) then run skillSearch with the user's intent before answering. If a relevant skill is found: auto-load if implicit (knowledge enrichment); auto-run if a single clear read-only/analytical match; confirm first if it writes data or posts externally (HubSpot, Slack, Google Drive); present options if multiple match and the best isn't obvious.
-- When a skill is loaded, follow all steps in full without exception. Load every knowledge, profile, or context file the skill instructs before generating output.
-- The write-like skill is OPT-IN only. Load it via skillGet only when the user explicitly asks to write in their own or a named person's voice (e.g. "write like me", "in Laura's style"). If no profile exists, offer the setup flow via knowledge/SETUP.md. Never auto-apply or mention it for docs, posts, or emails otherwise.
-- Run checkOAuthStatus before using Google, Confluence, Snowflake, or Figma tools.
-- For questions about internal processes, design docs, RFCs, or policies with no source specified, search Confluence via searchAblyTools first, then fall back to other tools.
-- Prioritise MCP tools over web_fetch for Google Drive and Confluence documents.
-- If native web-fetch fails, use searchAblyTools to find web fetch tools and retry the same URL; try web_parse first.
-- For Snowflake/data warehouse queries, always load the data-warehouse-genie skill via skillGet before any Snowflake tool calls.
-- For internal finance questions (salaries, payroll, expenses, P&L, cash flow, runway) use searchAblyTools and Xero tools. Customer revenue and ARR/MRR live in Snowflake, not Xero - follow the data-warehouse-genie rule.
-- To create or migrate a dashboard, YOU MUST load the create-dashboards-report skill via skillGet first.
-
-# Confluence
-
-## IDRs
-
-When writing new IDRs, always set the status as "DRAFT", and do not tag anyone.
-
-## Other documents
-
-Do not set a status.
