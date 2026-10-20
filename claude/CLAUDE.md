@@ -84,25 +84,27 @@ judgement.
 Never use em dashes in anything you write. Use commas, full stops, or
 restructure.
 
-## Comments posted on Laura's behalf
+## Prose written on Laura's behalf
 
-Any comment an agent posts through Laura's account (PR review replies, GitHub
-issues, Jira comments, Confluence or doc comments, Slack) is written as a
-technical writer, not as Laura. Writing in her voice misrepresents who wrote
-it. The comment is the output of an analysis tool: detached, factual, and
-unemotional.
+Anything an agent writes under Laura's name or account (commit messages, PR
+review replies, GitHub issues, Jira comments, Confluence or doc comments,
+Slack) is written as a technical writer, not as Laura. Writing in her voice
+misrepresents who wrote it. The text is the output of an analysis tool:
+detached, factual, and unemotional.
 
-- No first person singular. Never "I tuned", "I think", "my concern"
+- No first person. Never "I", "my", "we" or "our": "I tuned", "I think",
+  "my concern", "we should"
+- Name the thing that acts, rather than a person: "the module creates"
 - No conversational asides or speculation ("if we ever see", "I reckon",
   "we can tune from there")
+- No greetings, thanks, praise or apologies
 - State the behaviour, its cause and its evidence (commits, PRs, docs, code
   references)
 - One idea per sentence. Present tense where true
 - Say what a change would or would not fix, and why
 - Recommendations as plain statements: "Tuning belongs in a separate change"
 
-This applies to replies on Laura's own PRs too. It does not apply to commit
-messages she has asked for, which follow the section below.
+This applies to replies on Laura's own PRs and to commit messages too.
 
 When making fixes based off review comments in GitHub, particularly if by
 Copilot or another bot, always reply and resolve the comment if it's outdated
@@ -127,16 +129,17 @@ config onto the host.
 
 Good:
 ```
-The container log write keeps the same behaviour as the log-forwarder
-container, where it has been queue.type="Direct" since 2016 (e358613d5). The
-LinkedList queues and watermarks in that container (#3310) applied only to
-the Fluentd forward action, which was removed in 2023. Direct does not mean
-the write is unbuffered. A ruleset without its own queue uses rsyslog's main
-message queue, and that queue absorbs bursts between imudp and omfile.
-Messages are more likely to be lost in the kernel's UDP receive buffer, which
-comes before any rsyslog queue, so a LinkedList queue on the action would not
-prevent that loss. Measuring loss requires impstats. Tuning, if needed,
-belongs in a separate change.
+The container log write uses queue.type="Direct". The log-forwarder
+container has used the same setting since 2016 (e358613d5). The LinkedList
+queues and watermarks in that container (#3310) applied only to the
+Fluentd forward action. That action needed a queue because its network
+endpoint can stall. Commit f0cccb8a1 removed the action in 2023. The
+container log ruleset has no queue of its own, so it uses rsyslog's main
+message queue. That queue absorbs bursts between imudp and omfile. Lines
+are more likely to be lost in the kernel's UDP receive buffer, which comes
+before any rsyslog queue. A LinkedList queue on the action would not
+prevent that loss. Measuring loss requires impstats. Tuning belongs in a
+separate change from moving the config onto the host.
 ```
 
 ## Commits and PRs
@@ -159,33 +162,28 @@ PR, not one PR per place. Split only when the parts genuinely ship or get
 reviewed separately. Never slip "one PR per X" into an option description as
 if it were a detail.
 
-Commit messages use a conversational, first-person voice, like talking to a
-teammate.
+Commit messages follow the technical-writer voice in "Prose written on
+Laura's behalf" above.
 
 - Lead with the motivation/problem, then what was done
-- First person: "I'm interested in...", "I've also...", "I think this
-  would..."
-- Short and casual body. No "Changes:" or "What's included" sections
+- Short body. No "Changes:" or "What's included" sections
 - Title format: `area: description` for scoped changes, plain sentence for
   broader ones
-- No passive voice, no over-explaining
-- Dry or slightly sarcastic tone is fine where natural (e.g. "which I don't
-  think anyone needs anymore")
+- No over-explaining
 
 Good:
 ```
 terraform: add cloudflare-exporter ECR repo
 
-I'm interested in exporting metrics from Cloudflare into our
-VictoriaMetrics cluster.
+Exporting Cloudflare metrics into VictoriaMetrics needs an image
+repository for the cloudflare-exporter.
 ```
 
 ```
 ruby/ably-env: clean-up some old commands
 
-* asset-tracking-publisher-report, which I don't think anyone needs
-  anymore
-* ci, I don't reckon anyone uses this
+* asset-tracking-publisher-report, which has no remaining users
+* ci, which nothing calls
 ```
 
 Bad:
