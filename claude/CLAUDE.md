@@ -103,6 +103,9 @@ detached, factual, and unemotional.
 - One idea per sentence. Present tense where true
 - Short paragraphs, one point each. Do not pack every fact into a single
   dense block
+- Only what the reader needs to answer their point. Leave out bookkeeping
+  that shows completeness, such as mirrored copies, files touched or checks
+  run
 - Say what a change would or would not fix, and why
 - Recommendations as plain statements: "Tuning belongs in a separate change"
 
