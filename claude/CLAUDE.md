@@ -101,6 +101,8 @@ detached, factual, and unemotional.
 - State the behaviour, its cause and its evidence (commits, PRs, docs, code
   references)
 - One idea per sentence. Present tense where true
+- Short paragraphs, one point each. Do not pack every fact into a single
+  dense block
 - Say what a change would or would not fix, and why
 - Recommendations as plain statements: "Tuning belongs in a separate change"
 
@@ -130,16 +132,21 @@ config onto the host.
 Good:
 ```
 The container log write uses queue.type="Direct". The log-forwarder
-container has used the same setting since 2016 (e358613d5). The LinkedList
-queues and watermarks in that container (#3310) applied only to the
-Fluentd forward action. That action needed a queue because its network
-endpoint can stall. Commit f0cccb8a1 removed the action in 2023. The
-container log ruleset has no queue of its own, so it uses rsyslog's main
-message queue. That queue absorbs bursts between imudp and omfile. Lines
-are more likely to be lost in the kernel's UDP receive buffer, which comes
-before any rsyslog queue. A LinkedList queue on the action would not
-prevent that loss. Measuring loss requires impstats. Tuning belongs in a
-separate change from moving the config onto the host.
+container has used the same setting since 2016 (e358613d5).
+
+The LinkedList queues and watermarks in that container (#3310) applied
+only to the Fluentd forward action. That action needed a queue because its
+network endpoint can stall. Commit f0cccb8a1 removed the action in 2023.
+
+The container log ruleset has no queue of its own, so it uses rsyslog's
+main message queue. That queue absorbs bursts between imudp and omfile.
+
+Lines are more likely to be lost in the kernel's UDP receive buffer, which
+comes before any rsyslog queue. A LinkedList queue on the action would not
+prevent that loss.
+
+Measuring loss requires impstats. Tuning belongs in a separate change from
+moving the config onto the host.
 ```
 
 ## Commits and PRs
