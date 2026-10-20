@@ -208,16 +208,23 @@ anyone. Do not set a status on any other document.
 
 ### Voice and tone
 
-- First person throughout: "I am calling this ConfigDBv2", "My concern is..."
-- "We" for team context: "we currently interact with", "we should use"
-- Honest about downsides: "One drawback is there isn't any sort of PR
+Write in the technical-writer voice from "Prose written on Laura's behalf".
+An agent-written document is not Laura's, so it does not speak as her or
+as the team.
+
+- No first person: "This document calls the new system ConfigDBv2", not
+  "I am calling this ConfigDBv2"
+- Name the thing that acts: "the deploy pipeline currently calls", not "we
+  currently interact with"
+- Honest about downsides: "One drawback is that changes have no PR
   approval"
-- Blunt when something is bad: "it is unacceptable that our core
-  configuration system is not IaC"
-- Parenthetical asides are fine: "(which is highly likely)", "(the last
-  release was over 2 years ago)"
-- Pragmatic: "We could iterate on this later rather than increasing scope
-  now"
+- Blunt when something is bad, by stating the consequence: "The core
+  configuration system is not managed as code, so changes have no review
+  or history"
+- Parentheses for supporting facts, not opinion: "(the last release was
+  over 2 years ago)"
+- Pragmatic recommendations as plain statements: "Iterating on this later
+  keeps the scope of this change small"
 
 ### What to avoid
 
@@ -225,7 +232,7 @@ anyone. Do not set a status on any other document.
   "action items", "going forward"
 - Unnecessary hedging: "potentially", "it should be noted that", "it is worth
   considering that perhaps"
-- Passive voice where first person is more natural
+- Passive voice that hides the actor: name the system or change instead
 - Inflated language: "presents certain advantages" instead of "is better
   because"
 
@@ -241,6 +248,20 @@ anyone. Do not set a status on any other document.
 
 Good:
 ```
+Generic Alerts are the better option because they need no infrastructure
+or hardcoded configuration to maintain. They lose threshold tuning and
+alert context. Turning alerting on and off with no other action outweighs
+that loss.
+```
+
+```
+Each Secret Manager secret costs $0.40 pcm. 406 secrets cost $162.40
+pcm, and flat secrets would cost $240.00 pcm. The extra $77.60 pcm
+is negligible against the reduced logic for managing these secrets.
+```
+
+Bad, first person:
+```
 As an Infrastructure engineer, my preference is for Generic Alerts
 because not maintaining infrastructure and hardcoded configuration is
 always my preferred option. We lose the ability for threshold tuning
@@ -248,14 +269,7 @@ and alert context, but being able to dynamically flip alerting on and
 off with no other action outweighs this.
 ```
 
-```
-With each Secret Manager secret value costing $0.40, 406 secrets costs
-$162.40 pcm, and flat secrets would cost $240.00 pcm. For the reduced
-logic of having to manage these secrets, I would suggest this cost is
-negligible.
-```
-
-Bad:
+Bad, jargon:
 ```
 It is recommended that the team considers adopting a Generic Alerts
 approach, as this would potentially leverage dynamic configuration
